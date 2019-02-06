@@ -1,0 +1,89 @@
+[![NPM version][npm-image]][npm-url] [![Downloads][npm-downloads-image]][npm-url] [![Dependencies][deps-image]][deps-url] [![devDependencies][deps-dev-image]][deps-dev-url] [![peerDependencies][deps-peer-image]][deps-peer-url] [![star this repo][gh-stars-image]][gh-url] [![fork this repo][gh-forks-image]][gh-url] ![Code Style][codestyle-image]
+
+# eslint-config-sfcc
+
+> A collection of shareable ESLint configurations for Salesforce Commerce Cloud (SFCC)
+
+## Installation
+
+```sh
+$ yarn add @jenssimon/eslint-config-sfcc
+```
+
+## General
+
+All configurations are based on the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript#readme) and a set of additions ([@jenssimon/eslint-config-base](https://github.com/jenssimon/eslint-config-base#readme)).
+
+This package contains a recommended configuration and a configuration that matches the original ESLint configuration for the Storefront Reference Architecture (SFRA) with adjustments to validate with newer ESLint versions.
+
+## Configurations
+
+### Standard configuration
+
+This configuration is recommended for every custom cartridge. It is based on ([@jenssimon/eslint-config-base](https://github.com/jenssimon/eslint-config-base#readme)).
+
+```json
+{
+  "extends": [
+    "@jenssimon/sfcc"
+  ]
+}
+```
+
+#### Standard confiuration (controllers)
+
+This is a configuration suitable for the `controllers` folder of a cartridge. The main reason is to add the rule of [eslint-plugin-sitegenesis](https://www.npmjs.com/package/eslint-plugin-sitegenesis).
+
+```json
+{
+  "extends": [
+    "@jenssimon/sfcc/controllers"
+  ]
+}
+```
+
+### Configuration for SFRA
+
+This configuration matches the original ESLint configuration for the Storefront Reference Architecture (SFRA) with adjustments to validate with newer ESLint versions.
+It's only thought to be used with `app_storefront_base`.
+
+```json
+{
+  "extends": [
+    "@jenssimon/sfcc/sfra"
+  ]
+}
+```
+
+There is also a configuration for client side JS that extends the configuration mentioned above.
+
+```json
+{
+  "extends": [
+    "@jenssimon/sfcc/sfra-storefront"
+  ]
+}
+```
+
+## License
+
+MIT © 2019 [Jens Simon](https://github.com/jenssimon)
+
+[npm-url]: https://www.npmjs.com/package/@jenssimon/eslint-config-sfcc
+[npm-image]: https://badgen.net/npm/v/@jenssimon/eslint-config-sfcc
+[npm-downloads-image]: https://badgen.net/npm/dt/@jenssimon/eslint-config-sfcc
+
+[deps-url]: https://david-dm.org/jenssimon/eslint-config-sfcc
+[deps-image]: https://badgen.net/david/dep/jenssimon/eslint-config-sfcc
+
+[deps-dev-url]: https://david-dm.org/jenssimon/eslint-config-sfcc?type=dev
+[deps-dev-image]: https://badgen.net/david/dev/jenssimon/eslint-config-sfcc
+
+[deps-peer-url]: https://david-dm.org/jenssimon/eslint-config-sfcc?type=peer
+[deps-peer-image]: https://badgen.net/david/peer/jenssimon/eslint-config-sfcc
+
+[gh-url]: https://github.com/jenssimon/eslint-config-sfcc
+[gh-stars-image]: https://badgen.net/github/stars/jenssimon/eslint-config-sfcc
+[gh-forks-image]: https://badgen.net/github/forks/jenssimon/eslint-config-sfcc
+
+[codestyle-image]: https://badgen.net/badge/code%20style/airbnb/f2a

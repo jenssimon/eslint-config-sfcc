@@ -1,0 +1,40 @@
+{
+  "name": "@jenssimon/eslint-config-sfcc",
+  "version": "1.0.0",
+  "description": "A collection of shareable ESLint configurations for Salesforce Commerce Cloud (SFCC)",
+  "main": "index.js",
+  "author": "Jens Simon <https://github.com/jenssimon>",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "sfcc",
+    "demandware",
+    "salesforce",
+    "commercecloud",
+    "sfra"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jenssimon/eslint-config-sfcc"
+  },
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint --fix ./"
+  },
+  "peerDependencies": {
+    "@jenssimon/eslint-config-base": "^1.0.1",
+    "babel-eslint": ">=10.0.1",
+    "eslint": ">=5.13.0",
+    "eslint-config-airbnb-base": ">=13.1.0",
+    "eslint-plugin-sitegenesis": "^1.0.0"
+  },
+  "devDependencies": {
+    "@jenssimon/eslint-config-base": "^1.0.1",
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-eslint-comments": "^3.0.1",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-promise": "^4.0.1"
+  },
+  "private": false
+}
