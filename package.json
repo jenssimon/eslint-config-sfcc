@@ -22,14 +22,14 @@
     "lint": "eslint --fix ./"
   },
   "peerDependencies": {
-    "@jenssimon/eslint-config-base": "^1.0.1",
+    "@jenssimon/eslint-config-base": "^1.0.3",
     "babel-eslint": ">=10.0.1",
     "eslint": ">=5.13.0",
     "eslint-config-airbnb-base": ">=13.1.0",
     "eslint-plugin-sitegenesis": "^1.0.0"
   },
   "devDependencies": {
-    "@jenssimon/eslint-config-base": "^1.0.1",
+    "@jenssimon/eslint-config-base": "^1.0.3",
     "eslint": "^5.13.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-eslint-comments": "^3.0.1",

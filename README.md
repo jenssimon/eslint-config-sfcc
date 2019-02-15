@@ -1,4 +1,4 @@
-[![NPM version][npm-image]][npm-url] [![Downloads][npm-downloads-image]][npm-url] [![Dependencies][deps-image]][deps-url] [![devDependencies][deps-dev-image]][deps-dev-url] [![peerDependencies][deps-peer-image]][deps-peer-url] [![star this repo][gh-stars-image]][gh-url] [![fork this repo][gh-forks-image]][gh-url] ![Code Style][codestyle-image]
+[![NPM version][npm-image]][npm-url] [![Downloads][npm-downloads-image]][npm-url] [![Dependencies][deps-image]][deps-url] [![star this repo][gh-stars-image]][gh-url] [![fork this repo][gh-forks-image]][gh-url] ![Code Style][codestyle-image]
 
 # eslint-config-sfcc
 
@@ -75,12 +75,6 @@ MIT © 2019 [Jens Simon](https://github.com/jenssimon)
 
 [deps-url]: https://david-dm.org/jenssimon/eslint-config-sfcc
 [deps-image]: https://badgen.net/david/dep/jenssimon/eslint-config-sfcc
-
-[deps-dev-url]: https://david-dm.org/jenssimon/eslint-config-sfcc?type=dev
-[deps-dev-image]: https://badgen.net/david/dev/jenssimon/eslint-config-sfcc
-
-[deps-peer-url]: https://david-dm.org/jenssimon/eslint-config-sfcc?type=peer
-[deps-peer-image]: https://badgen.net/david/peer/jenssimon/eslint-config-sfcc
 
 [gh-url]: https://github.com/jenssimon/eslint-config-sfcc
 [gh-stars-image]: https://badgen.net/github/stars/jenssimon/eslint-config-sfcc
