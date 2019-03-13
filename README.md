@@ -7,7 +7,7 @@
 ## Installation
 
 ```sh
-$ yarn add @jenssimon/eslint-config-sfcc
+$ yarn add @jenssimon/eslint-config-sfcc --dev
 ```
 
 ## General
@@ -26,18 +26,6 @@ This configuration is recommended for every custom cartridge. It is based on ([@
 {
   "extends": [
     "@jenssimon/sfcc"
-  ]
-}
-```
-
-#### Standard confiuration (controllers)
-
-This is a configuration suitable for the `controllers` folder of a cartridge. The main reason is to add the rule of [eslint-plugin-sitegenesis](https://www.npmjs.com/package/eslint-plugin-sitegenesis).
-
-```json
-{
-  "extends": [
-    "@jenssimon/sfcc/controllers"
   ]
 }
 ```

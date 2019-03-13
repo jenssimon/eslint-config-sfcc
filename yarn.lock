@@ -472,6 +472,11 @@ eslint-plugin-react@^7.12.4:
     prop-types "^15.6.2"
     resolve "^1.9.0"
 
+eslint-plugin-sitegenesis@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-sitegenesis/-/eslint-plugin-sitegenesis-1.0.0.tgz#e9c8742ca6b6d99aaf5261f18fe742d65a68b0bb"
+  integrity sha1-6ch0LKa22ZqvUmHxj+dC1lposLs=
+
 eslint-plugin-you-dont-need-lodash-underscore@^6.4.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-you-dont-need-lodash-underscore/-/eslint-plugin-you-dont-need-lodash-underscore-6.4.0.tgz#a7daaaadbc81e944995b70f54af37c1c11d1b1d1"
