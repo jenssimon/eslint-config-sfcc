@@ -1,6 +1,6 @@
 {
   "name": "@jenssimon/eslint-config-sfcc",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A collection of shareable ESLint configurations for Salesforce Commerce Cloud (SFCC)",
   "main": "index.js",
   "author": "Jens Simon <https://github.com/jenssimon>",
