@@ -474,6 +474,11 @@ eslint-plugin-dollar-sign@^1.0.2:
   resolved "https://registry.yarnpkg.com/eslint-plugin-dollar-sign/-/eslint-plugin-dollar-sign-1.0.2.tgz#7a8c1c66d55aadc17e771ca05500e12ea376e2e1"
   integrity sha512-AtA5MJpMAh0kKzSx/u7DuDbPRijIZmlt6n75CR8Q3UQ18Fo4QFfYK15lJ8OhXQQUYR7zTMMB2x37KyP3LnAC/g==
 
+eslint-plugin-es5@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-es5/-/eslint-plugin-es5-1.4.1.tgz#258fe89bc5f72fbd9f5f7936c840151766821f1e"
+  integrity sha512-kktkmkF2O7pnSZYgrMiYMbt3wCKRIiXePwILv8USDG95YgP0PzhIxSIROLLKmiQQ/Z6LuhDGWTHK04gnbXBvkg==
+
 eslint-plugin-eslint-comments@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/eslint-plugin-eslint-comments/-/eslint-plugin-eslint-comments-3.1.2.tgz#4ef6c488dbe06aa1627fea107b3e5d059fc8a395"
