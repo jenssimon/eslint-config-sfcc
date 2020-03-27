@@ -55,11 +55,11 @@ There is also a configuration for client side JS that extends the configuration 
 
 ## License
 
-MIT © 2019 [Jens Simon](https://github.com/jenssimon)
+MIT © 2020 [Jens Simon](https://github.com/jenssimon)
 
 [npm-url]: https://www.npmjs.com/package/@jenssimon/eslint-config-sfcc
 [npm-image]: https://badgen.net/npm/v/@jenssimon/eslint-config-sfcc
-[npm-downloads-image]: https://badgen.net/npm/dt/@jenssimon/eslint-config-sfcc
+[npm-downloads-image]: https://badgen.net/npm/dw/@jenssimon/eslint-config-sfcc
 
 [deps-url]: https://david-dm.org/jenssimon/eslint-config-sfcc
 [deps-image]: https://badgen.net/david/dep/jenssimon/eslint-config-sfcc
