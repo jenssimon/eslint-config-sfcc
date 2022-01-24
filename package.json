@@ -30,8 +30,8 @@
     "eslint": ">=7.0.0"
   },
   "devDependencies": {
-    "@jenssimon/eslint-config-base": "^5.0.0",
-    "eslint": "^8.2.0"
+    "@jenssimon/eslint-config-base": "^5.2.0",
+    "eslint": "^8.7.0"
   },
   "private": false
 }
