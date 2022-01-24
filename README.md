@@ -55,7 +55,7 @@ There is also a configuration for client side JS that extends the configuration 
 
 ## License
 
-MIT © 2021 [Jens Simon](https://github.com/jenssimon)
+MIT © 2022 [Jens Simon](https://github.com/jenssimon)
 
 [npm-url]: https://www.npmjs.com/package/@jenssimon/eslint-config-sfcc
 [npm-image]: https://badgen.net/npm/v/@jenssimon/eslint-config-sfcc
