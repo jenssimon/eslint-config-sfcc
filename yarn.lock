@@ -359,7 +359,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jenssimon/eslint-config-base@npm:^5.3.0":
+"@jenssimon/eslint-config-base@npm:5.3.0":
   version: 5.3.0
   resolution: "@jenssimon/eslint-config-base@npm:5.3.0"
   dependencies:
@@ -389,8 +389,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@jenssimon/eslint-config-sfcc@workspace:."
   dependencies:
-    "@jenssimon/eslint-config-base": ^5.3.0
-    eslint: ^8.9.0
+    "@jenssimon/eslint-config-base": 5.3.0
+    eslint: 8.9.0
     eslint-plugin-es5: ^1.5.0
     eslint-plugin-sitegenesis: ^1.0.0
   peerDependencies:
@@ -1260,7 +1260,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.9.0":
+"eslint@npm:8.9.0":
   version: 8.9.0
   resolution: "eslint@npm:8.9.0"
   dependencies:
