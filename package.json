@@ -30,7 +30,7 @@
     "eslint": ">=7.0.0"
   },
   "devDependencies": {
-    "@jenssimon/eslint-config-base": "5.3.0",
+    "@jenssimon/eslint-config-base": "5.3.1",
     "eslint": "8.10.0"
   },
   "packageManager": "yarn@3.2.0"
