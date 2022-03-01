@@ -1,8 +1,0 @@
-sudo: false
-language: node_js
-node_js:
-  - "16"
-cache:
-  - yarn: true
-script:
-  - yarn lint
