@@ -1,4 +1,4 @@
-[![NPM version][npm-image]][npm-url] [![Downloads][npm-downloads-image]][npm-url] [![star this repo][gh-stars-image]][gh-url] [![fork this repo][gh-forks-image]][gh-url] [![Build Status][travis-image]][travis-url] ![Code Style][codestyle-image]
+[![NPM version][npm-image]][npm-url] [![Downloads][npm-downloads-image]][npm-url] [![star this repo][gh-stars-image]][gh-url] [![fork this repo][gh-forks-image]][gh-url] [![Build Status][gh-status-image]][gh-url]
 
 # eslint-config-sfcc
 
@@ -64,8 +64,4 @@ MIT © 2022 [Jens Simon](https://github.com/jenssimon)
 [gh-url]: https://github.com/jenssimon/eslint-config-sfcc
 [gh-stars-image]: https://badgen.net/github/stars/jenssimon/eslint-config-sfcc
 [gh-forks-image]: https://badgen.net/github/forks/jenssimon/eslint-config-sfcc
-
-[travis-url]: https://travis-ci.com/jenssimon/eslint-config-sfcc
-[travis-image]: https://travis-ci.com/jenssimon/eslint-config-sfcc.svg?branch=master
-
-[codestyle-image]: https://badgen.net/badge/code%20style/airbnb/f2a
+[gh-status-image]: https://badgen.net/github/status/jenssimon/eslint-config-sfcc
