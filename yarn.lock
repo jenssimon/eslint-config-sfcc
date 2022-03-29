@@ -30,7 +30,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.17.5":
+"@babel/core@npm:^7.17.8":
   version: 7.17.8
   resolution: "@babel/core@npm:7.17.8"
   dependencies:
@@ -311,11 +311,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jenssimon/eslint-config-base@npm:5.3.1":
-  version: 5.3.1
-  resolution: "@jenssimon/eslint-config-base@npm:5.3.1"
+"@jenssimon/eslint-config-base@npm:5.3.2":
+  version: 5.3.2
+  resolution: "@jenssimon/eslint-config-base@npm:5.3.2"
   dependencies:
-    "@babel/core": ^7.17.5
+    "@babel/core": ^7.17.8
     "@babel/eslint-parser": ^7.17.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-airbnb-base: ^15.0.0
@@ -323,17 +323,17 @@ __metadata:
     eslint-plugin-babel: ^5.3.1
     eslint-plugin-eslint-comments: ^3.2.0
     eslint-plugin-import: ^2.25.4
-    eslint-plugin-jest: ^26.1.1
+    eslint-plugin-jest: ^26.1.3
     eslint-plugin-jsx-a11y: ^6.5.1
     eslint-plugin-optimize-regex: ^1.2.1
     eslint-plugin-promise: ^6.0.0
-    eslint-plugin-react: ^7.29.2
+    eslint-plugin-react: ^7.29.4
     eslint-plugin-react-hooks: ^4.3.0
     eslint-plugin-react-redux: ^4.0.0
-    eslint-plugin-sonarjs: ^0.12.0
+    eslint-plugin-sonarjs: ^0.13.0
   peerDependencies:
     eslint: ^7.32.0 || ^8.2.0
-  checksum: 96f9375c551e5d663ceee88ef28da37261f9ae18663cb58c716f156ae8ac70a25283ffdf88dda28ee8826f87aeda0eee6699b5efc2394401c7a82f74a6efba2d
+  checksum: cf7690cdc59a96c9711eb25f08f6622e16064d2f134e93a186ac9b78b7a9834401358ceed03745942a188001bbcf85267af31f6e2b183ee3d90989d290be21d2
   languageName: node
   linkType: hard
 
@@ -341,7 +341,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@jenssimon/eslint-config-sfcc@workspace:."
   dependencies:
-    "@jenssimon/eslint-config-base": 5.3.1
+    "@jenssimon/eslint-config-base": 5.3.2
     eslint: 8.12.0
     eslint-plugin-es5: ^1.5.0
     eslint-plugin-sitegenesis: ^1.0.0
@@ -1055,7 +1055,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:^26.1.1":
+"eslint-plugin-jest@npm:^26.1.3":
   version: 26.1.3
   resolution: "eslint-plugin-jest@npm:26.1.3"
   dependencies:
@@ -1134,7 +1134,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react@npm:^7.28.0, eslint-plugin-react@npm:^7.29.2":
+"eslint-plugin-react@npm:^7.28.0, eslint-plugin-react@npm:^7.29.4":
   version: 7.29.4
   resolution: "eslint-plugin-react@npm:7.29.4"
   dependencies:
@@ -1167,12 +1167,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-sonarjs@npm:^0.12.0":
-  version: 0.12.0
-  resolution: "eslint-plugin-sonarjs@npm:0.12.0"
+"eslint-plugin-sonarjs@npm:^0.13.0":
+  version: 0.13.0
+  resolution: "eslint-plugin-sonarjs@npm:0.13.0"
   peerDependencies:
-    eslint: ^5.0.0 || ^6.0.0 || ^7.0.0|| ^8.0.0
-  checksum: 96be3002ce2344a07081c33649d9bb927189153c2e68ecb13069b0adfa4ff2e2cecec6f25ee3d5e29600d8d8aac6e14e54f1990b0847234975f311d48521c828
+    eslint: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
+  checksum: f1cbb33b010c663150c3866e5fdbad2398658e279405d863f48da98edb0438b0ea68732e263f5c939d3d6f2d9a785f80c10234c1b229873b6ee44c24fd6e0cd1
   languageName: node
   linkType: hard
 
