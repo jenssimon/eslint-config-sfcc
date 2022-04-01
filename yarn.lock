@@ -311,9 +311,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jenssimon/eslint-config-base@npm:5.3.2":
-  version: 5.3.2
-  resolution: "@jenssimon/eslint-config-base@npm:5.3.2"
+"@jenssimon/eslint-config-base@npm:5.4.0":
+  version: 5.4.0
+  resolution: "@jenssimon/eslint-config-base@npm:5.4.0"
   dependencies:
     "@babel/core": ^7.17.8
     "@babel/eslint-parser": ^7.17.0
@@ -328,12 +328,12 @@ __metadata:
     eslint-plugin-optimize-regex: ^1.2.1
     eslint-plugin-promise: ^6.0.0
     eslint-plugin-react: ^7.29.4
-    eslint-plugin-react-hooks: ^4.3.0
+    eslint-plugin-react-hooks: ^4.4.0
     eslint-plugin-react-redux: ^4.0.0
     eslint-plugin-sonarjs: ^0.13.0
   peerDependencies:
     eslint: ^7.32.0 || ^8.2.0
-  checksum: cf7690cdc59a96c9711eb25f08f6622e16064d2f134e93a186ac9b78b7a9834401358ceed03745942a188001bbcf85267af31f6e2b183ee3d90989d290be21d2
+  checksum: d7e633f358997256158e3fbb404e5b4654577ac0080fba249894a56664391534b5abe70589e344e6341563d52737de754829dc0e89845a211cd30b20bd025571
   languageName: node
   linkType: hard
 
@@ -341,7 +341,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@jenssimon/eslint-config-sfcc@workspace:."
   dependencies:
-    "@jenssimon/eslint-config-base": 5.3.2
+    "@jenssimon/eslint-config-base": 5.4.0
     eslint: 8.12.0
     eslint-plugin-es5: ^1.5.0
     eslint-plugin-sitegenesis: ^1.0.0
@@ -1112,12 +1112,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-hooks@npm:^4.3.0":
-  version: 4.3.0
-  resolution: "eslint-plugin-react-hooks@npm:4.3.0"
+"eslint-plugin-react-hooks@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "eslint-plugin-react-hooks@npm:4.4.0"
   peerDependencies:
     eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0
-  checksum: 0ba1566ba0780bbc75a5921f49188edf232db2085ab32c8d3889592f0db9d6fadc97fcf639775e0101dec6b5409ca3c803ec44213b90c8bacaf0bdf921871c2e
+  checksum: 350b50d45677cb2df682b9e54475912746bd2f56fc342e4d47fad78d71eb1b2b742e702f1e6c04ab2196346d3d7a2e327b5eee826f5b96bfb84b5c41d35e44e9
   languageName: node
   linkType: hard
 
