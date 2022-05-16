@@ -31,4 +31,4 @@ jobs:
     - name: Test
       run: |
         yarn
-        yarn ci
+        yarn ci-test

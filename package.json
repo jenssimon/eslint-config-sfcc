@@ -20,8 +20,8 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint --fix ./",
-    "ci": "run-s \"ci:*\"",
-    "ci:lint": "eslint ./"
+    "ci-test": "run-s \"ci-test:*\"",
+    "ci-test:lint": "eslint ./"
   },
   "dependencies": {
     "eslint-plugin-es5": "^1.5.0",
