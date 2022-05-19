@@ -1,6 +1,6 @@
 {
   "name": "@jenssimon/eslint-config-sfcc",
-  "version": "4.1.0",
+  "version": "0.0.0-development",
   "description": "A collection of shareable ESLint configurations for Salesforce Commerce Cloud (SFCC)",
   "main": "index.js",
   "author": "Jens Simon <https://github.com/jenssimon>",
@@ -25,7 +25,8 @@
     "commit": "cz",
     "postinstall": "husky install",
     "prepack": "pinst --disable",
-    "postpack": "pinst --enable"
+    "postpack": "pinst --enable",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "eslint-plugin-es5": "^1.5.0",
@@ -44,7 +45,8 @@
     "eslint": "8.15.0",
     "husky": "8.0.1",
     "npm-run-all": "4.1.5",
-    "pinst": "3.0.0"
+    "pinst": "3.0.0",
+    "semantic-release": "19.0.2"
   },
   "packageManager": "yarn@3.2.1",
   "config": {
