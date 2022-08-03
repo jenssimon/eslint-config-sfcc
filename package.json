@@ -53,5 +53,13 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "eslintConfig": {
+    "extends": [
+      "@jenssimon/base"
+    ],
+    "rules": {
+      "unicorn/prefer-module": "off"
+    }
   }
 }
