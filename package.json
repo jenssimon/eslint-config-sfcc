@@ -18,6 +18,11 @@
     "url": "https://github.com/jenssimon/eslint-config-sfcc"
   },
   "license": "MIT",
+  "files": [
+    "/index.js",
+    "/sfra.js",
+    "/sfra-storefront.js"
+  ],
   "scripts": {
     "lint": "eslint --fix ./",
     "ci-test": "run-s \"ci-test:*\"",
@@ -39,7 +44,7 @@
   "devDependencies": {
     "@commitlint/cli": "17.1.1",
     "@commitlint/config-conventional": "17.1.0",
-    "@jenssimon/eslint-config-base": "6.1.0",
+    "@jenssimon/eslint-config-base": "6.2.0",
     "commitizen": "4.2.5",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.23.0",

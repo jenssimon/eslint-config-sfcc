@@ -719,9 +719,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jenssimon/eslint-config-base@npm:6.1.0":
-  version: 6.1.0
-  resolution: "@jenssimon/eslint-config-base@npm:6.1.0"
+"@jenssimon/eslint-config-base@npm:6.2.0":
+  version: 6.2.0
+  resolution: "@jenssimon/eslint-config-base@npm:6.2.0"
   dependencies:
     "@babel/core": ^7.18.13
     "@babel/eslint-parser": ^7.18.9
@@ -731,18 +731,18 @@ __metadata:
     eslint-plugin-babel: ^5.3.1
     eslint-plugin-eslint-comments: ^3.2.0
     eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^26.8.7
+    eslint-plugin-jest: ^27.0.1
     eslint-plugin-jsx-a11y: ^6.6.1
     eslint-plugin-optimize-regex: ^1.2.1
     eslint-plugin-promise: ^6.0.1
-    eslint-plugin-react: ^7.31.0
+    eslint-plugin-react: ^7.31.1
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-redux: ^4.0.0
     eslint-plugin-sonarjs: ^0.15.0
     eslint-plugin-unicorn: ^43.0.2
   peerDependencies:
     eslint: ^7.32.0 || ^8.2.0
-  checksum: 213071280a95653f2c1f66ca29bc2d9477a724c742bb50e5aae56ced56d80c16eb490ced002a1688c341f037d62cb0e69cece9b5e4d6d60c0e9be9a4e2ca9893
+  checksum: 4b904420d439ded2738f3b12df274b900cc52ddd01003a8042ff9a3117ddba7acc660cf7fa7a508f0ffbde99bf380ad15ca704fb0c248b71dd2b177b51b567d6
   languageName: node
   linkType: hard
 
@@ -752,7 +752,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": 17.1.1
     "@commitlint/config-conventional": 17.1.0
-    "@jenssimon/eslint-config-base": 6.1.0
+    "@jenssimon/eslint-config-base": 6.2.0
     commitizen: 4.2.5
     cz-conventional-changelog: 3.3.0
     eslint: 8.23.0
@@ -3040,20 +3040,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:^26.8.7":
-  version: 26.8.7
-  resolution: "eslint-plugin-jest@npm:26.8.7"
+"eslint-plugin-jest@npm:^27.0.1":
+  version: 27.0.1
+  resolution: "eslint-plugin-jest@npm:27.0.1"
   dependencies:
     "@typescript-eslint/utils": ^5.10.0
   peerDependencies:
     "@typescript-eslint/eslint-plugin": ^5.0.0
-    eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+    eslint: ^7.0.0 || ^8.0.0
   peerDependenciesMeta:
     "@typescript-eslint/eslint-plugin":
       optional: true
     jest:
       optional: true
-  checksum: 4e5e0c781ef48ae7d757123bce3ed28c384f02f3d4cf88d616932c075b625c10f298e905bee988876f62f6688e8e11d0b8ce235fd4b3f6c7006a8725375eac58
+  checksum: 269d4dc46bb925eb4c19106fd9e03775a863f53e05716628cc47777abc15887775ee47d73c4f8bdd98bb26b7462d8d8f654610bb2a367f8c97881204a2c3f42e
   languageName: node
   linkType: hard
 
@@ -3144,7 +3144,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react@npm:^7.31.0":
+"eslint-plugin-react@npm:^7.31.1":
   version: 7.31.1
   resolution: "eslint-plugin-react@npm:7.31.1"
   dependencies:
