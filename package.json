@@ -21,7 +21,8 @@
   "files": [
     "/index.js",
     "/sfra.js",
-    "/sfra-storefront.js"
+    "/sfra-storefront.js",
+    "/lib/"
   ],
   "scripts": {
     "lint": "eslint --fix ./",
