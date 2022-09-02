@@ -727,9 +727,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jenssimon/eslint-config-base@npm:6.3.0":
-  version: 6.3.0
-  resolution: "@jenssimon/eslint-config-base@npm:6.3.0"
+"@jenssimon/eslint-config-base@npm:6.3.1":
+  version: 6.3.1
+  resolution: "@jenssimon/eslint-config-base@npm:6.3.1"
   dependencies:
     "@babel/core": ^7.18.13
     "@babel/eslint-parser": ^7.18.9
@@ -750,7 +750,7 @@ __metadata:
     eslint-plugin-unicorn: ^43.0.2
   peerDependencies:
     eslint: ^7.32.0 || ^8.2.0
-  checksum: 935444da6d3cdb5c2694e8d026f93bf3e9976b6b4993ac06c32dcb5d3eb460a7f63cd105b40c5c6b2c46e091de70489128c264436f62271b9f1276428d1bdee3
+  checksum: 7c907bd2a0853918dd186cb9b82bfce90f547c02663beb77dbad29b82e410eef9c1b126983ebdd072236468b8de9c8541b795191d0a5ece9f62f33d1b4851941
   languageName: node
   linkType: hard
 
@@ -760,7 +760,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": 17.1.2
     "@commitlint/config-conventional": 17.1.0
-    "@jenssimon/eslint-config-base": 6.3.0
+    "@jenssimon/eslint-config-base": 6.3.1
     commitizen: 4.2.5
     cz-conventional-changelog: 3.3.0
     eslint: 8.23.0
