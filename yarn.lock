@@ -580,8 +580,8 @@ __metadata:
     commitizen: 4.2.5
     cz-conventional-changelog: 3.3.0
     eslint: 8.24.0
-    eslint-plugin-es5: ^1.5.0
-    eslint-plugin-sitegenesis: ^1.0.0
+    eslint-plugin-es5: 1.5.0
+    eslint-plugin-sitegenesis: 1.0.0
     husky: 8.0.1
     lint-staged: 13.0.3
     npm-run-all: 4.1.5
@@ -2725,7 +2725,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-es5@npm:^1.5.0":
+"eslint-plugin-es5@npm:1.5.0":
   version: 1.5.0
   resolution: "eslint-plugin-es5@npm:1.5.0"
   peerDependencies:
@@ -2873,7 +2873,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-sitegenesis@npm:^1.0.0":
+"eslint-plugin-sitegenesis@npm:1.0.0":
   version: 1.0.0
   resolution: "eslint-plugin-sitegenesis@npm:1.0.0"
   peerDependencies:
