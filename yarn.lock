@@ -543,9 +543,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jenssimon/eslint-config-base@npm:6.3.7":
-  version: 6.3.7
-  resolution: "@jenssimon/eslint-config-base@npm:6.3.7"
+"@jenssimon/eslint-config-base@npm:6.3.8":
+  version: 6.3.8
+  resolution: "@jenssimon/eslint-config-base@npm:6.3.8"
   dependencies:
     "@babel/core": ^7.19.1
     "@babel/eslint-parser": ^7.19.1
@@ -563,10 +563,10 @@ __metadata:
     eslint-plugin-react-hooks: 4.6.0
     eslint-plugin-react-redux: 4.0.0
     eslint-plugin-sonarjs: 0.15.0
-    eslint-plugin-unicorn: 44.0.1
+    eslint-plugin-unicorn: 44.0.2
   peerDependencies:
     eslint: ^7.32.0 || ^8.2.0
-  checksum: 0a08b99ab913b0a4e4334fe9b32e3e2b8003169b297c2db9b62ebb6981a56ad04a35863d0a0d286044b9da2b983f5e38477a5180dd4cbadfaeb58013d952c2b4
+  checksum: fbbf18f9360bcc56406a1166ffa30941f3f93a5c5f1b2fc106401f2a2c7154259ebbbdb778ded634c2eaa16e997658723a33672f10b272c437d07d3e8497c291
   languageName: node
   linkType: hard
 
@@ -576,7 +576,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": 17.1.2
     "@commitlint/config-conventional": 17.1.0
-    "@jenssimon/eslint-config-base": 6.3.7
+    "@jenssimon/eslint-config-base": 6.3.8
     commitizen: 4.2.5
     cz-conventional-changelog: 3.3.0
     eslint: 8.24.0
@@ -2891,9 +2891,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-unicorn@npm:44.0.1":
-  version: 44.0.1
-  resolution: "eslint-plugin-unicorn@npm:44.0.1"
+"eslint-plugin-unicorn@npm:44.0.2":
+  version: 44.0.2
+  resolution: "eslint-plugin-unicorn@npm:44.0.2"
   dependencies:
     "@babel/helper-validator-identifier": ^7.19.1
     ci-info: ^3.4.0
@@ -2911,7 +2911,7 @@ __metadata:
     strip-indent: ^3.0.0
   peerDependencies:
     eslint: ">=8.23.1"
-  checksum: 5a237aa257195984e4d9dff89e5966ce86c2012694b725bff305b40949b02fc3777984ca9a9f707c561b8c1d32406eab94cd377903f969c804903bb455cf931c
+  checksum: b0ed6b3a60e36efab5b19a0e2a1ea4e4faba79ef315aa1eff9bdebaf28b70ada059837a0a4cdf20e0b678d8eee6155afc2c6300d0ff7d51b68eced4f0bcb56e0
   languageName: node
   linkType: hard
 
