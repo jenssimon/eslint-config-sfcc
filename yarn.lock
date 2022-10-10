@@ -536,9 +536,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jenssimon/eslint-config-base@npm:6.3.9":
-  version: 6.3.9
-  resolution: "@jenssimon/eslint-config-base@npm:6.3.9"
+"@jenssimon/eslint-config-base@npm:6.3.10":
+  version: 6.3.10
+  resolution: "@jenssimon/eslint-config-base@npm:6.3.10"
   dependencies:
     "@babel/core": ^7.19.1
     "@babel/eslint-parser": ^7.19.1
@@ -555,11 +555,11 @@ __metadata:
     eslint-plugin-react: 7.31.9
     eslint-plugin-react-hooks: 4.6.0
     eslint-plugin-react-redux: 4.0.0
-    eslint-plugin-sonarjs: 0.15.0
+    eslint-plugin-sonarjs: 0.16.0
     eslint-plugin-unicorn: 44.0.2
   peerDependencies:
     eslint: ^7.32.0 || ^8.2.0
-  checksum: 7f87d68830c0ac082fe728aa0be6dfa111b4e351b35d443bc8319e7c21e5ae5ef04e64b02eb758d79c5dfaf1ede72fb47774e64a6ca34adeb4be43ca6a5e820c
+  checksum: 1ef47639dd53e5fbafa2b1d55ad2b916d484b0f8cf0695a527e8d8d7d4d4a12b95a659945beb68568ef798eb5159f997dca5ece8efef6aecd8bbe343e76189c3
   languageName: node
   linkType: hard
 
@@ -569,7 +569,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": 17.1.2
     "@commitlint/config-conventional": 17.1.0
-    "@jenssimon/eslint-config-base": 6.3.9
+    "@jenssimon/eslint-config-base": 6.3.10
     commitizen: 4.2.5
     cz-conventional-changelog: 3.3.0
     eslint: 8.25.0
@@ -2899,12 +2899,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-sonarjs@npm:0.15.0":
-  version: 0.15.0
-  resolution: "eslint-plugin-sonarjs@npm:0.15.0"
+"eslint-plugin-sonarjs@npm:0.16.0":
+  version: 0.16.0
+  resolution: "eslint-plugin-sonarjs@npm:0.16.0"
   peerDependencies:
     eslint: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 0718232626057e9a30c58350ef79af3bbc5ea7c3a880d1609965b0c1cbe347e4834ddf831962f755464f7a6350cb715c1c76e2670dc7bdf1a48c37bf0fe269c8
+  checksum: 8421059eb208da147fc5652aa8bbe2aeedd8b57e7f6810a27b6e33c3042a7066870d7647e125d3f9e6a28db4809976c1c260d98a13fcda2360f8b0ae7a416908
   languageName: node
   linkType: hard
 
