@@ -536,9 +536,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jenssimon/eslint-config-base@npm:6.3.11":
-  version: 6.3.11
-  resolution: "@jenssimon/eslint-config-base@npm:6.3.11"
+"@jenssimon/eslint-config-base@npm:6.4.0":
+  version: 6.4.0
+  resolution: "@jenssimon/eslint-config-base@npm:6.4.0"
   dependencies:
     "@babel/core": ^7.19.1
     "@babel/eslint-parser": ^7.19.1
@@ -548,10 +548,10 @@ __metadata:
     eslint-plugin-babel: 5.3.1
     eslint-plugin-eslint-comments: 3.2.0
     eslint-plugin-import: 2.26.0
-    eslint-plugin-jest: 27.1.1
+    eslint-plugin-jest: 27.1.2
     eslint-plugin-jsx-a11y: 6.6.1
     eslint-plugin-optimize-regex: 1.2.1
-    eslint-plugin-promise: 6.0.1
+    eslint-plugin-promise: 6.1.0
     eslint-plugin-react: 7.31.10
     eslint-plugin-react-hooks: 4.6.0
     eslint-plugin-react-redux: 4.0.0
@@ -559,7 +559,7 @@ __metadata:
     eslint-plugin-unicorn: 44.0.2
   peerDependencies:
     eslint: ^7.32.0 || ^8.2.0
-  checksum: e391704bfe4036a9ea43948429b1990467efa0e27951406bdbb58f532aa94b66262aa9b00bb658f42bd6b1a224d55550df84e0124b7bc676500eb2450e74b13a
+  checksum: 8d811daec7a1d229b003ed59aec2131e91d8503982cf635921fd9a56c5de7b46d00b61a70d6e69acd8f78279336e442043843764fa9a32a5d122baf895d687e7
   languageName: node
   linkType: hard
 
@@ -569,7 +569,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": 17.1.2
     "@commitlint/config-conventional": 17.1.0
-    "@jenssimon/eslint-config-base": 6.3.11
+    "@jenssimon/eslint-config-base": 6.4.0
     commitizen: 4.2.5
     cz-conventional-changelog: 3.3.0
     eslint: 8.25.0
@@ -2762,9 +2762,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:27.1.1":
-  version: 27.1.1
-  resolution: "eslint-plugin-jest@npm:27.1.1"
+"eslint-plugin-jest@npm:27.1.2":
+  version: 27.1.2
+  resolution: "eslint-plugin-jest@npm:27.1.2"
   dependencies:
     "@typescript-eslint/utils": ^5.10.0
   peerDependencies:
@@ -2775,7 +2775,7 @@ __metadata:
       optional: true
     jest:
       optional: true
-  checksum: 215a60d0c9ca641f3c1c7c5e4ff78093ad80c5f0ee22f44c50b9c8625ec0624ec4f47bf281684157f6231a4c480a4ca40bafad4ac6438a2105bb8527920e341f
+  checksum: b09833a38e13fd83d52da789fa11c8df5533b4bb896ed633f8f2422e4eefb8d7566dbc75ef1b894e16925135541a2dcb34fec4927cb89900ae7c55dce48a1e85
   languageName: node
   linkType: hard
 
@@ -2811,12 +2811,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-promise@npm:6.0.1":
-  version: 6.0.1
-  resolution: "eslint-plugin-promise@npm:6.0.1"
+"eslint-plugin-promise@npm:6.1.0":
+  version: 6.1.0
+  resolution: "eslint-plugin-promise@npm:6.1.0"
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0
-  checksum: c1bb3c2e591787e97133dcaf764f908420a3a1959a3132e199db8f14d70dfa79fc9caf991ca60a4b60ae5f1f9823bc96c2e52304828a4278ef2f3964fe121de9
+  checksum: 01c55f6c4ddbb3c1ac6ccd1e834365bf12d3aaf91b562ee9027b1ae3943eb86673d44a68ea3a303a93b9ce43dd51114751c3e644da27a6d4ee4d66c8f67ff72d
   languageName: node
   linkType: hard
 
