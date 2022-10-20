@@ -13,17 +13,14 @@ jobs:
   pre_job:
     runs-on: ubuntu-latest
     outputs:
-      should_skip: ${{ steps.skip_check.outputs.should_skip }}
+      needs_run: ${{ (github.event_name != 'pull_request' && (steps.PR.outcome != 'success' || steps.PR.outputs.number == null)) || github.event_name == 'pull_request' }}
     steps:
-      - id: skip_check
-        uses: fkirc/skip-duplicate-actions@v5.2.0
-        with:
-          skip_after_successful_duplicate: 'false'
-          concurrent_skipping: 'same_content_newer'
+      - uses: 8BitJonny/gh-get-current-pr@2.1.2
+        id: PR
 
   build:
     needs: pre_job
-    if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
+    if: ${{ needs.pre_job.outputs.needs_run == 'true' }}
     runs-on: ubuntu-latest
 
     strategy:
