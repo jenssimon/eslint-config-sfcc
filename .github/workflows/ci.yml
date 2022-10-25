@@ -20,7 +20,7 @@ jobs:
 
   build:
     needs: pre_job
-    if: ${{ needs.pre_job.outputs.needs_run == 'true' }}
+    if: ${{ needs.pre_job.outputs.needs_run == 'true' || (github.event_name == 'push' && contains('refs/heads/master refs/heads/main', github.ref)) }}
     runs-on: ubuntu-latest
 
     strategy:
