@@ -15,7 +15,7 @@ jobs:
     outputs:
       needs_run: ${{ (github.event_name != 'pull_request' && (steps.PR.outcome != 'success' || steps.PR.outputs.number == null)) || github.event_name == 'pull_request' }}
     steps:
-      - uses: 8BitJonny/gh-get-current-pr@2.1.2
+      - uses: 8BitJonny/gh-get-current-pr@v2.1.3
         id: PR
 
   build:
