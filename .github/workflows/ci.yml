@@ -8,7 +8,7 @@ on:
 
 jobs:
   pre_job:
-    uses: jenssimon/gh-workflows/.github/workflows/skip-push-pr-duplicates.yml@v1.0.5
+    uses: jenssimon/gh-workflows/.github/workflows/skip-push-pr-duplicates.yml@v1.0.6
 
   build:
     needs: pre_job
