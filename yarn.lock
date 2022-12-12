@@ -520,7 +520,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint-community/eslint-utils@npm:^4.1.0":
+"@eslint-community/eslint-utils@npm:^4.1.2":
   version: 4.1.2
   resolution: "@eslint-community/eslint-utils@npm:4.1.2"
   dependencies:
@@ -587,9 +587,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jenssimon/eslint-config-base@npm:6.4.10":
-  version: 6.4.10
-  resolution: "@jenssimon/eslint-config-base@npm:6.4.10"
+"@jenssimon/eslint-config-base@npm:6.4.11":
+  version: 6.4.11
+  resolution: "@jenssimon/eslint-config-base@npm:6.4.11"
   dependencies:
     "@babel/core": ^7.19.1
     "@babel/eslint-parser": ^7.19.1
@@ -607,10 +607,10 @@ __metadata:
     eslint-plugin-react-hooks: 4.6.0
     eslint-plugin-react-redux: 4.0.0
     eslint-plugin-sonarjs: 0.17.0
-    eslint-plugin-unicorn: 45.0.1
+    eslint-plugin-unicorn: 45.0.2
   peerDependencies:
     eslint: ^7.32.0 || ^8.2.0
-  checksum: 9190a9d66801e2e45fd99daca86721ca3566ffdc94495031a2c7c63218b5f67ba8727b52b550d994d660be3a0788cc6100cd90c9bdb2d517bccc77452fa87eed
+  checksum: 8d4a4ec1d18dea9d706868efb8e9e63f72c1760462df6f8d2243e330100542dddb9b17cdff071afd9acc1844ab4fdcef66cfd8bc6c5e65e08cb6c91d29434c7e
   languageName: node
   linkType: hard
 
@@ -620,7 +620,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": 17.3.0
     "@commitlint/config-conventional": 17.3.0
-    "@jenssimon/eslint-config-base": 6.4.10
+    "@jenssimon/eslint-config-base": 6.4.11
     commitizen: 4.2.6
     cz-conventional-changelog: 3.3.0
     eslint: 8.29.0
@@ -3056,12 +3056,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-unicorn@npm:45.0.1":
-  version: 45.0.1
-  resolution: "eslint-plugin-unicorn@npm:45.0.1"
+"eslint-plugin-unicorn@npm:45.0.2":
+  version: 45.0.2
+  resolution: "eslint-plugin-unicorn@npm:45.0.2"
   dependencies:
     "@babel/helper-validator-identifier": ^7.19.1
-    "@eslint-community/eslint-utils": ^4.1.0
+    "@eslint-community/eslint-utils": ^4.1.2
     ci-info: ^3.6.1
     clean-regexp: ^1.0.0
     esquery: ^1.4.0
@@ -3078,7 +3078,7 @@ __metadata:
     strip-indent: ^3.0.0
   peerDependencies:
     eslint: ">=8.28.0"
-  checksum: c871934fd69ea2ee8a01f8727e2c68e7dcf560bba587c92151c100c3d25fd86dc893f4a6e3d5f9d2a6656f7e1123538ca6aaa31a52d79fcb883e67d0416fc04d
+  checksum: c6ef0a0694f147b58bcb389090d0da87892b469de176c26cf062758a670d288753336d98613f5519d7997d272248eadbc45a4d5127c0cbd39804c61dd0975962
   languageName: node
   linkType: hard
 
