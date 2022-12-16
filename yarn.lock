@@ -587,9 +587,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jenssimon/eslint-config-base@npm:6.4.11":
-  version: 6.4.11
-  resolution: "@jenssimon/eslint-config-base@npm:6.4.11"
+"@jenssimon/eslint-config-base@npm:6.4.12":
+  version: 6.4.12
+  resolution: "@jenssimon/eslint-config-base@npm:6.4.12"
   dependencies:
     "@babel/core": ^7.19.1
     "@babel/eslint-parser": ^7.19.1
@@ -599,7 +599,7 @@ __metadata:
     eslint-plugin-babel: 5.3.1
     eslint-plugin-eslint-comments: 3.2.0
     eslint-plugin-import: 2.26.0
-    eslint-plugin-jest: 27.1.6
+    eslint-plugin-jest: 27.1.7
     eslint-plugin-jsx-a11y: 6.6.1
     eslint-plugin-optimize-regex: 1.2.1
     eslint-plugin-promise: 6.1.1
@@ -610,7 +610,7 @@ __metadata:
     eslint-plugin-unicorn: 45.0.2
   peerDependencies:
     eslint: ^7.32.0 || ^8.2.0
-  checksum: 8d4a4ec1d18dea9d706868efb8e9e63f72c1760462df6f8d2243e330100542dddb9b17cdff071afd9acc1844ab4fdcef66cfd8bc6c5e65e08cb6c91d29434c7e
+  checksum: 1152cb9aa1836ced66f408f7bd1640350984f73981400c24ce61751381347768f123ecef6eeec7f1fd83e752deec641989504afb51ca5f81433228cbeab5e2cf
   languageName: node
   linkType: hard
 
@@ -620,7 +620,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": 17.3.0
     "@commitlint/config-conventional": 17.3.0
-    "@jenssimon/eslint-config-base": 6.4.11
+    "@jenssimon/eslint-config-base": 6.4.12
     commitizen: 4.2.6
     cz-conventional-changelog: 3.3.0
     eslint: 8.29.0
@@ -2909,9 +2909,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:27.1.6":
-  version: 27.1.6
-  resolution: "eslint-plugin-jest@npm:27.1.6"
+"eslint-plugin-jest@npm:27.1.7":
+  version: 27.1.7
+  resolution: "eslint-plugin-jest@npm:27.1.7"
   dependencies:
     "@typescript-eslint/utils": ^5.10.0
   peerDependencies:
@@ -2922,7 +2922,7 @@ __metadata:
       optional: true
     jest:
       optional: true
-  checksum: 5b1640b5d575f0d5e27da8ef8cb3110a29f94ebd50ae51edc5ea34c1054f5dcf305416865b2919ac424bc02c4569848bbe7fd2c86e7e1aff23e77f1ff9ef7dfd
+  checksum: 1173e60450d8fa7a913d654e80e26176cc64c35f287d680d6fe4187a53974fd8c6883749924c8ea2a9328e295cba4d1be0b3047492653270e9341da1a3fec580
   languageName: node
   linkType: hard
 
