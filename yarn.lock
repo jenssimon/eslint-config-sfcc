@@ -365,9 +365,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jenssimon/eslint-config-base@npm:6.5.0":
-  version: 6.5.0
-  resolution: "@jenssimon/eslint-config-base@npm:6.5.0"
+"@jenssimon/eslint-config-base@npm:6.6.1":
+  version: 6.6.1
+  resolution: "@jenssimon/eslint-config-base@npm:6.6.1"
   dependencies:
     eslint-config-airbnb: 19.0.4
     eslint-config-airbnb-base: 15.0.0
@@ -377,6 +377,7 @@ __metadata:
     eslint-plugin-import: 2.26.0
     eslint-plugin-jest: 27.1.7
     eslint-plugin-jsx-a11y: 6.6.1
+    eslint-plugin-lit: 1.7.2
     eslint-plugin-optimize-regex: 1.2.1
     eslint-plugin-promise: 6.1.1
     eslint-plugin-react: 7.31.11
@@ -384,9 +385,10 @@ __metadata:
     eslint-plugin-react-redux: 4.0.0
     eslint-plugin-sonarjs: 0.17.0
     eslint-plugin-unicorn: 45.0.2
+    eslint-plugin-wc: 1.4.0
   peerDependencies:
     eslint: ^7.32.0 || ^8.2.0
-  checksum: 47d8a1409475dbe4ec5dd5a22540086d83f94c065637b4d9c5e3df94a8f309dfc9e833af501d345a92e7f7f9720c27f12ce86d4c0b0e13d102c87be9dcaeee2f
+  checksum: 97a31ea1cd05c886d565b1b8b98a7c1d0ba71e20ba6ec1ac91a0756e5ce884586b6e79759312a84a71330d53da984f06e9ffa3604a439435524a0919a11f4df6
   languageName: node
   linkType: hard
 
@@ -396,7 +398,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": 17.3.0
     "@commitlint/config-conventional": 17.3.0
-    "@jenssimon/eslint-config-base": 6.5.0
+    "@jenssimon/eslint-config-base": 6.6.1
     commitizen: 4.2.6
     cz-conventional-changelog: 3.3.0
     eslint: 8.30.0
@@ -2641,6 +2643,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-lit@npm:1.7.2":
+  version: 1.7.2
+  resolution: "eslint-plugin-lit@npm:1.7.2"
+  dependencies:
+    parse5: ^6.0.1
+    parse5-htmlparser2-tree-adapter: ^6.0.1
+    requireindex: ^1.2.0
+  peerDependencies:
+    eslint: ">= 5"
+  checksum: 11eda4ad42cf1421b48a6b3cafdc237b974237c1698e148518b51d4f6bdcc0d9595604826d50e5f87844ee04564b102c33725434ef4569f6e2f8d4f7982e2250
+  languageName: node
+  linkType: hard
+
 "eslint-plugin-optimize-regex@npm:1.2.1":
   version: 1.2.1
   resolution: "eslint-plugin-optimize-regex@npm:1.2.1"
@@ -2771,6 +2786,18 @@ __metadata:
   peerDependencies:
     eslint: ">=8.28.0"
   checksum: c6ef0a0694f147b58bcb389090d0da87892b469de176c26cf062758a670d288753336d98613f5519d7997d272248eadbc45a4d5127c0cbd39804c61dd0975962
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-wc@npm:1.4.0":
+  version: 1.4.0
+  resolution: "eslint-plugin-wc@npm:1.4.0"
+  dependencies:
+    is-valid-element-name: ^1.0.0
+    js-levenshtein-esm: ^1.2.0
+  peerDependencies:
+    eslint: ">=5"
+  checksum: 64e7174f47197c91e57702a739db94d6803a817bd40ad6ac82260653430442649140e20f7fbc789ec6758da3ce3eaefd15266e5cbeb344b6500fcbcec596ba05
   languageName: node
   linkType: hard
 
@@ -3978,6 +4005,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-potential-custom-element-name@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "is-potential-custom-element-name@npm:1.0.1"
+  checksum: ced7bbbb6433a5b684af581872afe0e1767e2d1146b2207ca0068a648fb5cab9d898495d1ac0583524faaf24ca98176a7d9876363097c2d14fee6dd324f3a1ab
+  languageName: node
+  linkType: hard
+
 "is-regex@npm:^1.1.4":
   version: 1.1.4
   resolution: "is-regex@npm:1.1.4"
@@ -4052,6 +4086,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-valid-element-name@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "is-valid-element-name@npm:1.0.0"
+  dependencies:
+    is-potential-custom-element-name: ^1.0.0
+  checksum: 915099b633770948b5967e6896f4475252634a2cc455ae1c158f48f6c11f03680e0bdaf0a547912ce6d3dea2cfa28a0e8013a98bb5e41445fc6ef0616824bea7
+  languageName: node
+  linkType: hard
+
 "is-weakref@npm:^1.0.2":
   version: 1.0.2
   resolution: "is-weakref@npm:1.0.2"
@@ -4099,6 +4142,13 @@ __metadata:
   version: 1.0.2
   resolution: "java-properties@npm:1.0.2"
   checksum: 9a086778346e3adbe2395e370f5c779033ed60360055a15e2cead49e3d676d2c73786cf2f6563a1860277dea3dd0a859432e546ed89c03ee08c1f53e31a5d420
+  languageName: node
+  linkType: hard
+
+"js-levenshtein-esm@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "js-levenshtein-esm@npm:1.2.0"
+  checksum: 577c3e609d3f3b6ab46071638fee14f96a0a8a9148548d4da12d40cb1a12fd197a93d2ff1047a01562c892bad243e35431e015ab020535c9dead96da64a2c3dd
   languageName: node
   linkType: hard
 
@@ -5821,6 +5871,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"parse5-htmlparser2-tree-adapter@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "parse5-htmlparser2-tree-adapter@npm:6.0.1"
+  dependencies:
+    parse5: ^6.0.1
+  checksum: 1848378b355d027915645c13f13f982e60502d201f53bc2067a508bf2dba4aac08219fc781dcd160167f5f50f0c73f58d20fa4fb3d90ee46762c20234fa90a6d
+  languageName: node
+  linkType: hard
+
+"parse5@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "parse5@npm:6.0.1"
+  checksum: 7d569a176c5460897f7c8f3377eff640d54132b9be51ae8a8fa4979af940830b2b0c296ce75e5bd8f4041520aadde13170dbdec44889975f906098ea0002f4bd
+  languageName: node
+  linkType: hard
+
 "path-exists@npm:^3.0.0":
   version: 3.0.0
   resolution: "path-exists@npm:3.0.0"
@@ -6278,6 +6344,13 @@ __metadata:
   version: 2.0.2
   resolution: "require-from-string@npm:2.0.2"
   checksum: a03ef6895445f33a4015300c426699bc66b2b044ba7b670aa238610381b56d3f07c686251740d575e22f4c87531ba662d06937508f0f3c0f1ddc04db3130560b
+  languageName: node
+  linkType: hard
+
+"requireindex@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "requireindex@npm:1.2.0"
+  checksum: 50d8b10a1ff1fdf6aea7a1870bc7bd238b0fb1917d8d7ca17fd03afc38a65dcd7a8a4eddd031f89128b5f0065833d5c92c4fef67f2c04e8624057fe626c9cf94
   languageName: node
   linkType: hard
 
