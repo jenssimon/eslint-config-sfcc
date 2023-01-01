@@ -1,1 +1,1 @@
-module.export = require('./lib/sfra');
+module.exports = require('./lib/sfra');
