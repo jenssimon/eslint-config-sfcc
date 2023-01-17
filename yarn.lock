@@ -381,9 +381,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jenssimon/eslint-config-base@npm:6.6.9":
-  version: 6.6.9
-  resolution: "@jenssimon/eslint-config-base@npm:6.6.9"
+"@jenssimon/eslint-config-base@npm:6.6.10":
+  version: 6.6.10
+  resolution: "@jenssimon/eslint-config-base@npm:6.6.10"
   dependencies:
     eslint-config-airbnb: 19.0.4
     eslint-config-airbnb-base: 15.0.0
@@ -396,7 +396,7 @@ __metadata:
     eslint-plugin-lit: 1.8.2
     eslint-plugin-optimize-regex: 1.2.1
     eslint-plugin-promise: 6.1.1
-    eslint-plugin-react: 7.32.0
+    eslint-plugin-react: 7.32.1
     eslint-plugin-react-hooks: 4.6.0
     eslint-plugin-react-redux: 4.0.0
     eslint-plugin-sonarjs: 0.18.0
@@ -404,7 +404,7 @@ __metadata:
     eslint-plugin-wc: 1.4.0
   peerDependencies:
     eslint: ^7.32.0 || ^8.2.0
-  checksum: 013100aea7622c73d2089e046cef6fd3efbdddef4f210d12d14a3c16703d0bae9f5410429bbced6806c561f6695cef1d3426d1cfc5916f2e6e9ec22d4e191c8a
+  checksum: 1f5b2c070c4b1b2905adef297aa2e4ea40ad9ed1dc2ff0428df453b2ef12b6068bbd541192328559ba3d2bfec8b458453f3652908277b6d265f5ea17a00e84dc
   languageName: node
   linkType: hard
 
@@ -414,7 +414,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": 17.4.2
     "@commitlint/config-conventional": 17.4.2
-    "@jenssimon/eslint-config-base": 6.6.9
+    "@jenssimon/eslint-config-base": 6.6.10
     commitizen: 4.2.6
     cz-conventional-changelog: 3.3.0
     eslint: 8.32.0
@@ -2806,9 +2806,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react@npm:7.32.0":
-  version: 7.32.0
-  resolution: "eslint-plugin-react@npm:7.32.0"
+"eslint-plugin-react@npm:7.32.1":
+  version: 7.32.1
+  resolution: "eslint-plugin-react@npm:7.32.1"
   dependencies:
     array-includes: ^3.1.6
     array.prototype.flatmap: ^1.3.1
@@ -2827,7 +2827,7 @@ __metadata:
     string.prototype.matchall: ^4.0.8
   peerDependencies:
     eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
-  checksum: b81ce2623b50a936287d8e21997bd855094e643856c99b42a9f0c10e1c7b123e469c3d75f77df9eefb719fee2b47a763862f1cdca1e7cc26edc7cde2fb8cba87
+  checksum: e20eab61161a3db6211c2bd1eb9be3e407fd14e72c06c5f39a078b6ac37427b2af6056ee70e3954249bca0a04088ae797a0c8ba909fb8802e29712de2a41262d
   languageName: node
   linkType: hard
 
