@@ -55,7 +55,7 @@
     "pinst": "3.0.0",
     "semantic-release": "20.1.0"
   },
-  "packageManager": "yarn@3.3.1",
+  "packageManager": "yarn@3.4.1",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
