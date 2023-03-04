@@ -388,9 +388,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jenssimon/eslint-config-base@npm:6.6.11":
-  version: 6.6.11
-  resolution: "@jenssimon/eslint-config-base@npm:6.6.11"
+"@jenssimon/eslint-config-base@npm:6.6.12":
+  version: 6.6.12
+  resolution: "@jenssimon/eslint-config-base@npm:6.6.12"
   dependencies:
     eslint-config-airbnb: 19.0.4
     eslint-config-airbnb-base: 15.0.0
@@ -407,11 +407,11 @@ __metadata:
     eslint-plugin-react-hooks: 4.6.0
     eslint-plugin-react-redux: 4.0.0
     eslint-plugin-sonarjs: 0.18.0
-    eslint-plugin-unicorn: 45.0.2
+    eslint-plugin-unicorn: 46.0.0
     eslint-plugin-wc: 1.4.0
   peerDependencies:
     eslint: ^7.32.0 || ^8.2.0
-  checksum: b95f05f616df7b5ab515406c912bbf6a101af23e0f13c47826f554f787913fb93c5f8d33e99895f01442612bf4736a7cd48e39d48f7c0bee9348dad948cb0be1
+  checksum: 27fae12ec396f50ac09c4a85ce45cacac5172494c223f40f79fc1473fbbed899bbabb376a4930b9474bc8f06eabd0e1034ba5237b7fc4c76feb09e9888e083cb
   languageName: node
   linkType: hard
 
@@ -421,7 +421,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": 17.4.4
     "@commitlint/config-conventional": 17.4.4
-    "@jenssimon/eslint-config-base": 6.6.11
+    "@jenssimon/eslint-config-base": 6.6.12
     commitizen: 4.3.0
     cz-conventional-changelog: 3.3.0
     eslint: 8.35.0
@@ -2880,9 +2880,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-unicorn@npm:45.0.2":
-  version: 45.0.2
-  resolution: "eslint-plugin-unicorn@npm:45.0.2"
+"eslint-plugin-unicorn@npm:46.0.0":
+  version: 46.0.0
+  resolution: "eslint-plugin-unicorn@npm:46.0.0"
   dependencies:
     "@babel/helper-validator-identifier": ^7.19.1
     "@eslint-community/eslint-utils": ^4.1.2
@@ -2902,7 +2902,7 @@ __metadata:
     strip-indent: ^3.0.0
   peerDependencies:
     eslint: ">=8.28.0"
-  checksum: c6ef0a0694f147b58bcb389090d0da87892b469de176c26cf062758a670d288753336d98613f5519d7997d272248eadbc45a4d5127c0cbd39804c61dd0975962
+  checksum: 30f9c67b9f94e42ae9917601ce203aa89a33c5fb821a1f45db389c8a143d3887c6b3316a74f0de7edc5e6cdac7a54d9e527cd109b96426cf2eca8f37478d0021
   languageName: node
   linkType: hard
 
