@@ -406,9 +406,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jenssimon/eslint-config-base@npm:6.6.12":
-  version: 6.6.12
-  resolution: "@jenssimon/eslint-config-base@npm:6.6.12"
+"@jenssimon/eslint-config-base@npm:6.6.13":
+  version: 6.6.13
+  resolution: "@jenssimon/eslint-config-base@npm:6.6.13"
   dependencies:
     eslint-config-airbnb: 19.0.4
     eslint-config-airbnb-base: 15.0.0
@@ -424,12 +424,12 @@ __metadata:
     eslint-plugin-react: 7.32.2
     eslint-plugin-react-hooks: 4.6.0
     eslint-plugin-react-redux: 4.0.0
-    eslint-plugin-sonarjs: 0.18.0
+    eslint-plugin-sonarjs: 0.19.0
     eslint-plugin-unicorn: 46.0.0
     eslint-plugin-wc: 1.4.0
   peerDependencies:
     eslint: ^7.32.0 || ^8.2.0
-  checksum: 27fae12ec396f50ac09c4a85ce45cacac5172494c223f40f79fc1473fbbed899bbabb376a4930b9474bc8f06eabd0e1034ba5237b7fc4c76feb09e9888e083cb
+  checksum: 79ac3b3c916cc24c15f45374e98b81ddf0bb85fa0b02df99dd49a1410abcc63d76aea5728e1eaad92b116d4c361af8297cdc8310b8509300a1b8bdf1c5d5a63d
   languageName: node
   linkType: hard
 
@@ -439,7 +439,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": 17.4.4
     "@commitlint/config-conventional": 17.4.4
-    "@jenssimon/eslint-config-base": 6.6.12
+    "@jenssimon/eslint-config-base": 6.6.13
     commitizen: 4.3.0
     cz-conventional-changelog: 3.3.0
     eslint: 8.36.0
@@ -2896,12 +2896,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-sonarjs@npm:0.18.0":
-  version: 0.18.0
-  resolution: "eslint-plugin-sonarjs@npm:0.18.0"
+"eslint-plugin-sonarjs@npm:0.19.0":
+  version: 0.19.0
+  resolution: "eslint-plugin-sonarjs@npm:0.19.0"
   peerDependencies:
     eslint: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: e71f2530fa7bfb80699960805ec89fdf4c3f87d00b8cc302afede84446d804019a2b5e555f440319bd20f0ad4d5e08349c89a2c8ecf3b6086fa6c3789b380afa
+  checksum: 893640583f62ce55584c6ddd481aa0fd6fa15fe0fffc32ac92b17f3fadde8eaf32414183bb80b612455212e9bb14400236398af6279ca04e8992f008e011926c
   languageName: node
   linkType: hard
 
