@@ -43,7 +43,7 @@
     "eslint": ">=7.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.5.0",
+    "@commitlint/cli": "17.5.1",
     "@commitlint/config-conventional": "17.4.4",
     "@jenssimon/eslint-config-base": "6.6.13",
     "commitizen": "4.3.0",
