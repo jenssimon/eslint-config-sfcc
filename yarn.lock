@@ -451,7 +451,7 @@ __metadata:
     pinst: 3.0.0
     semantic-release: 21.0.2
   peerDependencies:
-    "@jenssimon/eslint-config-base": ">=4.0.0"
+    "@jenssimon/eslint-config-base": ">=6.7.0"
     eslint: ">=7.0.0"
   languageName: unknown
   linkType: soft
