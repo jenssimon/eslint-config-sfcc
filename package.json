@@ -25,7 +25,7 @@
     "/lib/"
   ],
   "scripts": {
-    "lint": "eslint --fix ./",
+    "lint": "eslint --fix --ext .js,.ts,.cjs,.mjs,.cts,.mts ./",
     "ci-test": "run-s \"ci-test:*\"",
     "ci-test:lint": "eslint ./",
     "commit": "cz",
@@ -45,7 +45,7 @@
   "devDependencies": {
     "@commitlint/cli": "17.6.6",
     "@commitlint/config-conventional": "17.6.6",
-    "@jenssimon/eslint-config-base": "6.7.1",
+    "@jenssimon/eslint-config-base": "6.8.0",
     "commitizen": "4.3.0",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.43.0",
