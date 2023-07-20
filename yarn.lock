@@ -440,9 +440,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jenssimon/eslint-config-base@npm:7.0.3":
-  version: 7.0.3
-  resolution: "@jenssimon/eslint-config-base@npm:7.0.3"
+"@jenssimon/eslint-config-base@npm:7.0.4":
+  version: 7.0.4
+  resolution: "@jenssimon/eslint-config-base@npm:7.0.4"
   dependencies:
     eslint-config-airbnb: 19.0.4
     eslint-config-airbnb-base: 15.0.0
@@ -455,7 +455,7 @@ __metadata:
     eslint-plugin-lit: 1.8.3
     eslint-plugin-optimize-regex: 1.2.1
     eslint-plugin-promise: 6.1.1
-    eslint-plugin-react: 7.32.2
+    eslint-plugin-react: 7.33.0
     eslint-plugin-react-hooks: 4.6.0
     eslint-plugin-react-redux: 4.0.0
     eslint-plugin-sonarjs: 0.19.0
@@ -463,7 +463,7 @@ __metadata:
     eslint-plugin-wc: 1.5.0
   peerDependencies:
     eslint: ^7.32.0 || ^8.2.0
-  checksum: 3ee3d822bfc464aba5ca882b3d22aa5ad33aaf316b1e51a6e70bf500514fb272438b2e85155ea96f94420279bbd97e1761193bbcda0e0f87a21ae5f2df384b29
+  checksum: 63680638297a11fa8acb9f81f61fd9e63f8bef9c1e362cad28c671ea158464b255ce9f7480f6daf296c206a9dbcce855570349fc1ac7a22f2dae0159cde37a8b
   languageName: node
   linkType: hard
 
@@ -473,7 +473,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": 17.6.7
     "@commitlint/config-conventional": 17.6.7
-    "@jenssimon/eslint-config-base": 7.0.3
+    "@jenssimon/eslint-config-base": 7.0.4
     commitizen: 4.3.0
     cz-conventional-changelog: 3.3.0
     eslint: 8.45.0
@@ -2976,9 +2976,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react@npm:7.32.2":
-  version: 7.32.2
-  resolution: "eslint-plugin-react@npm:7.32.2"
+"eslint-plugin-react@npm:7.33.0":
+  version: 7.33.0
+  resolution: "eslint-plugin-react@npm:7.33.0"
   dependencies:
     array-includes: ^3.1.6
     array.prototype.flatmap: ^1.3.1
@@ -2993,11 +2993,11 @@ __metadata:
     object.values: ^1.1.6
     prop-types: ^15.8.1
     resolve: ^2.0.0-next.4
-    semver: ^6.3.0
+    semver: ^6.3.1
     string.prototype.matchall: ^4.0.8
   peerDependencies:
     eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
-  checksum: 2232b3b8945aa50b7773919c15cd96892acf35d2f82503667a79e2f55def90f728ed4f0e496f0f157acbe1bd4397c5615b676ae7428fe84488a544ca53feb944
+  checksum: f3ce2978322efd3c698b802dabfad070109dd1935c4e468545992b82b5fb8257ea3ad56732330bb46643182a09560129a259b436952b3e2aa426947d3abd2b1a
   languageName: node
   linkType: hard
 
@@ -7370,6 +7370,15 @@ __metadata:
   bin:
     semver: ./bin/semver.js
   checksum: 1b26ecf6db9e8292dd90df4e781d91875c0dcc1b1909e70f5d12959a23c7eebb8f01ea581c00783bbee72ceeaad9505797c381756326073850dc36ed284b21b9
+  languageName: node
+  linkType: hard
+
+"semver@npm:^6.3.1":
+  version: 6.3.1
+  resolution: "semver@npm:6.3.1"
+  bin:
+    semver: bin/semver.js
+  checksum: ae47d06de28836adb9d3e25f22a92943477371292d9b665fb023fae278d345d508ca1958232af086d85e0155aee22e313e100971898bbb8d5d89b8b1d4054ca2
   languageName: node
   linkType: hard
 
