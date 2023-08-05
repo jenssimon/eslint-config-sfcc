@@ -440,13 +440,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jenssimon/eslint-config-base@npm:7.1.2":
-  version: 7.1.2
-  resolution: "@jenssimon/eslint-config-base@npm:7.1.2"
+"@jenssimon/eslint-config-base@npm:7.1.3":
+  version: 7.1.3
+  resolution: "@jenssimon/eslint-config-base@npm:7.1.3"
   dependencies:
     eslint-config-airbnb: 19.0.4
     eslint-config-airbnb-base: 15.0.0
-    eslint-import-resolver-node: 0.3.7
+    eslint-import-resolver-node: 0.3.8
     eslint-plugin-babel: 5.3.1
     eslint-plugin-eslint-comments: 3.2.0
     eslint-plugin-import: 2.28.0
@@ -459,12 +459,12 @@ __metadata:
     eslint-plugin-react: 7.33.1
     eslint-plugin-react-hooks: 4.6.0
     eslint-plugin-react-redux: 4.0.0
-    eslint-plugin-sonarjs: 0.19.0
+    eslint-plugin-sonarjs: 0.20.0
     eslint-plugin-unicorn: 48.0.1
     eslint-plugin-wc: 1.5.0
   peerDependencies:
     eslint: ^7.32.0 || ^8.2.0
-  checksum: 0e129240281ab47a0338562d8e57be297efa3204d34804b29c5813014f5afa4073c2fb9ea58d7ab95938229e63e398dd5c4322db6e1125a3a1487f8b3e64fd83
+  checksum: 5cde89867f801c20019c9aab6ccb4fce62ab98f238713a4e96747f4b2d509672f87dc229013bfb60ec36cfff80f2fdc76eaed03cf95fe65ac1668ed5017bbe4c
   languageName: node
   linkType: hard
 
@@ -474,7 +474,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": 17.6.7
     "@commitlint/config-conventional": 17.6.7
-    "@jenssimon/eslint-config-base": 7.1.2
+    "@jenssimon/eslint-config-base": 7.1.3
     commitizen: 4.3.0
     cz-conventional-changelog: 3.3.0
     eslint: 8.46.0
@@ -2905,7 +2905,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-node@npm:0.3.7, eslint-import-resolver-node@npm:^0.3.7":
+"eslint-import-resolver-node@npm:0.3.8":
+  version: 0.3.8
+  resolution: "eslint-import-resolver-node@npm:0.3.8"
+  dependencies:
+    debug: ^3.2.7
+    is-core-module: ^2.13.0
+    resolve: ^1.22.4
+  checksum: 5769ebec976d1145957f5d87ee05b6e880cd3fbeb001a43b7a6e6a03b303d9b253b37ca296277f228159a0bbb690638c2e4b3a573dd4d6753b8f28ff85dbe192
+  languageName: node
+  linkType: hard
+
+"eslint-import-resolver-node@npm:^0.3.7":
   version: 0.3.7
   resolution: "eslint-import-resolver-node@npm:0.3.7"
   dependencies:
@@ -3152,12 +3163,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-sonarjs@npm:0.19.0":
-  version: 0.19.0
-  resolution: "eslint-plugin-sonarjs@npm:0.19.0"
+"eslint-plugin-sonarjs@npm:0.20.0":
+  version: 0.20.0
+  resolution: "eslint-plugin-sonarjs@npm:0.20.0"
   peerDependencies:
     eslint: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 893640583f62ce55584c6ddd481aa0fd6fa15fe0fffc32ac92b17f3fadde8eaf32414183bb80b612455212e9bb14400236398af6279ca04e8992f008e011926c
+  checksum: 98eabeff0d5a684f03b55be9c2888f52e169b991e87154f1210e5ca3c05ba5f9957067c9fd1177236211dc7b7efbadf9c1db7c0e650228c4d94d2728b279428e
   languageName: node
   linkType: hard
 
@@ -4558,6 +4569,15 @@ __metadata:
   dependencies:
     has: ^1.0.3
   checksum: f04ea30533b5e62764e7b2e049d3157dc0abd95ef44275b32489ea2081176ac9746ffb1cdb107445cf1ff0e0dfcad522726ca27c27ece64dadf3795428b8e468
+  languageName: node
+  linkType: hard
+
+"is-core-module@npm:^2.13.0":
+  version: 2.13.0
+  resolution: "is-core-module@npm:2.13.0"
+  dependencies:
+    has: ^1.0.3
+  checksum: 053ab101fb390bfeb2333360fd131387bed54e476b26860dc7f5a700bbf34a0ec4454f7c8c4d43e8a0030957e4b3db6e16d35e1890ea6fb654c833095e040355
   languageName: node
   linkType: hard
 
@@ -7383,6 +7403,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"resolve@npm:^1.22.4":
+  version: 1.22.4
+  resolution: "resolve@npm:1.22.4"
+  dependencies:
+    is-core-module: ^2.13.0
+    path-parse: ^1.0.7
+    supports-preserve-symlinks-flag: ^1.0.0
+  bin:
+    resolve: bin/resolve
+  checksum: 23f25174c2736ce24c6d918910e0d1f89b6b38fefa07a995dff864acd7863d59a7f049e691f93b4b2ee29696303390d921552b6d1b841ed4a8101f517e1d0124
+  languageName: node
+  linkType: hard
+
 "resolve@npm:^2.0.0-next.3, resolve@npm:^2.0.0-next.4":
   version: 2.0.0-next.4
   resolution: "resolve@npm:2.0.0-next.4"
@@ -7419,6 +7452,19 @@ __metadata:
   bin:
     resolve: bin/resolve
   checksum: ad59734723b596d0891321c951592ed9015a77ce84907f89c9d9307dd0c06e11a67906a3e628c4cae143d3e44898603478af0ddeb2bba3f229a9373efe342665
+  languageName: node
+  linkType: hard
+
+"resolve@patch:resolve@^1.22.4#~builtin<compat/resolve>":
+  version: 1.22.4
+  resolution: "resolve@patch:resolve@npm%3A1.22.4#~builtin<compat/resolve>::version=1.22.4&hash=c3c19d"
+  dependencies:
+    is-core-module: ^2.13.0
+    path-parse: ^1.0.7
+    supports-preserve-symlinks-flag: ^1.0.0
+  bin:
+    resolve: bin/resolve
+  checksum: c45f2545fdc4d21883861b032789e20aa67a2f2692f68da320cc84d5724cd02f2923766c5354b3210897e88f1a7b3d6d2c7c22faeead8eed7078e4c783a444bc
   languageName: node
   linkType: hard
 
