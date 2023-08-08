@@ -440,31 +440,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jenssimon/eslint-config-base@npm:7.1.3":
-  version: 7.1.3
-  resolution: "@jenssimon/eslint-config-base@npm:7.1.3"
+"@jenssimon/eslint-config-base@npm:7.1.4":
+  version: 7.1.4
+  resolution: "@jenssimon/eslint-config-base@npm:7.1.4"
   dependencies:
-    eslint-config-airbnb: 19.0.4
-    eslint-config-airbnb-base: 15.0.0
-    eslint-import-resolver-node: 0.3.8
-    eslint-plugin-babel: 5.3.1
-    eslint-plugin-eslint-comments: 3.2.0
-    eslint-plugin-import: 2.28.0
+    eslint-config-airbnb: ^19.0.4
+    eslint-config-airbnb-base: ^15.0.0
+    eslint-import-resolver-node: ^0.3.8
+    eslint-plugin-babel: ^5.3.1
+    eslint-plugin-eslint-comments: ^3.2.0
+    eslint-plugin-import: ^2.28.0
     eslint-plugin-import-esm: ^1.2.1
-    eslint-plugin-jest: 27.2.3
-    eslint-plugin-jsx-a11y: 6.7.1
-    eslint-plugin-lit: 1.8.3
-    eslint-plugin-optimize-regex: 1.2.1
-    eslint-plugin-promise: 6.1.1
-    eslint-plugin-react: 7.33.1
-    eslint-plugin-react-hooks: 4.6.0
-    eslint-plugin-react-redux: 4.0.0
-    eslint-plugin-sonarjs: 0.20.0
-    eslint-plugin-unicorn: 48.0.1
-    eslint-plugin-wc: 1.5.0
+    eslint-plugin-jest: ^27.2.3
+    eslint-plugin-jsx-a11y: ^6.7.1
+    eslint-plugin-lit: ^1.8.3
+    eslint-plugin-optimize-regex: ^1.2.1
+    eslint-plugin-promise: ^6.1.1
+    eslint-plugin-react: ^7.33.1
+    eslint-plugin-react-hooks: ^4.6.0
+    eslint-plugin-react-redux: ^4.0.0
+    eslint-plugin-sonarjs: ^0.20.0
+    eslint-plugin-unicorn: ^48.0.1
+    eslint-plugin-wc: ^1.5.0
   peerDependencies:
     eslint: ^7.32.0 || ^8.2.0
-  checksum: 5cde89867f801c20019c9aab6ccb4fce62ab98f238713a4e96747f4b2d509672f87dc229013bfb60ec36cfff80f2fdc76eaed03cf95fe65ac1668ed5017bbe4c
+  checksum: b5cffacac6c66a966bbb31363741f81888340da9e799bb655558cbd3ff75716c7df76e3f895e8fd27e580d65e6b139f8598cab050b08022badbc3476998615ca
   languageName: node
   linkType: hard
 
@@ -474,7 +474,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": 17.6.7
     "@commitlint/config-conventional": 17.6.7
-    "@jenssimon/eslint-config-base": 7.1.3
+    "@jenssimon/eslint-config-base": 7.1.4
     commitizen: 4.3.0
     cz-conventional-changelog: 3.3.0
     eslint: 8.46.0
@@ -2873,7 +2873,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-airbnb-base@npm:15.0.0, eslint-config-airbnb-base@npm:^15.0.0":
+"eslint-config-airbnb-base@npm:^15.0.0":
   version: 15.0.0
   resolution: "eslint-config-airbnb-base@npm:15.0.0"
   dependencies:
@@ -2888,7 +2888,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-airbnb@npm:19.0.4":
+"eslint-config-airbnb@npm:^19.0.4":
   version: 19.0.4
   resolution: "eslint-config-airbnb@npm:19.0.4"
   dependencies:
@@ -2905,17 +2905,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-node@npm:0.3.8":
-  version: 0.3.8
-  resolution: "eslint-import-resolver-node@npm:0.3.8"
-  dependencies:
-    debug: ^3.2.7
-    is-core-module: ^2.13.0
-    resolve: ^1.22.4
-  checksum: 5769ebec976d1145957f5d87ee05b6e880cd3fbeb001a43b7a6e6a03b303d9b253b37ca296277f228159a0bbb690638c2e4b3a573dd4d6753b8f28ff85dbe192
-  languageName: node
-  linkType: hard
-
 "eslint-import-resolver-node@npm:^0.3.7":
   version: 0.3.7
   resolution: "eslint-import-resolver-node@npm:0.3.7"
@@ -2924,6 +2913,17 @@ __metadata:
     is-core-module: ^2.11.0
     resolve: ^1.22.1
   checksum: 3379aacf1d2c6952c1b9666c6fa5982c3023df695430b0d391c0029f6403a7775414873d90f397e98ba6245372b6c8960e16e74d9e4a3b0c0a4582f3bdbe3d6e
+  languageName: node
+  linkType: hard
+
+"eslint-import-resolver-node@npm:^0.3.8":
+  version: 0.3.9
+  resolution: "eslint-import-resolver-node@npm:0.3.9"
+  dependencies:
+    debug: ^3.2.7
+    is-core-module: ^2.13.0
+    resolve: ^1.22.4
+  checksum: 439b91271236b452d478d0522a44482e8c8540bf9df9bd744062ebb89ab45727a3acd03366a6ba2bdbcde8f9f718bab7fe8db64688aca75acf37e04eafd25e22
   languageName: node
   linkType: hard
 
@@ -2939,7 +2939,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-babel@npm:5.3.1":
+"eslint-plugin-babel@npm:^5.3.1":
   version: 5.3.1
   resolution: "eslint-plugin-babel@npm:5.3.1"
   dependencies:
@@ -2959,7 +2959,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-eslint-comments@npm:3.2.0":
+"eslint-plugin-eslint-comments@npm:^3.2.0":
   version: 3.2.0
   resolution: "eslint-plugin-eslint-comments@npm:3.2.0"
   dependencies:
@@ -2980,7 +2980,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-import@npm:2.28.0":
+"eslint-plugin-import@npm:^2.28.0":
   version: 2.28.0
   resolution: "eslint-plugin-import@npm:2.28.0"
   dependencies:
@@ -3008,7 +3008,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:27.2.3":
+"eslint-plugin-jest@npm:^27.2.3":
   version: 27.2.3
   resolution: "eslint-plugin-jest@npm:27.2.3"
   dependencies:
@@ -3026,7 +3026,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsx-a11y@npm:6.7.1":
+"eslint-plugin-jsx-a11y@npm:^6.7.1":
   version: 6.7.1
   resolution: "eslint-plugin-jsx-a11y@npm:6.7.1"
   dependencies:
@@ -3052,7 +3052,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-lit@npm:1.8.3":
+"eslint-plugin-lit@npm:^1.8.3":
   version: 1.8.3
   resolution: "eslint-plugin-lit@npm:1.8.3"
   dependencies:
@@ -3065,7 +3065,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-optimize-regex@npm:1.2.1":
+"eslint-plugin-optimize-regex@npm:^1.2.1":
   version: 1.2.1
   resolution: "eslint-plugin-optimize-regex@npm:1.2.1"
   dependencies:
@@ -3074,7 +3074,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-promise@npm:6.1.1":
+"eslint-plugin-promise@npm:^6.1.1":
   version: 6.1.1
   resolution: "eslint-plugin-promise@npm:6.1.1"
   peerDependencies:
@@ -3083,7 +3083,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-hooks@npm:4.6.0":
+"eslint-plugin-react-hooks@npm:^4.6.0":
   version: 4.6.0
   resolution: "eslint-plugin-react-hooks@npm:4.6.0"
   peerDependencies:
@@ -3092,7 +3092,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-redux@npm:4.0.0":
+"eslint-plugin-react-redux@npm:^4.0.0":
   version: 4.0.0
   resolution: "eslint-plugin-react-redux@npm:4.0.0"
   dependencies:
@@ -3102,31 +3102,6 @@ __metadata:
     eslint: ^7 || ^8
     eslint-plugin-react: ^7.28.0
   checksum: 98ae9a6dd08917a821a878a1751061acf5f020e5272ba6036220466fc0b00e51b7c7b333f5643cc959108999264df0bcecc47b8e4f7eaef641999873cff8978f
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-react@npm:7.33.1":
-  version: 7.33.1
-  resolution: "eslint-plugin-react@npm:7.33.1"
-  dependencies:
-    array-includes: ^3.1.6
-    array.prototype.flatmap: ^1.3.1
-    array.prototype.tosorted: ^1.1.1
-    doctrine: ^2.1.0
-    estraverse: ^5.3.0
-    jsx-ast-utils: ^2.4.1 || ^3.0.0
-    minimatch: ^3.1.2
-    object.entries: ^1.1.6
-    object.fromentries: ^2.0.6
-    object.hasown: ^1.1.2
-    object.values: ^1.1.6
-    prop-types: ^15.8.1
-    resolve: ^2.0.0-next.4
-    semver: ^6.3.1
-    string.prototype.matchall: ^4.0.8
-  peerDependencies:
-    eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
-  checksum: 0427bd24acb87422b7298686203167123ba289ba563384983f3d99fad7817eae7f63157fd2e9b868bdcf0760719c319ab1e22a44764a98302034b0c844763e57
   languageName: node
   linkType: hard
 
@@ -3154,6 +3129,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-react@npm:^7.33.1":
+  version: 7.33.1
+  resolution: "eslint-plugin-react@npm:7.33.1"
+  dependencies:
+    array-includes: ^3.1.6
+    array.prototype.flatmap: ^1.3.1
+    array.prototype.tosorted: ^1.1.1
+    doctrine: ^2.1.0
+    estraverse: ^5.3.0
+    jsx-ast-utils: ^2.4.1 || ^3.0.0
+    minimatch: ^3.1.2
+    object.entries: ^1.1.6
+    object.fromentries: ^2.0.6
+    object.hasown: ^1.1.2
+    object.values: ^1.1.6
+    prop-types: ^15.8.1
+    resolve: ^2.0.0-next.4
+    semver: ^6.3.1
+    string.prototype.matchall: ^4.0.8
+  peerDependencies:
+    eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
+  checksum: 0427bd24acb87422b7298686203167123ba289ba563384983f3d99fad7817eae7f63157fd2e9b868bdcf0760719c319ab1e22a44764a98302034b0c844763e57
+  languageName: node
+  linkType: hard
+
 "eslint-plugin-sitegenesis@npm:1.0.0":
   version: 1.0.0
   resolution: "eslint-plugin-sitegenesis@npm:1.0.0"
@@ -3163,7 +3163,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-sonarjs@npm:0.20.0":
+"eslint-plugin-sonarjs@npm:^0.20.0":
   version: 0.20.0
   resolution: "eslint-plugin-sonarjs@npm:0.20.0"
   peerDependencies:
@@ -3172,7 +3172,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-unicorn@npm:48.0.1":
+"eslint-plugin-unicorn@npm:^48.0.1":
   version: 48.0.1
   resolution: "eslint-plugin-unicorn@npm:48.0.1"
   dependencies:
@@ -3197,7 +3197,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-wc@npm:1.5.0":
+"eslint-plugin-wc@npm:^1.5.0":
   version: 1.5.0
   resolution: "eslint-plugin-wc@npm:1.5.0"
   dependencies:
