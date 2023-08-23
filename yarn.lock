@@ -440,9 +440,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jenssimon/eslint-config-base@npm:7.1.8":
-  version: 7.1.8
-  resolution: "@jenssimon/eslint-config-base@npm:7.1.8"
+"@jenssimon/eslint-config-base@npm:7.1.9":
+  version: 7.1.9
+  resolution: "@jenssimon/eslint-config-base@npm:7.1.9"
   dependencies:
     eslint-config-airbnb: ^19.0.4
     eslint-config-airbnb-base: ^15.0.0
@@ -459,12 +459,12 @@ __metadata:
     eslint-plugin-react: ^7.33.1
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-redux: ^4.0.0
-    eslint-plugin-sonarjs: ^0.20.0
+    eslint-plugin-sonarjs: ^0.21.0
     eslint-plugin-unicorn: ^48.0.1
     eslint-plugin-wc: ^1.5.0
   peerDependencies:
     eslint: ^7.32.0 || ^8.2.0
-  checksum: 65a1e072c3227aa7a816a7a3074606a05d9977238428aff3cb6413b14ac2db8f02f80026a86bce4a52fef60a52733ff2c09534817172ce5807ab2b7a9b7256d0
+  checksum: 2729a2a985f566a54889b903b9a4c62d45aa0f631ae08ddbe7d8ea6853697fd0bfa901c7ce4a27b882717c6df1554e8a2d0de25b4548984ad53695992e2098aa
   languageName: node
   linkType: hard
 
@@ -474,7 +474,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": 17.7.1
     "@commitlint/config-conventional": 17.7.0
-    "@jenssimon/eslint-config-base": 7.1.8
+    "@jenssimon/eslint-config-base": 7.1.9
     commitizen: 4.3.0
     cz-conventional-changelog: 3.3.0
     eslint: 8.47.0
@@ -3183,12 +3183,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-sonarjs@npm:^0.20.0":
-  version: 0.20.0
-  resolution: "eslint-plugin-sonarjs@npm:0.20.0"
+"eslint-plugin-sonarjs@npm:^0.21.0":
+  version: 0.21.0
+  resolution: "eslint-plugin-sonarjs@npm:0.21.0"
   peerDependencies:
     eslint: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 98eabeff0d5a684f03b55be9c2888f52e169b991e87154f1210e5ca3c05ba5f9957067c9fd1177236211dc7b7efbadf9c1db7c0e650228c4d94d2728b279428e
+  checksum: c4d9de638a9ea6cc604355b02bc76819f811a3e20eb19bfc5741e3ad959721b573c9808b47e6aea4a6ce2d32101f42f2237f4d9c53230615c34afbf4ed6f69ea
   languageName: node
   linkType: hard
 
