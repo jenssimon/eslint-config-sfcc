@@ -7,12 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  pre_job:
-    uses: jenssimon/gh-workflows/.github/workflows/skip-push-pr-duplicates.yml@v1.0.6
-
   build:
-    needs: pre_job
-    if: ${{ needs.pre_job.outputs.needs_run_and_release == 'true' }}
     runs-on: ubuntu-latest
 
     strategy:
