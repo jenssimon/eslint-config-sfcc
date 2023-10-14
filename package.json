@@ -25,9 +25,7 @@
     "/lib/"
   ],
   "scripts": {
-    "lint": "eslint --fix --ext .js,.ts,.cjs,.mjs,.cts,.mts ./",
-    "ci-test": "run-s \"ci-test:*\"",
-    "ci-test:lint": "eslint ./",
+    "lint": "eslint --ext .js,.ts,.cjs,.mjs,.cts,.mts ./",
     "commit": "cz",
     "postinstall": "husky install",
     "prepack": "pinst --disable",
