@@ -46,7 +46,7 @@
     "@jenssimon/eslint-config-base": "7.3.0",
     "commitizen": "4.3.0",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "8.51.0",
+    "eslint": "8.52.0",
     "husky": "8.0.3",
     "lint-staged": "15.0.2",
     "npm-run-all": "4.1.5",
