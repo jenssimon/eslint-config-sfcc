@@ -110,13 +110,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:18.4.0":
-  version: 18.4.0
-  resolution: "@commitlint/cli@npm:18.4.0"
+"@commitlint/cli@npm:18.4.1":
+  version: 18.4.1
+  resolution: "@commitlint/cli@npm:18.4.1"
   dependencies:
     "@commitlint/format": "npm:^18.4.0"
     "@commitlint/lint": "npm:^18.4.0"
-    "@commitlint/load": "npm:^18.4.0"
+    "@commitlint/load": "npm:^18.4.1"
     "@commitlint/read": "npm:^18.4.0"
     "@commitlint/types": "npm:^18.4.0"
     execa: "npm:^5.0.0"
@@ -126,7 +126,7 @@ __metadata:
     yargs: "npm:^17.0.0"
   bin:
     commitlint: cli.js
-  checksum: 515ab99a1cc3813985a1e70e6ac690bcfdf807c78df3ea8a8f857333228c9d308b43d0160220a1b1ad2e491459474fa42a4c552a5103d45913e4560a6c7ced21
+  checksum: 835d133970a6cdcccb88689af1e92a0642b34a631bc83d05323faea9836a9122e633206a3d6088890ab520057003eb24b84e4e409a5ca1872d52b1daf8ee33d7
   languageName: node
   linkType: hard
 
@@ -239,9 +239,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/load@npm:^18.4.0":
-  version: 18.4.0
-  resolution: "@commitlint/load@npm:18.4.0"
+"@commitlint/load@npm:^18.4.1":
+  version: 18.4.1
+  resolution: "@commitlint/load@npm:18.4.1"
   dependencies:
     "@commitlint/config-validator": "npm:^18.4.0"
     "@commitlint/execute-rule": "npm:^18.4.0"
@@ -249,13 +249,13 @@ __metadata:
     "@commitlint/types": "npm:^18.4.0"
     "@types/node": "npm:^18.11.9"
     chalk: "npm:^4.1.0"
-    cosmiconfig: "npm:^8.0.0"
+    cosmiconfig: "npm:^8.3.6"
     cosmiconfig-typescript-loader: "npm:^5.0.0"
     lodash.isplainobject: "npm:^4.0.6"
     lodash.merge: "npm:^4.6.2"
     lodash.uniq: "npm:^4.5.0"
     resolve-from: "npm:^5.0.0"
-  checksum: dd76f8b8c616b5b6083625db3f599f10414ef9014b034da0228650f3d94cf2945854ffdf8730fe36ce050ba0db73501333c3775d60002847265df2f3edf2afe7
+  checksum: 1329151b842dc4640488cd83da5d9e4f13fd1ace172c65c30956357acc7b0f868e2b743ff0de11103cfc25ebb60a9fc6f38a0a2474efc3ec87e02a93095788bc
   languageName: node
   linkType: hard
 
@@ -512,7 +512,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@jenssimon/eslint-config-sfcc@workspace:."
   dependencies:
-    "@commitlint/cli": "npm:18.4.0"
+    "@commitlint/cli": "npm:18.4.1"
     "@commitlint/config-conventional": "npm:18.4.0"
     "@jenssimon/eslint-config-base": "npm:7.3.10"
     commitizen: "npm:4.3.0"
@@ -2567,6 +2567,23 @@ __metadata:
     parse-json: "npm:^5.0.0"
     path-type: "npm:^4.0.0"
   checksum: cea301202bb68373f9c8ccc77a6002aab1032f327dd1458e5932ee1a2f48919c881074d702cece91f18275673817872a0d3d00eb46f30a33c8f2009dbbac0e5c
+  languageName: node
+  linkType: hard
+
+"cosmiconfig@npm:^8.3.6":
+  version: 8.3.6
+  resolution: "cosmiconfig@npm:8.3.6"
+  dependencies:
+    import-fresh: "npm:^3.3.0"
+    js-yaml: "npm:^4.1.0"
+    parse-json: "npm:^5.2.0"
+    path-type: "npm:^4.0.0"
+  peerDependencies:
+    typescript: ">=4.9.5"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 0382a9ed13208f8bfc22ca2f62b364855207dffdb73dc26e150ade78c3093f1cf56172df2dd460c8caf2afa91c0ed4ec8a88c62f8f9cd1cf423d26506aa8797a
   languageName: node
   linkType: hard
 
@@ -4683,7 +4700,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"import-fresh@npm:^3.0.0, import-fresh@npm:^3.2.1":
+"import-fresh@npm:^3.0.0, import-fresh@npm:^3.2.1, import-fresh@npm:^3.3.0":
   version: 3.3.0
   resolution: "import-fresh@npm:3.3.0"
   dependencies:
@@ -7275,7 +7292,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"parse-json@npm:^5.0.0":
+"parse-json@npm:^5.0.0, parse-json@npm:^5.2.0":
   version: 5.2.0
   resolution: "parse-json@npm:5.2.0"
   dependencies:
