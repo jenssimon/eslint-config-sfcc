@@ -524,7 +524,7 @@ __metadata:
     lint-staged: "npm:15.1.0"
     npm-run-all: "npm:4.1.5"
     pinst: "npm:3.0.0"
-    semantic-release: "npm:22.0.7"
+    semantic-release: "npm:22.0.8"
   peerDependencies:
     "@jenssimon/eslint-config-base": ">=6.7.0"
     eslint: ">=7.0.0"
@@ -4710,10 +4710,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"import-from-esm@npm:^1.3.1":
+  version: 1.3.1
+  resolution: "import-from-esm@npm:1.3.1"
+  dependencies:
+    debug: "npm:^4.3.4"
+    import-meta-resolve: "npm:^4.0.0"
+  checksum: 24a9ddae835a9b1df50e45715705c9ebe10108b221f8db4a601fdccc074bba301e308b18f684cd551dedf2128d9f95f196ab7bd362c9426b01528f95b22d0a04
+  languageName: node
+  linkType: hard
+
 "import-from@npm:^4.0.0":
   version: 4.0.0
   resolution: "import-from@npm:4.0.0"
   checksum: 7fd98650d555e418c18341fef49ae11afc833f5ae70b7043e99684187cba6ac6b52e4118a491bd9f856045495bef5bdda7321095e65bcb2ef70ce2adf9f0d8d1
+  languageName: node
+  linkType: hard
+
+"import-meta-resolve@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "import-meta-resolve@npm:4.0.0"
+  checksum: 709375e01f8c3a87b7870991ca29c630d71bb7e22b7bb0f622613173d87b41b4043b4a983800e6d38ab3867496a46f82d30df0cbc2e55792c91c23193eea67a1
   languageName: node
   linkType: hard
 
@@ -8167,9 +8184,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semantic-release@npm:22.0.7":
-  version: 22.0.7
-  resolution: "semantic-release@npm:22.0.7"
+"semantic-release@npm:22.0.8":
+  version: 22.0.8
+  resolution: "semantic-release@npm:22.0.8"
   dependencies:
     "@semantic-release/commit-analyzer": "npm:^11.0.0"
     "@semantic-release/error": "npm:^4.0.0"
@@ -8187,6 +8204,7 @@ __metadata:
     git-log-parser: "npm:^1.2.0"
     hook-std: "npm:^3.0.0"
     hosted-git-info: "npm:^7.0.0"
+    import-from-esm: "npm:^1.3.1"
     lodash-es: "npm:^4.17.21"
     marked: "npm:^9.0.0"
     marked-terminal: "npm:^6.0.0"
@@ -8201,7 +8219,7 @@ __metadata:
     yargs: "npm:^17.5.1"
   bin:
     semantic-release: bin/semantic-release.js
-  checksum: e85d55be57fa36401fcbaa4edde2070d54f5d258b00c4a66a78592f08ab893b0a0c94dc880d5a52851caa56863950adf67a21f6447cbfd6db59ffdac1ee00d4f
+  checksum: d89e82317ed5131bb90ec4289f5108ca0e8f17a130b54a10bff4b1463e598326b0b48d3f6a37f0c30dcd21b8676163acd8e3aac63463450b48bc152f23f51e17
   languageName: node
   linkType: hard
 
