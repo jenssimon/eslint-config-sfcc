@@ -478,9 +478,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jenssimon/eslint-config-base@npm:7.3.16":
-  version: 7.3.16
-  resolution: "@jenssimon/eslint-config-base@npm:7.3.16"
+"@jenssimon/eslint-config-base@npm:7.3.17":
+  version: 7.3.17
+  resolution: "@jenssimon/eslint-config-base@npm:7.3.17"
   dependencies:
     eslint-config-airbnb: "npm:^19.0.4"
     eslint-config-airbnb-base: "npm:^15.0.0"
@@ -502,7 +502,7 @@ __metadata:
     eslint-plugin-wc: "npm:^2.0.4"
   peerDependencies:
     eslint: ^7.32.0 || ^8.2.0
-  checksum: a5fb3f2f9a179028acc679ec3eb3191d8a9152438f324dcb86dabaa0968c886a0032baa23e0027af8e0d7bddc802c0d25608f6f66863245e782ffd31778b62cf
+  checksum: 890501c25bad9aa19ce7b718227442b60abd95d36f6f8052840264eafed6b9861cccc8f5f6b16ad8af7d8342a758b915b5d7b7c51f633961f2aab163c34d331e
   languageName: node
   linkType: hard
 
@@ -512,7 +512,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": "npm:18.4.4"
     "@commitlint/config-conventional": "npm:18.4.4"
-    "@jenssimon/eslint-config-base": "npm:7.3.16"
+    "@jenssimon/eslint-config-base": "npm:7.3.17"
     commitizen: "npm:4.3.0"
     cz-conventional-changelog: "npm:3.3.0"
     eslint: "npm:8.56.0"
