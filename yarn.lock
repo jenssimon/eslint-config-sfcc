@@ -338,8 +338,8 @@ __metadata:
   linkType: hard
 
 "@jenssimon/eslint-config-base@npm:^7.3.17":
-  version: 7.3.17
-  resolution: "@jenssimon/eslint-config-base@npm:7.3.17"
+  version: 7.3.18
+  resolution: "@jenssimon/eslint-config-base@npm:7.3.18"
   dependencies:
     eslint-config-airbnb: "npm:^19.0.4"
     eslint-config-airbnb-base: "npm:^15.0.0"
@@ -347,7 +347,7 @@ __metadata:
     eslint-plugin-babel: "npm:^5.3.1"
     eslint-plugin-eslint-comments: "npm:^3.2.0"
     eslint-plugin-import: "npm:^2.29.0"
-    eslint-plugin-import-esm: "npm:^1.2.1"
+    eslint-plugin-import-esm: "npm:^2.0.0"
     eslint-plugin-jest: "npm:^27.4.3"
     eslint-plugin-jsx-a11y: "npm:^6.7.1"
     eslint-plugin-lit: "npm:^1.9.1"
@@ -361,7 +361,7 @@ __metadata:
     eslint-plugin-wc: "npm:^2.0.4"
   peerDependencies:
     eslint: ^7.32.0 || ^8.2.0
-  checksum: 10c0/890501c25bad9aa19ce7b718227442b60abd95d36f6f8052840264eafed6b9861cccc8f5f6b16ad8af7d8342a758b915b5d7b7c51f633961f2aab163c34d331e
+  checksum: 10c0/9fe04b9e20f9943ae96b867aab105f079604a99b6f31ea941d6f2284a38e467469571745c7d5c17ba2b0128ef39bcf7218939545013bef56a4470b3fd1e9fdbb
   languageName: node
   linkType: hard
 
@@ -2589,12 +2589,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-import-esm@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "eslint-plugin-import-esm@npm:1.2.1"
+"eslint-plugin-import-esm@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "eslint-plugin-import-esm@npm:2.0.0"
   peerDependencies:
     eslint: ">=7"
-  checksum: 10c0/608011e73bd48c2cc8e01542d0b3ecd67fd9c7494ae536441025df94649c7ef8abcd48e42d24c0f102f499a25af5dfa35905cf3296ca43d6408d0edb18afa0f8
+  checksum: 10c0/78165978b05cf1becfd2f3c8555dd6afcf29049d0d1c9c6668aee21abcb48afaa6b97d7df3e671e19ee82a61dba78cce46cdc907704bc1bf76ea72903a16fd12
   languageName: node
   linkType: hard
 
