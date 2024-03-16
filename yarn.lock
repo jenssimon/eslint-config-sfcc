@@ -891,9 +891,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/npm@npm:^11.0.0":
-  version: 11.0.2
-  resolution: "@semantic-release/npm@npm:11.0.2"
+"@semantic-release/npm@npm:^12.0.0":
+  version: 12.0.0
+  resolution: "@semantic-release/npm@npm:12.0.0"
   dependencies:
     "@semantic-release/error": "npm:^4.0.0"
     aggregate-error: "npm:^5.0.0"
@@ -902,7 +902,7 @@ __metadata:
     lodash-es: "npm:^4.17.21"
     nerf-dart: "npm:^1.0.0"
     normalize-url: "npm:^8.0.0"
-    npm: "npm:^10.0.0"
+    npm: "npm:^10.5.0"
     rc: "npm:^1.2.8"
     read-pkg: "npm:^9.0.0"
     registry-auth-token: "npm:^5.0.0"
@@ -910,7 +910,7 @@ __metadata:
     tempy: "npm:^3.0.0"
   peerDependencies:
     semantic-release: ">=20.1.0"
-  checksum: 10c0/ffd29adf44b051c1e0973b7fc5b99996ae4c5f2dd80079d50787eb1a4cdbbbd4c5b609c7b00dab4c566678ed2c620118014044f5e2f5b19c9d7d6961dfd57bc4
+  checksum: 10c0/857972de2e9d5292c7d8434f073be125f34c5d355fe7a7f8fbde39c953fbe3b30ded6e1361512c31de3bc4378cb9529ce61eaa60bf9afcab00bd682b5d43c5ff
   languageName: node
   linkType: hard
 
@@ -957,6 +957,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sigstore/protobuf-specs@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@sigstore/protobuf-specs@npm:0.3.0"
+  checksum: 10c0/a814342284681da9bb31f4224076aedd8f9e0fe8bb32a391a0765a37782f2cb37abb9342df776d304681965a297981a33cec9733262b65a58707f5eb16024ebb
+  languageName: node
+  linkType: hard
+
 "@sigstore/sign@npm:^2.2.1":
   version: 2.2.1
   resolution: "@sigstore/sign@npm:2.2.1"
@@ -976,6 +983,16 @@ __metadata:
     "@sigstore/protobuf-specs": "npm:^0.2.1"
     tuf-js: "npm:^2.2.0"
   checksum: 10c0/a214561e143f553132428597eaa68cfdcb36c6bf757f3dea30b2e55038433b0ffc53c446036e6d104487fb55f8d6bc6e01764090d29f42497fb44d55017f360c
+  languageName: node
+  linkType: hard
+
+"@sigstore/tuf@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "@sigstore/tuf@npm:2.3.1"
+  dependencies:
+    "@sigstore/protobuf-specs": "npm:^0.3.0"
+    tuf-js: "npm:^2.2.0"
+  checksum: 10c0/ba584d2fa7fc142d4671b6cdc2fe0e67a293fe79f91bfb042bf537ed39e34abc799d3caa1d69bda029f54da5c0f9f58803c7fae80bc96f867fb3aebc214a43b3
   languageName: node
   linkType: hard
 
@@ -5524,9 +5541,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm@npm:^10.0.0":
-  version: 10.4.0
-  resolution: "npm@npm:10.4.0"
+"npm@npm:^10.5.0":
+  version: 10.5.0
+  resolution: "npm@npm:10.5.0"
   dependencies:
     "@isaacs/string-locale-compare": "npm:^1.1.0"
     "@npmcli/arborist": "npm:^7.2.1"
@@ -5536,7 +5553,7 @@ __metadata:
     "@npmcli/package-json": "npm:^5.0.0"
     "@npmcli/promise-spawn": "npm:^7.0.1"
     "@npmcli/run-script": "npm:^7.0.4"
-    "@sigstore/tuf": "npm:^2.3.0"
+    "@sigstore/tuf": "npm:^2.3.1"
     abbrev: "npm:^2.0.0"
     archy: "npm:~1.0.0"
     cacache: "npm:^18.0.2"
@@ -5587,7 +5604,7 @@ __metadata:
     proc-log: "npm:^3.0.0"
     qrcode-terminal: "npm:^0.12.0"
     read: "npm:^2.1.0"
-    semver: "npm:^7.5.4"
+    semver: "npm:^7.6.0"
     spdx-expression-parse: "npm:^3.0.1"
     ssri: "npm:^10.0.5"
     supports-color: "npm:^9.4.0"
@@ -5601,7 +5618,7 @@ __metadata:
   bin:
     npm: bin/npm-cli.js
     npx: bin/npx-cli.js
-  checksum: 10c0/ebf77002c6618d67f05019faa2ee78bf12c600463bcc1386eeb07c3fc6ff657405392148a1b77b4838a04fee1c8e044097527dfef1f407cd24ed6312e0a2fc18
+  checksum: 10c0/dd1f5386d893dd4e540411fd4df5d59a05e4dc067986e6d7d4f6d9e129bf364bab097fccc600dbdf760df913df65462b50421ea8418239cb56b28cd8b16c5e99
   languageName: node
   linkType: hard
 
@@ -6675,13 +6692,13 @@ __metadata:
   linkType: hard
 
 "semantic-release@npm:^23.0.0":
-  version: 23.0.3
-  resolution: "semantic-release@npm:23.0.3"
+  version: 23.0.4
+  resolution: "semantic-release@npm:23.0.4"
   dependencies:
     "@semantic-release/commit-analyzer": "npm:^11.0.0"
     "@semantic-release/error": "npm:^4.0.0"
     "@semantic-release/github": "npm:^10.0.0"
-    "@semantic-release/npm": "npm:^11.0.0"
+    "@semantic-release/npm": "npm:^12.0.0"
     "@semantic-release/release-notes-generator": "npm:^12.0.0"
     aggregate-error: "npm:^5.0.0"
     cosmiconfig: "npm:^9.0.0"
@@ -6709,7 +6726,7 @@ __metadata:
     yargs: "npm:^17.5.1"
   bin:
     semantic-release: bin/semantic-release.js
-  checksum: 10c0/5d47c0c09865dc93aefaa0b73ff0880e624d8675cf9ed137a4c4db9baacdb2c8765d5c886ca1fe738add33396846d40383775868993e191c9c45d611a1976bd1
+  checksum: 10c0/1e99360d1ce7ffb96c0f590ebcd749539ded66addde69c946e726de9a51e1b785a48ad744ef5df92434c95a86e32fc88f1d60dc0ac3561fcabe59fe2e202cd11
   languageName: node
   linkType: hard
 
