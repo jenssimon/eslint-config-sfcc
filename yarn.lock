@@ -420,8 +420,8 @@ __metadata:
   linkType: hard
 
 "@jenssimon/eslint-config-base@npm:^7.3.17":
-  version: 7.4.11
-  resolution: "@jenssimon/eslint-config-base@npm:7.4.11"
+  version: 7.4.12
+  resolution: "@jenssimon/eslint-config-base@npm:7.4.12"
   dependencies:
     eslint-config-airbnb: "npm:^19.0.4"
     eslint-config-airbnb-base: "npm:^15.0.0"
@@ -443,7 +443,7 @@ __metadata:
     eslint-plugin-wc: "npm:^2.0.4"
   peerDependencies:
     eslint: ^7.32.0 || ^8.2.0
-  checksum: 10c0/5e0043852d9782e66244d9c3fd1b4c0deae2576656b467b8da081cffe68e621bf47ee4845cfe0e72cf1a3d2021e357daa78848ffa98b73613f488121924b208c
+  checksum: 10c0/208a2eec8f7cc624c2053a331c841784130ca5c8bbb63a370040fa20c073942fcc5993354473c0cfc18ad6728e2ba5e21a81f7b2b80f53168f91263d571576e8
   languageName: node
   linkType: hard
 
