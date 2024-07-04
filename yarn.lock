@@ -5657,8 +5657,8 @@ __metadata:
   linkType: hard
 
 "npm-run-all2@npm:^6.0.0":
-  version: 6.2.1
-  resolution: "npm-run-all2@npm:6.2.1"
+  version: 6.2.2
+  resolution: "npm-run-all2@npm:6.2.2"
   dependencies:
     ansi-styles: "npm:^6.2.1"
     cross-spawn: "npm:^7.0.3"
@@ -5672,7 +5672,7 @@ __metadata:
     npm-run-all2: bin/npm-run-all/index.js
     run-p: bin/run-p/index.js
     run-s: bin/run-s/index.js
-  checksum: 10c0/2e856f153210555a233b8baf98982c7049afc2954e4c2ae22cf9c56f942dcdc8abaf79c2f039bbf26b0581e1498d621a2c6e0ef078f147e85b7c7dc8137e3e48
+  checksum: 10c0/b32984a1fb6b495415258f88f87269b4049c19a73a1d6e2b13e0dd36dd311a5a4d945c9fd1cc356eb10811febaa03cf1c85d04dc43decd4ab1d590b625918440
   languageName: node
   linkType: hard
 
