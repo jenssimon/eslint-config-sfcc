@@ -420,8 +420,8 @@ __metadata:
   linkType: hard
 
 "@jenssimon/eslint-config-base@npm:^7.3.17":
-  version: 7.4.18
-  resolution: "@jenssimon/eslint-config-base@npm:7.4.18"
+  version: 7.4.19
+  resolution: "@jenssimon/eslint-config-base@npm:7.4.19"
   dependencies:
     eslint-config-airbnb: "npm:^19.0.4"
     eslint-config-airbnb-base: "npm:^15.0.0"
@@ -439,11 +439,11 @@ __metadata:
     eslint-plugin-react-hooks: "npm:^4.6.0"
     eslint-plugin-react-redux: "npm:^4.0.0"
     eslint-plugin-sonarjs: "npm:^0.25.0"
-    eslint-plugin-unicorn: "npm:^53.0.0"
+    eslint-plugin-unicorn: "npm:^54.0.0"
     eslint-plugin-wc: "npm:^2.0.4"
   peerDependencies:
     eslint: ^7.32.0 || ^8.2.0
-  checksum: 10c0/7c33e2d58252aad156ff671e8110735763d1a2959c04b3542e511ef986881ef1d1cf081747fbd6b7eb75ed1f45ee84f4ab09c9da489a2b5aefee9138a13e541e
+  checksum: 10c0/50b51818bcf52442f3e1c3d5053827aa2e8c6beb11e286a4d23992b08ee15294c4d5af47aeb344b87d96b50cc0bfaa16e37aa3199281c4d25b5a6212ec0100e8
   languageName: node
   linkType: hard
 
@@ -2897,9 +2897,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-unicorn@npm:^53.0.0":
-  version: 53.0.0
-  resolution: "eslint-plugin-unicorn@npm:53.0.0"
+"eslint-plugin-unicorn@npm:^54.0.0":
+  version: 54.0.0
+  resolution: "eslint-plugin-unicorn@npm:54.0.0"
   dependencies:
     "@babel/helper-validator-identifier": "npm:^7.24.5"
     "@eslint-community/eslint-utils": "npm:^4.4.0"
@@ -2919,7 +2919,7 @@ __metadata:
     strip-indent: "npm:^3.0.0"
   peerDependencies:
     eslint: ">=8.56.0"
-  checksum: 10c0/da48048c21a68dd5410ed1f8abb1a80a7dabb5cf751e690dae435cb5359b3150f92682722bdb2e07258689ad1fdceaa9bd2dd08f211aaeb7ed19c62b98a32db5
+  checksum: 10c0/cca557df20f31f6a072de6eba28129ed68fff059bef7ba2d373be650bef46ba899aeba89b2be5a309657e638400eb9ae0d0cd7e2f900c22eca0a6b8e2d0f4661
   languageName: node
   linkType: hard
 
