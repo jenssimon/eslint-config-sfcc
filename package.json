@@ -25,7 +25,7 @@
     "/lib/"
   ],
   "scripts": {
-    "lint": "eslint --ext .js,.ts,.cjs,.mjs,.cts,.mts ./",
+    "lint": "eslint ./",
     "commit": "cz",
     "postinstall": "husky",
     "prepack": "pinst --disable",
@@ -43,13 +43,14 @@
   "devDependencies": {
     "@commitlint/cli": "^19.0.0",
     "@commitlint/config-conventional": "^19.0.0",
-    "@jenssimon/eslint-config-base": "^7.3.17",
+    "@eslint/compat": "^1.2.4",
+    "@eslint/eslintrc": "^3.2.0",
+    "@jenssimon/eslint-config-base": "^8.0.0",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.56.0",
     "husky": "^9.0.6",
     "lint-staged": "^15.2.0",
-    "npm-run-all2": "^7.0.0",
     "pinst": "^3.0.0",
     "semantic-release": "^24.0.0"
   },
@@ -59,16 +60,8 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "eslintConfig": {
-    "extends": [
-      "@jenssimon/base"
-    ],
-    "rules": {
-      "unicorn/prefer-module": "off"
-    }
-  },
   "lint-staged": {
-    "**/*.{js,ts}": "eslint"
+    "**/*.{js,mjs}": "eslint"
   },
   "release": {
     "branches": [
