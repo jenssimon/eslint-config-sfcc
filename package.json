@@ -27,7 +27,6 @@
   "scripts": {
     "lint": "eslint ./",
     "commit": "cz",
-    "postinstall": "husky",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
     "semantic-release": "semantic-release"
