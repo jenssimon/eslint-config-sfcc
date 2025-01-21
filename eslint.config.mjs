@@ -2,7 +2,6 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { FlatCompat } from '@eslint/eslintrc'
-import { fixupConfigRules } from '@eslint/compat'
 
 
 // mimic CommonJS variables -- not needed if using CommonJS
@@ -22,11 +21,11 @@ export default [
     ],
   },
 
-  ...fixupConfigRules(compat.config({
+  ...compat.config({
     extends: [
       '@jenssimon/base',
     ],
-  })).map((rule) => ({
+  }).map((rule) => ({
     files: [
       '**/*.js',
       '**/*.mjs',
