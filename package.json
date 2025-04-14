@@ -52,7 +52,7 @@
     "pinst": "^3.0.0",
     "semantic-release": "^24.0.0"
   },
-  "packageManager": "yarn@4.9.0",
+  "packageManager": "yarn@4.9.1",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
