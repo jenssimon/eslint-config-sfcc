@@ -1621,7 +1621,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/eslintrc@npm:^3.2.0, @eslint/eslintrc@npm:^3.3.1":
+"@eslint/eslintrc@npm:^3.3.1":
   version: 3.3.1
   resolution: "@eslint/eslintrc@npm:3.3.1"
   dependencies:
@@ -1773,13 +1773,13 @@ __metadata:
   dependencies:
     "@commitlint/cli": "npm:^19.0.0"
     "@commitlint/config-conventional": "npm:^19.0.0"
-    "@eslint/eslintrc": "npm:^3.2.0"
     "@jenssimon/eslint-config-base": "npm:^9.0.0"
     commitizen: "npm:^4.3.0"
     cz-conventional-changelog: "npm:^3.3.0"
     eslint: "npm:^9.18.0"
     eslint-plugin-es5: "npm:^1.5.0"
     eslint-plugin-sitegenesis: "npm:^1.0.0"
+    globals: "npm:^16.4.0"
     husky: "npm:^9.0.6"
     lint-staged: "npm:^16.0.0"
     pinst: "npm:^3.0.0"
