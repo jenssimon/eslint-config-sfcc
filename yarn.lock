@@ -1747,8 +1747,8 @@ __metadata:
   linkType: hard
 
 "@jenssimon/eslint-config-base@npm:^9.0.0":
-  version: 9.0.5
-  resolution: "@jenssimon/eslint-config-base@npm:9.0.5"
+  version: 9.0.6
+  resolution: "@jenssimon/eslint-config-base@npm:9.0.6"
   dependencies:
     "@eslint-community/eslint-plugin-eslint-comments": "npm:^4.4.1"
     "@eslint/js": "npm:^9.35.0"
@@ -1763,7 +1763,7 @@ __metadata:
     eslint-plugin-unicorn: "npm:^61.0.2"
   peerDependencies:
     eslint: ">= 9"
-  checksum: 10c0/dfad266b618aa7e46d6869c7888dab477989fa9351651d23a72f7cd29546ee92102296585449a99842a5aa142e9e2c4b5c2b930a8f1bc8e088f90f62ee98cf3f
+  checksum: 10c0/e51ee57d6a46a04e81a8a5947c8a9fe4f39228a6c343a632893766c729df5e47f49380d00ca76ebde98a86db18825fcb240535da9c96b2f9082901b771c2cc4f
   languageName: node
   linkType: hard
 
