@@ -50,7 +50,7 @@
     "husky": "^9.0.6",
     "lint-staged": "^16.0.0",
     "pinst": "^3.0.0",
-    "semantic-release": "^24.0.0"
+    "semantic-release": "^25.0.0"
   },
   "packageManager": "yarn@4.10.3",
   "config": {
