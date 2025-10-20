@@ -7,7 +7,7 @@
 ## Installation
 
 ```sh
-$ yarn add @jenssimon/eslint-config-sfcc --dev
+yarn add @jenssimon/eslint-config-sfcc --dev
 ```
 
 ## General
