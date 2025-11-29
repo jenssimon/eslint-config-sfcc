@@ -2474,13 +2474,13 @@ __metadata:
   linkType: hard
 
 "eslint-config-airbnb-extended@npm:^2.3.2":
-  version: 2.3.2
-  resolution: "eslint-config-airbnb-extended@npm:2.3.2"
+  version: 2.3.3
+  resolution: "eslint-config-airbnb-extended@npm:2.3.3"
   dependencies:
     confusing-browser-globals: "npm:^1.0.11"
-    globals: "npm:^16.4.0"
+    globals: "npm:^16.5.0"
   peerDependencies:
-    "@next/eslint-plugin-next": ^15.0.0
+    "@next/eslint-plugin-next": ^15.0.0 || ^16.0.0
     "@stylistic/eslint-plugin": ^3.0.0
     "@types/eslint-plugin-jsx-a11y": ^6.0.0
     eslint: ^9.0.0
@@ -2517,7 +2517,7 @@ __metadata:
       optional: true
     typescript-eslint:
       optional: true
-  checksum: 10c0/850318d9c95331eb3c9c0bdc9c9f50082e4eb122fa22106b642d97b94ea98018b83d93d431207981140798b1ae1da192b70900792ec8843b99d780af00ee70d4
+  checksum: 10c0/0c3aea6e2e565919ec33dac0921b3264fcfa3779a0a264d8ec5cd5b3d835ea4f3676101500b4f62a50cfa548cf0e3c46e4992f6239edc0cd1b38143489cbfdf0
   languageName: node
   linkType: hard
 
@@ -3300,7 +3300,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^16.4.0":
+"globals@npm:^16.4.0, globals@npm:^16.5.0":
   version: 16.5.0
   resolution: "globals@npm:16.5.0"
   checksum: 10c0/615241dae7851c8012f5aa0223005b1ed6607713d6813de0741768bd4ddc39353117648f1a7086b4b0fa45eae733f1c0a0fe369aa4e543bb63f8de8990178ea9
