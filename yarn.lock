@@ -493,7 +493,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint-community/eslint-plugin-eslint-comments@npm:^4.5.0":
+"@eslint-community/eslint-plugin-eslint-comments@npm:^4.5.0, @eslint-community/eslint-plugin-eslint-comments@npm:^4.6.0":
   version: 4.6.0
   resolution: "@eslint-community/eslint-plugin-eslint-comments@npm:4.6.0"
   dependencies:
@@ -687,17 +687,18 @@ __metadata:
   linkType: hard
 
 "@jenssimon/eslint-config-base@npm:^10.0.0":
-  version: 10.0.2
-  resolution: "@jenssimon/eslint-config-base@npm:10.0.2"
+  version: 10.1.0
+  resolution: "@jenssimon/eslint-config-base@npm:10.1.0"
+  dependencies:
+    "@eslint-community/eslint-plugin-eslint-comments": "npm:^4.6.0"
+    eslint-plugin-import-esm: "npm:^3.0.1"
+    eslint-plugin-promise: "npm:^7.2.1"
+    eslint-plugin-sonarjs: "npm:^3.0.6"
+    eslint-plugin-unicorn: "npm:^62.0.0"
   peerDependencies:
-    "@eslint-community/eslint-plugin-eslint-comments": ">= 4"
     eslint: ">= 9"
-    eslint-config-airbnb-extended: ">= 2"
-    eslint-plugin-import-esm: ">= 3"
-    eslint-plugin-promise: ">= 7"
-    eslint-plugin-sonarjs: ">= 3"
-    eslint-plugin-unicorn: ">= 62"
-  checksum: 10c0/1b3667ec37288bb930b483a3f1c00170087507f682448a4783f85048dc71e2ca7f7a9bfb9280ec077dac252e57dd0ccfa389c29ae26ad56b45319b56f20d3a9d
+    eslint-config-airbnb-extended: ">= 3"
+  checksum: 10c0/7db32d905fa027baa944802d020ab555c7e69228fe06f36cca81481449df17d31165bc73c5913171cac643885164c2d84a322577c5a8f2ec05c0d0f84ef6c2a0
   languageName: node
   linkType: hard
 
@@ -3505,7 +3506,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-sonarjs@npm:^3.0.5":
+"eslint-plugin-sonarjs@npm:^3.0.5, eslint-plugin-sonarjs@npm:^3.0.6":
   version: 3.0.6
   resolution: "eslint-plugin-sonarjs@npm:3.0.6"
   dependencies:
