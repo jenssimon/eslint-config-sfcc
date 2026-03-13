@@ -46,6 +46,7 @@ export default defineConfig(
     },
     rules: {
       'unicorn/prefer-module': 'off',
+      'import-x/extensions': 'off',
       'import-x/no-unresolved': 'off',
       'import-x/no-extraneous-dependencies': 'off',
     },
