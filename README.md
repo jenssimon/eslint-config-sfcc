@@ -1,4 +1,4 @@
-# eslint-config-sfcc
+# @jenssimon/eslint-config-sfcc
 
 Shareable ESLint flat config for Salesforce Commerce Cloud (SFCC) projects.
 
@@ -9,14 +9,14 @@ This config focuses exclusively on **JavaScript compatibility** for the SFCC/Rhi
 ### Install
 
 ```bash
-pnpm add -D eslint eslint-config-sfcc
+pnpm add -D eslint @jenssimon/eslint-config-sfcc
 ```
 
 ### Use in `eslint.config.js`
 
 ```js
 import { defineConfig } from "eslint/config"
-import sfcc from "eslint-config-sfcc"
+import sfcc from "@jenssimon/eslint-config-sfcc"
 
 export default defineConfig(
   // ...
@@ -30,7 +30,7 @@ By default, JavaScript files under `cartridges/` are linted. Client-side and sta
 
 ```js
 import { defineConfig } from "eslint/config"
-import { createRecommendedConfig } from "eslint-config-sfcc"
+import { createRecommendedConfig } from "@jenssimon/eslint-config-sfcc"
 
 export default defineConfig(
   createRecommendedConfig({
