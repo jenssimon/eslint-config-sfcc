@@ -1,67 +1,79 @@
-[![NPM version][npm-image]][npm-url] [![Downloads][npm-downloads-image]][npm-url] [![star this repo][gh-stars-image]][gh-url] [![fork this repo][gh-forks-image]][gh-url] [![Build Status][gh-status-image]][gh-url]
-
 # eslint-config-sfcc
 
-> A collection of shareable ESLint configurations for Salesforce Commerce Cloud (SFCC)
+Shareable ESLint flat config for Salesforce Commerce Cloud (SFCC) projects.
 
-## Installation
+This config focuses exclusively on **JavaScript compatibility** for the SFCC/Rhino engine. It detects the use of JavaScript features that are not supported on SFCC sandboxes — it does not enforce any code style or formatting rules. When used alongside a recommended config from [`eslint`](https://github.com/eslint/eslint), [`eslint-plugin-unicorn`](https://github.com/sindresorhus/eslint-plugin-unicorn), or [`eslint-plugin-sonarjs`](https://github.com/SonarSource/eslint-plugin-sonarjs), it disables rules that require ES2015+ features unsupported in the Rhino environment.
 
-```sh
-yarn add @jenssimon/eslint-config-sfcc --dev
+## Recommended Config
+
+### Install
+
+```bash
+pnpm add -D eslint eslint-config-sfcc
 ```
 
-## General
+### Use in `eslint.config.js`
 
-All configurations are based on the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript#readme) and a set of additions ([@jenssimon/eslint-config-base](https://github.com/jenssimon/eslint-config-base#readme)).
+```js
+import { defineConfig } from "eslint/config"
+import sfcc from "eslint-config-sfcc"
 
-This package contains a recommended configuration and a configuration that matches the original ESLint configuration for the Storefront Reference Architecture (SFRA) with adjustments to validate with newer ESLint versions.
-
-## Configurations
-
-### Standard configuration
-
-This configuration is recommended for every custom cartridge. It is based on ([@jenssimon/eslint-config-base](https://github.com/jenssimon/eslint-config-base#readme)).
-
-```json
-{
-  "extends": [
-    "@jenssimon/sfcc"
-  ]
-}
+export default defineConfig(
+  // ...
+  sfcc.configs.recommended,
+)
 ```
 
-### Configuration for SFRA
+By default, JavaScript files under `cartridges/` are linted. Client-side and static asset folders are excluded.
 
-This configuration matches the original ESLint configuration for the Storefront Reference Architecture (SFRA) with adjustments to validate with newer ESLint versions.
-It's only thought to be used with `app_storefront_base`.
+### Customize with helper
 
-```json
-{
-  "extends": [
-    "@jenssimon/sfcc/sfra"
-  ]
-}
+```js
+import { defineConfig } from "eslint/config"
+import { createRecommendedConfig } from "eslint-config-sfcc"
+
+export default defineConfig(
+  createRecommendedConfig({
+    cartridgesDir: "cartridges/",
+  }),
+)
 ```
 
-There is also a configuration for client side JS that extends the configuration mentioned above.
+---
 
-```json
-{
-  "extends": [
-    "@jenssimon/sfcc/sfra-storefront"
-  ]
-}
+## Migrating from v4
+
+This is a major release with breaking changes.
+
+### What changed
+
+**ESLint Flat Config**
+The package now uses the [flat config format](https://eslint.org/docs/latest/use/configure/configuration-files) (`eslint.config.js`). The legacy `.eslintrc`-based format is no longer supported.
+
+**Focus: compatibility, not formatting**
+The config no longer enforces any code style or formatting rules. Its sole purpose is to detect JavaScript features that are not supported on SFCC sandboxes (Rhino engine). Formatting should be handled separately, e.g. with [Prettier](https://github.com/prettier/prettier) or [Oxfmt](https://github.com/oxc-project/oxc).
+
+**No more base config**
+The previous version extended [`@jenssimon/eslint-config-base`](https://github.com/jenssimon/eslint-config-base) (Airbnb style guide). This dependency has been removed entirely. Rules like `comma-dangle`, `no-var`, `import/*`, `consistent-return`, etc. are no longer part of this config.
+
+**[`eslint-plugin-es5`](https://github.com/nkt/eslint-plugin-es5) → [`eslint-plugin-es`](https://github.com/mysticatea/eslint-plugin-es)**
+The old `eslint-plugin-es5` has been replaced by [`eslint-plugin-es`](https://github.com/mysticatea/eslint-plugin-es). Rules have been mapped accordingly.
+
+**No more SiteGenesis / SFRA configs**
+The `sfra` and `sfra-storefront` configurations have been removed. `eslint-plugin-sitegenesis` is no longer used. These configurations were specific to SFRA and SiteGenesis and are not part of this general-purpose SFCC config.
+
+### Migration steps
+
+1. Replace `.eslintrc.*` with `eslint.config.js`
+2. Update the package name and import (see [Usage](#recommended-config) above)
+3. Remove [`@jenssimon/eslint-config-base`](https://github.com/jenssimon/eslint-config-base), [`eslint-plugin-es5`](https://github.com/nkt/eslint-plugin-es5), and [`eslint-plugin-sitegenesis`](https://www.npmjs.com/package/eslint-plugin-sitegenesis) from your dependencies
+4. Add any formatting rules you need directly to your own `eslint.config.js`
+
+## Development
+
+```bash
+vp install
+vp test
+vp check
+vp pack
 ```
-
-## License
-
-MIT © 2022 [Jens Simon](https://github.com/jenssimon)
-
-[npm-url]: https://www.npmjs.com/package/@jenssimon/eslint-config-sfcc
-[npm-image]: https://badgen.net/npm/v/@jenssimon/eslint-config-sfcc
-[npm-downloads-image]: https://badgen.net/npm/dw/@jenssimon/eslint-config-sfcc
-
-[gh-url]: https://github.com/jenssimon/eslint-config-sfcc
-[gh-stars-image]: https://badgen.net/github/stars/jenssimon/eslint-config-sfcc
-[gh-forks-image]: https://badgen.net/github/forks/jenssimon/eslint-config-sfcc
-[gh-status-image]: https://badgen.net/github/status/jenssimon/eslint-config-sfcc
