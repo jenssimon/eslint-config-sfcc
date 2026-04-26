@@ -1,69 +1,65 @@
 {
   "name": "@jenssimon/eslint-config-sfcc",
-  "version": "0.0.0-development",
+  "version": "0.0.0",
   "description": "A collection of shareable ESLint configurations for Salesforce Commerce Cloud (SFCC)",
-  "main": "index.js",
-  "author": "Jens Simon <https://github.com/jenssimon>",
   "keywords": [
+    "commercecloud",
+    "demandware",
     "eslint",
     "eslintconfig",
-    "sfcc",
-    "demandware",
     "salesforce",
-    "commercecloud",
-    "sfra"
+    "sfcc"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jenssimon/eslint-config-sfcc"
+  "homepage": "https://github.com/jenssimon/eslint-config-sfcc#readme",
+  "bugs": {
+    "url": "https://github.com/jenssimon/eslint-config-sfcc/issues"
   },
   "license": "MIT",
+  "author": "Jens Simon <https://github.com/jenssimon>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jenssimon/eslint-config-sfcc.git"
+  },
   "files": [
-    "/index.js",
-    "/sfra.js",
-    "/sfra-storefront.js",
-    "/lib/"
+    "dist"
   ],
+  "type": "module",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "lint": "eslint ./",
-    "commit": "cz",
-    "prepack": "pinst --disable",
-    "postpack": "pinst --enable",
+    "build": "vp pack",
+    "dev": "vp pack --watch",
+    "test": "vp test",
+    "check": "vp check",
+    "prepublishOnly": "vp run build",
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "eslint-plugin-es5": "^1.5.0",
-    "eslint-plugin-sitegenesis": "^1.0.0"
-  },
-  "peerDependencies": {
-    "@jenssimon/eslint-config-base": ">=6.7.0",
-    "eslint": ">=7.0.0"
+    "eslint-plugin-es": "^4.1.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.0.0",
-    "@commitlint/config-conventional": "^20.0.0",
-    "@eslint/compat": "^2.0.0",
-    "@eslint/js": "^10.0.0",
-    "@jenssimon/eslint-config-base": "^10.0.0",
-    "commitizen": "^4.3.0",
-    "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^10.0.0",
-    "eslint-config-airbnb-extended": "^3.0.0",
-    "globals": "^17.0.0",
-    "husky": "^9.0.6",
-    "lint-staged": "^16.0.0",
-    "pinst": "^3.0.0",
-    "semantic-release": "^25.0.0"
+    "@types/node": "^25.6.0",
+    "@typescript/native-preview": "7.0.0-dev.20260328.1",
+    "bumpp": "^11.0.1",
+    "semantic-release": "^25.0.3",
+    "typescript": "^6.0.3",
+    "vite-plus": "^0.1.19"
   },
-  "packageManager": "yarn@4.14.1",
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+  "peerDependencies": {
+    "@eslint/compat": ">=1.3.1",
+    "eslint": ">=9.0.0",
+    "globals": ">=13.24.0"
   },
   "release": {
     "branches": [
       "main"
     ]
-  }
+  },
+  "packageManager": "pnpm@10.33.1"
 }

@@ -1,27 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ],
+  "extends": ["config:recommended"],
   "semanticCommits": "enabled",
-  "labels": [
-    "dependencies"
-  ],
+  "labels": ["dependencies"],
   "packageRules": [
     {
       "groupName": "non-breaking",
-      "matchUpdateTypes": [
-        "minor",
-        "patch",
-        "pin",
-        "digest"
-      ],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
       "automergeType": "branch",
-      "matchPackageNames": [
-        "!eslint-plugin-es5",
-        "!eslint-plugin-sitegenesis"
-      ]
+      "matchPackageNames": ["!eslint-plugin-es"]
     }
   ]
 }
