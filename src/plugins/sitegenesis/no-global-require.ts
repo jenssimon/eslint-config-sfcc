@@ -7,6 +7,52 @@ type RequireUsage = {
   usedGlobally: boolean
 }
 
+function findProgramScope(
+  sourceCode: Rule.RuleContext["sourceCode"],
+  node: Rule.Node,
+): Scope.Scope {
+  const globalScope = sourceCode.getScope(node)
+
+  // In CommonJS/flat-config combinations, top-level variables can live either
+  // in the global scope or in a dedicated module scope for the same Program.
+  for (const scope of sourceCode.scopeManager.scopes) {
+    if (scope !== globalScope && scope.block === node && scope.type !== "global") {
+      return scope
+    }
+  }
+
+  return (
+    globalScope.childScopes.find((scope) => scope.block === node) ??
+    globalScope.childScopes[0] ??
+    globalScope
+  )
+}
+
+function isTopLevelVariableInitializerReference(reference: Scope.Reference): boolean {
+  const identifier = reference.identifier as Rule.Node & { parent?: Rule.Node }
+  const parent = identifier.parent
+  if (!parent || parent.type !== "MemberExpression") {
+    return false
+  }
+
+  const call = parent.parent
+  if (!call || call.type !== "CallExpression") {
+    return false
+  }
+
+  const declarator = call.parent
+  if (!declarator || declarator.type !== "VariableDeclarator" || declarator.init !== call) {
+    return false
+  }
+
+  const declaration = declarator.parent
+  if (!declaration || declaration.type !== "VariableDeclaration") {
+    return false
+  }
+
+  return declaration.parent?.type === "Program"
+}
+
 function isRequireInitializer(value: unknown): boolean {
   if (!value || typeof value !== "object") {
     return false
@@ -29,7 +75,7 @@ const noGlobalRequire: Rule.RuleModule = {
     type: "suggestion",
     docs: {
       description: "Disallow global require usage unless every function depends on it.",
-      recommended: false,
+      recommended: true,
     },
     schema: [],
     messages: {
@@ -42,16 +88,13 @@ const noGlobalRequire: Rule.RuleModule = {
       return {}
     }
 
-    // The program-level scope: in CommonJS the module wrapper is a child of the
-    // global scope, so top-level variables live in globalScope.childScopes[0].
     let programScope: Scope.Scope | null = null
     let routeCount = 0
     const requires: Record<string, RequireUsage> = {}
 
     return {
       Program(node) {
-        const globalScope = context.sourceCode.getScope(node)
-        programScope = globalScope.childScopes[0] ?? globalScope
+        programScope = findProgramScope(context.sourceCode, node as Rule.Node)
 
         // Only collect variables declared at the program/module top level.
         for (const variable of programScope.variables) {
@@ -107,8 +150,15 @@ const noGlobalRequire: Rule.RuleModule = {
               continue
             }
 
-            if (reference.from.type === "global" || reference.from.block.type === "Program") {
+            if (
+              reference.from.type === "global" ||
+              isTopLevelVariableInitializerReference(reference)
+            ) {
               usage.usedGlobally = true
+              continue
+            }
+
+            if (reference.from === programScope) {
               continue
             }
 

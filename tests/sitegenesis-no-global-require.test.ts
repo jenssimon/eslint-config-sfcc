@@ -94,3 +94,20 @@ test("require declared inside a route function is allowed", () => {
 
   expect(messages.some((m) => m.ruleId === "sitegenesis/no-global-require")).toBe(false)
 })
+
+test("top-level middleware argument usage is still reported", () => {
+  const messages = lint(
+    `
+      var csrfProtection = require("*/cartridge/scripts/middleware/csrf")
+      server.replace("Show", csrfProtection.generateToken, function routeA() {
+        return "ok"
+      })
+      function routeB() {
+        return "ok"
+      }
+    `,
+    "cartridges/app_sfra/cartridge/controllers/Account.js",
+  )
+
+  expect(messages.some((m) => m.ruleId === "sitegenesis/no-global-require")).toBe(true)
+})
