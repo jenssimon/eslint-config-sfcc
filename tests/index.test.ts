@@ -1,6 +1,12 @@
 import { expect, test } from "vite-plus/test"
 
-import sfcc, { configs, createRecommendedConfig, recommended } from "../src/index.js"
+import sfcc, {
+  configs,
+  createRecommendedConfig,
+  plugins,
+  recommended,
+  sitegenesis,
+} from "../src/index.js"
 
 test("exports a recommended flat config", () => {
   expect(Array.isArray(recommended)).toBe(true)
@@ -24,4 +30,13 @@ test("exports createRecommendedConfig helper", () => {
 test("accepts cartridgesDir with trailing slash", () => {
   const createdConfig = createRecommendedConfig({ cartridgesDir: "cartridges/" })
   expect(createdConfig).toEqual(recommended)
+})
+
+test("exports sitegenesis plugin", () => {
+  expect(sitegenesis).toBe(plugins.sitegenesis)
+})
+
+test("exposes plugins on default export", () => {
+  expect(sfcc.plugins).toBe(plugins)
+  expect(sfcc.plugins.sitegenesis).toBe(sitegenesis)
 })
