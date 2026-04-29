@@ -77,3 +77,20 @@ test("global require is ignored in models files", () => {
 
   expect(messages.some((m) => m.ruleId === "sitegenesis/no-global-require")).toBe(false)
 })
+
+test("require declared inside a route function is allowed", () => {
+  const messages = lint(
+    `
+      function routeA() {
+        var URLUtils = require("dw/web/URLUtils")
+        return URLUtils.url("Home-Show")
+      }
+      function routeB() {
+        return "ok"
+      }
+    `,
+    "cartridges/app_sfra/cartridge/controllers/Home.js",
+  )
+
+  expect(messages.some((m) => m.ruleId === "sitegenesis/no-global-require")).toBe(false)
+})

@@ -42,54 +42,64 @@ const noGlobalRequire: Rule.RuleModule = {
       return {}
     }
 
+    // The program-level scope: in CommonJS the module wrapper is a child of the
+    // global scope, so top-level variables live in globalScope.childScopes[0].
+    let programScope: Scope.Scope | null = null
     let routeCount = 0
     const requires: Record<string, RequireUsage> = {}
 
     return {
-      FunctionExpression() {
-        routeCount += 1
-      },
-      FunctionDeclaration() {
-        routeCount += 1
-      },
       Program(node) {
-        const topScope = context.sourceCode.getScope(node)
-        const candidateScopes = context.sourceCode.scopeManager.scopes.filter(
-          (scope) => scope === topScope || scope.upper === topScope,
-        )
+        const globalScope = context.sourceCode.getScope(node)
+        programScope = globalScope.childScopes[0] ?? globalScope
 
-        for (const scope of candidateScopes) {
-          for (const variable of scope.variables) {
-            if (variable.name === "arguments") {
-              continue
-            }
+        // Only collect variables declared at the program/module top level.
+        for (const variable of programScope.variables) {
+          if (variable.name === "arguments") {
+            continue
+          }
 
-            const definition = variable.defs[0]
-            if (!definition) {
-              continue
-            }
+          const definition = variable.defs[0]
+          if (!definition) {
+            continue
+          }
 
-            const initNode = "init" in definition.node ? definition.node.init : undefined
-            if (!isRequireInitializer(initNode)) {
-              continue
-            }
+          const initNode = "init" in definition.node ? definition.node.init : undefined
+          if (!isRequireInitializer(initNode)) {
+            continue
+          }
 
-            const identifier = variable.identifiers[0]
-            if (!identifier) {
-              continue
-            }
+          const identifier = variable.identifiers[0]
+          if (!identifier) {
+            continue
+          }
 
-            requires[variable.name] = {
-              node: identifier,
-              variable,
-              functionScopes: new Set(),
-              usedGlobally: false,
-            }
+          requires[variable.name] = {
+            node: identifier,
+            variable,
+            functionScopes: new Set(),
+            usedGlobally: false,
           }
         }
       },
+      FunctionExpression(node) {
+        // Count only top-level route functions, not nested helpers.
+        const scope = context.sourceCode.getScope(node)
+        if (scope.upper === programScope) {
+          routeCount += 1
+        }
+      },
+      FunctionDeclaration(node) {
+        const scope = context.sourceCode.getScope(node)
+        if (scope.upper === programScope) {
+          routeCount += 1
+        }
+      },
       "Program:exit"() {
-        const requiredFunctionUsages = routeCount === 0 ? 1 : routeCount
+        // Nothing to report when there are no route functions.
+        if (routeCount === 0) {
+          return
+        }
 
         for (const [name, usage] of Object.entries(requires)) {
           for (const reference of usage.variable.references) {
@@ -107,7 +117,7 @@ const noGlobalRequire: Rule.RuleModule = {
             }
           }
 
-          if (usage.functionScopes.size < requiredFunctionUsages && !usage.usedGlobally) {
+          if (usage.functionScopes.size < routeCount && !usage.usedGlobally) {
             context.report({
               node: usage.node as Rule.Node,
               messageId: "moveInsideRoute",
