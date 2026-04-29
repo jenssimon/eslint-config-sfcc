@@ -2,6 +2,7 @@ import type { Linter } from "eslint"
 
 import core from "./core.js"
 import es from "./es.js"
+import sitegenesis from "./sitegenesis.js"
 import sonarjs from "./sonarjs.js"
 import typescriptEslint from "./typescript-eslint.js"
 import unicorn from "./unicorn.js"
@@ -12,6 +13,7 @@ const rules: Linter.RulesRecord = {
   ...sonarjs,
   ...typescriptEslint,
   ...es,
+  ...sitegenesis,
 }
 
 export default rules

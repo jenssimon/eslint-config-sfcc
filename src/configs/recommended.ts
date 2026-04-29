@@ -4,6 +4,7 @@ import { fixupPluginRules } from "@eslint/compat"
 import es from "eslint-plugin-es"
 import globals from "globals"
 
+import sitegenesis from "../plugins/sitegenesis/index.js"
 import rules from "../rules/index.js"
 import sfccGlobals from "../sfcc-globals.js"
 
@@ -41,6 +42,7 @@ export function createRecommendedConfig(options: RecommendedConfigOptions = {}):
       },
       plugins: {
         es: fixupPluginRules(es as never),
+        sitegenesis,
       },
       rules,
     },

@@ -41,6 +41,32 @@ export default defineConfig(
 
 ---
 
+## Built-in Plugin: `sitegenesis`
+
+This package ships a built-in ESLint plugin with rules ported from [`eslint-plugin-sitegenesis`](https://www.npmjs.com/package/eslint-plugin-sitegenesis) and adapted for ESLint 9+. The plugin is automatically registered in the recommended config.
+
+The plugin is also exported for direct use in custom configs:
+
+```js
+import { defineConfig } from "eslint/config"
+import sfcc, { sitegenesis } from "@jenssimon/eslint-config-sfcc"
+
+export default defineConfig(sfcc.configs.recommended, {
+  plugins: { sitegenesis },
+  rules: {
+    "sitegenesis/no-global-require": "error",
+  },
+})
+```
+
+### Rules
+
+| Rule                            | Description                                                                                                                                              | Default |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `sitegenesis/no-global-require` | Disallows top-level `require()` calls in controller files when not every route function uses them. Only applies to files under `cartridge/controllers/`. | `error` |
+
+---
+
 ## Migrating from v4
 
 This is a major release with breaking changes.
@@ -60,13 +86,13 @@ The previous version extended [`@jenssimon/eslint-config-base`](https://github.c
 The old `eslint-plugin-es5` has been replaced by [`eslint-plugin-es`](https://github.com/mysticatea/eslint-plugin-es). Rules have been mapped accordingly.
 
 **No more SiteGenesis / SFRA configs**
-The `sfra` and `sfra-storefront` configurations have been removed. `eslint-plugin-sitegenesis` is no longer used. These configurations were specific to SFRA and SiteGenesis and are not part of this general-purpose SFCC config.
+The `sfra` and `sfra-storefront` configurations have been removed. These configurations were specific to SFRA and SiteGenesis and are not part of this general-purpose SFCC config. The external `eslint-plugin-sitegenesis` dependency is no longer used — the `sitegenesis/no-global-require` rule is now built into this package and enabled automatically.
 
 ### Migration steps
 
 1. Replace `.eslintrc.*` with `eslint.config.js`
 2. Update the package name and import (see [Usage](#recommended-config) above)
-3. Remove [`@jenssimon/eslint-config-base`](https://github.com/jenssimon/eslint-config-base), [`eslint-plugin-es5`](https://github.com/nkt/eslint-plugin-es5), and [`eslint-plugin-sitegenesis`](https://www.npmjs.com/package/eslint-plugin-sitegenesis) from your dependencies
+3. Remove [`@jenssimon/eslint-config-base`](https://github.com/jenssimon/eslint-config-base), [`eslint-plugin-es5`](https://github.com/nkt/eslint-plugin-es5), and [`eslint-plugin-sitegenesis`](https://www.npmjs.com/package/eslint-plugin-sitegenesis) from your dependencies — the `sitegenesis/no-global-require` rule is now built in
 4. Add any formatting rules you need directly to your own `eslint.config.js`
 
 ## Development
