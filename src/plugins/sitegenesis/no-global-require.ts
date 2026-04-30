@@ -1,10 +1,17 @@
 import type { Rule, Scope } from "eslint"
 
 type RequireUsage = {
-  node: unknown
-  variable: Scope.Variable
+  node: Rule.Node
   functionScopes: Set<unknown>
   usedGlobally: boolean
+}
+
+type ProgramStatement = {
+  type: string
+  declarations?: Array<{
+    id: { type: string; name: string }
+    init: unknown
+  }>
 }
 
 function findProgramScope(
@@ -13,44 +20,48 @@ function findProgramScope(
 ): Scope.Scope {
   const globalScope = sourceCode.getScope(node)
 
-  // In CommonJS/flat-config combinations, top-level variables can live either
-  // in the global scope or in a dedicated module scope for the same Program.
+  // In CommonJS/flat-config, top-level variables live in a module/program
+  // child scope whose block is the same Program node.
   for (const scope of sourceCode.scopeManager.scopes) {
     if (scope !== globalScope && scope.block === node && scope.type !== "global") {
       return scope
     }
   }
 
-  return (
-    globalScope.childScopes.find((scope) => scope.block === node) ??
-    globalScope.childScopes[0] ??
-    globalScope
-  )
+  return globalScope.childScopes.find((scope) => scope.block === node) ?? globalScope
 }
 
-function isTopLevelVariableInitializerReference(reference: Scope.Reference): boolean {
-  const identifier = reference.identifier as Rule.Node & { parent?: Rule.Node }
-  const parent = identifier.parent
+/**
+ * Returns true when `node` is the identifier in `var x = requireResult.method(…)`,
+ * where the whole variable declaration is at the top level of a Program.
+ * These are considered "globally consumed" and should not trigger a report.
+ */
+function isTopLevelVariableInitializer(node: Rule.Node): boolean {
+  const parent = (node as { parent?: Rule.Node }).parent
   if (!parent || parent.type !== "MemberExpression") {
     return false
   }
 
-  const call = parent.parent
+  const call = (parent as { parent?: Rule.Node }).parent
   if (!call || call.type !== "CallExpression") {
     return false
   }
 
-  const declarator = call.parent
-  if (!declarator || declarator.type !== "VariableDeclarator" || declarator.init !== call) {
+  const declarator = (call as { parent?: Rule.Node }).parent
+  if (
+    !declarator ||
+    declarator.type !== "VariableDeclarator" ||
+    (declarator as { init?: unknown }).init !== call
+  ) {
     return false
   }
 
-  const declaration = declarator.parent
+  const declaration = (declarator as { parent?: Rule.Node }).parent
   if (!declaration || declaration.type !== "VariableDeclaration") {
     return false
   }
 
-  return declaration.parent?.type === "Program"
+  return (declaration as { parent?: Rule.Node }).parent?.type === "Program"
 }
 
 function isRequireInitializer(value: unknown): boolean {
@@ -96,32 +107,28 @@ const noGlobalRequire: Rule.RuleModule = {
       Program(node) {
         programScope = findProgramScope(context.sourceCode, node as Rule.Node)
 
-        // Only collect variables declared at the program/module top level.
-        for (const variable of programScope.variables) {
-          if (variable.name === "arguments") {
+        // Walk the program body directly instead of relying on the scope manager.
+        // @typescript-eslint/parser may not populate programScope.variables for
+        // const/let declarations, so AST traversal is the only parser-agnostic way.
+        for (const statement of (node as unknown as { body: ProgramStatement[] }).body) {
+          if (statement.type !== "VariableDeclaration") {
             continue
           }
 
-          const definition = variable.defs[0]
-          if (!definition) {
-            continue
-          }
+          for (const declarator of statement.declarations ?? []) {
+            if (declarator.id.type !== "Identifier") {
+              continue
+            }
 
-          const initNode = "init" in definition.node ? definition.node.init : undefined
-          if (!isRequireInitializer(initNode)) {
-            continue
-          }
+            if (!isRequireInitializer(declarator.init)) {
+              continue
+            }
 
-          const identifier = variable.identifiers[0]
-          if (!identifier) {
-            continue
-          }
-
-          requires[variable.name] = {
-            node: identifier,
-            variable,
-            functionScopes: new Set(),
-            usedGlobally: false,
+            requires[declarator.id.name] = {
+              node: declarator.id as unknown as Rule.Node,
+              functionScopes: new Set(),
+              usedGlobally: false,
+            }
           }
         }
       },
@@ -138,6 +145,36 @@ const noGlobalRequire: Rule.RuleModule = {
           routeCount += 1
         }
       },
+      Identifier(node) {
+        const { name } = node as unknown as { name: string }
+        const usage = requires[name]
+        if (!usage) {
+          return
+        }
+
+        const parent = (node as unknown as { parent?: Rule.Node }).parent
+
+        // Skip the declaration itself: VariableDeclarator.id = node
+        if (parent?.type === "VariableDeclarator" && (parent as { id?: unknown }).id === node) {
+          return
+        }
+
+        // Top-level usage that derives a new variable is globally useful —
+        // e.g. `var homeUrl = URLUtils.url("Home-Show")` at program level.
+        if (isTopLevelVariableInitializer(node as Rule.Node)) {
+          usage.usedGlobally = true
+          return
+        }
+
+        const scope = context.sourceCode.getScope(node as Rule.Node)
+
+        // In CommonJS, top-level code runs inside a module-wrapper function
+        // (programScope). References at that level are NOT inside a user-defined
+        // route function — only references inside child function scopes count.
+        if (scope.type === "function" && scope !== programScope) {
+          usage.functionScopes.add(scope.block)
+        }
+      },
       "Program:exit"() {
         // Nothing to report when there are no route functions.
         if (routeCount === 0) {
@@ -145,28 +182,6 @@ const noGlobalRequire: Rule.RuleModule = {
         }
 
         for (const [name, usage] of Object.entries(requires)) {
-          for (const reference of usage.variable.references) {
-            if (reference.init) {
-              continue
-            }
-
-            if (
-              reference.from.type === "global" ||
-              isTopLevelVariableInitializerReference(reference)
-            ) {
-              usage.usedGlobally = true
-              continue
-            }
-
-            if (reference.from === programScope) {
-              continue
-            }
-
-            if (reference.from.type === "function") {
-              usage.functionScopes.add(reference.from.block)
-            }
-          }
-
           if (usage.functionScopes.size < routeCount && !usage.usedGlobally) {
             context.report({
               node: usage.node as Rule.Node,
