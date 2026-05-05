@@ -11,7 +11,7 @@ function lint(code: string, filename: string): Linter.LintMessage[] {
 test("global require used only in some functions is reported", () => {
   const messages = lint(
     `
-      var URLUtils = require("dw/web/URLUtils")
+      const URLUtils = require("dw/web/URLUtils")
       function routeA() {
         return URLUtils.url("Home-Show")
       }
@@ -28,7 +28,7 @@ test("global require used only in some functions is reported", () => {
 test("global require used in every function is allowed", () => {
   const messages = lint(
     `
-      var URLUtils = require("dw/web/URLUtils")
+      const URLUtils = require("dw/web/URLUtils")
       function routeA() {
         return URLUtils.url("Home-Show")
       }
@@ -45,8 +45,8 @@ test("global require used in every function is allowed", () => {
 test("global require with global usage is allowed", () => {
   const messages = lint(
     `
-      var URLUtils = require("dw/web/URLUtils")
-      var homeUrl = URLUtils.url("Home-Show")
+      const URLUtils = require("dw/web/URLUtils")
+      const homeUrl = URLUtils.url("Home-Show")
       function routeA() {
         return homeUrl
       }
@@ -62,7 +62,7 @@ test("global require with global usage is allowed", () => {
 
 test("global require without functions is ignored outside controllers", () => {
   const messages = lint(
-    `var URLUtils = require("dw/web/URLUtils")`,
+    `const URLUtils = require("dw/web/URLUtils")`,
     "cartridges/app_sfra/cartridge/scripts/helpers/url.js",
   )
 
@@ -71,7 +71,7 @@ test("global require without functions is ignored outside controllers", () => {
 
 test("global require is ignored in models files", () => {
   const messages = lint(
-    `var URLUtils = require("dw/web/URLUtils")`,
+    `const URLUtils = require("dw/web/URLUtils")`,
     "cartridges/app_sfra/cartridge/models/product.js",
   )
 
@@ -82,7 +82,7 @@ test("require declared inside a route function is allowed", () => {
   const messages = lint(
     `
       function routeA() {
-        var URLUtils = require("dw/web/URLUtils")
+        const URLUtils = require("dw/web/URLUtils")
         return URLUtils.url("Home-Show")
       }
       function routeB() {
@@ -98,7 +98,7 @@ test("require declared inside a route function is allowed", () => {
 test("top-level middleware argument usage is still reported", () => {
   const messages = lint(
     `
-      var csrfProtection = require("*/cartridge/scripts/middleware/csrf")
+      const csrfProtection = require("*/cartridge/scripts/middleware/csrf")
       server.replace("Show", csrfProtection.generateToken, function routeA() {
         return "ok"
       })

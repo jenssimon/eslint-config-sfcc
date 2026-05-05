@@ -61,9 +61,12 @@ export default defineConfig(sfcc.configs.recommended, {
 
 ### Rules
 
-| Rule                            | Description                                                                                                                                              | Default |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| `sitegenesis/no-global-require` | Disallows top-level `require()` calls in controller files when not every route function uses them. Only applies to files under `cartridge/controllers/`. | `error` |
+| Rule                             | Description                                                                                                                                              | Default |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `sitegenesis/no-global-require`  | Disallows top-level `require()` calls in controller files when not every route function uses them. Only applies to files under `cartridge/controllers/`. | `error` |
+| `sitegenesis/rhino-const-compat` | Enforces `let` instead of `const` in Rhino-critical block scopes (for example loop and nested block contexts) and supports auto-fix.                     | `error` |
+
+`sitegenesis/rhino-const-compat` is designed to coexist with `prefer-const`: keep `prefer-const` enabled if you want, then run ESLint with `--fix` so only Rhino-unsafe `const` declarations are converted back to `let`.
 
 ---
 
