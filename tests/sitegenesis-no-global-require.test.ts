@@ -8,7 +8,7 @@ function lint(code: string, filename: string): Linter.LintMessage[] {
   return linter.verify(code, recommended, { filename })
 }
 
-test("global require used only in some functions is reported", () => {
+test("global require used in only one function is allowed like the original rule", () => {
   const messages = lint(
     `
       const URLUtils = require("dw/web/URLUtils")
@@ -22,7 +22,7 @@ test("global require used only in some functions is reported", () => {
     "cartridges/app_sfra/cartridge/controllers/Home.js",
   )
 
-  expect(messages.some((m) => m.ruleId === "sitegenesis/no-global-require")).toBe(true)
+  expect(messages.some((m) => m.ruleId === "sitegenesis/no-global-require")).toBe(false)
 })
 
 test("global require used in every function is allowed", () => {
@@ -60,7 +60,7 @@ test("global require with global usage is allowed", () => {
   expect(messages.filter((m) => m.severity > 0)).toHaveLength(0)
 })
 
-test("global require without functions is ignored outside controllers", () => {
+test("global require is not reported when no functions exist in scripts", () => {
   const messages = lint(
     `const URLUtils = require("dw/web/URLUtils")`,
     "cartridges/app_sfra/cartridge/scripts/helpers/url.js",
@@ -69,7 +69,7 @@ test("global require without functions is ignored outside controllers", () => {
   expect(messages.some((m) => m.ruleId === "sitegenesis/no-global-require")).toBe(false)
 })
 
-test("global require is ignored in models files", () => {
+test("global require is not reported when no functions exist in models", () => {
   const messages = lint(
     `const URLUtils = require("dw/web/URLUtils")`,
     "cartridges/app_sfra/cartridge/models/product.js",
@@ -95,7 +95,7 @@ test("require declared inside a route function is allowed", () => {
   expect(messages.some((m) => m.ruleId === "sitegenesis/no-global-require")).toBe(false)
 })
 
-test("top-level middleware argument usage is still reported", () => {
+test("top-level middleware argument usage is allowed like the original rule", () => {
   const messages = lint(
     `
       const csrfProtection = require("*/cartridge/scripts/middleware/csrf")
@@ -109,5 +109,5 @@ test("top-level middleware argument usage is still reported", () => {
     "cartridges/app_sfra/cartridge/controllers/Account.js",
   )
 
-  expect(messages.some((m) => m.ruleId === "sitegenesis/no-global-require")).toBe(true)
+  expect(messages.some((m) => m.ruleId === "sitegenesis/no-global-require")).toBe(false)
 })
