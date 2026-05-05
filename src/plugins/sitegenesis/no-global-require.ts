@@ -21,7 +21,7 @@ function getGlobalScope(context: Rule.RuleContext, node: Rule.Node): Scope.Scope
   const hasGlobalReturn = getParserGlobalReturn(context)
   const sourceType = (node as { sourceType?: string }).sourceType
 
-  if (hasGlobalReturn || sourceType === "module") {
+  if (hasGlobalReturn || sourceType === "module" || sourceType === "commonjs") {
     return scope.childScopes[0] ?? scope
   }
 
@@ -59,13 +59,25 @@ const noGlobalRequire: Rule.RuleModule = {
     schema: [],
   },
   create: (context) => {
+    const normalizedFilename = context.filename.replaceAll("\\", "/")
+    if (!normalizedFilename.includes("/cartridge/controllers/")) {
+      return {}
+    }
+
     let routeCount = 0
     const requires: Record<string, RequireEntry> = {}
 
     function processFunction(node: Rule.Node): void {
+      const scope = context.sourceCode.getScope(node)
+
+      // Only count direct (top-level) route functions, not nested callbacks or helpers.
+      // A function is top-level when its enclosing scope's block is the Program node.
+      if (scope.upper?.block?.type !== "Program") {
+        return
+      }
+
       routeCount += 1
 
-      const scope = context.sourceCode.getScope(node)
       scope.through
         .filter((item) => item.from.type === "function")
         .forEach((item) => {

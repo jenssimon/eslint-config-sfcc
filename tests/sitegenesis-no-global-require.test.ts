@@ -8,7 +8,7 @@ function lint(code: string, filename: string): Linter.LintMessage[] {
   return linter.verify(code, recommended, { filename })
 }
 
-test("global require used in only one function is allowed like the original rule", () => {
+test("global require used in only one of two functions is reported", () => {
   const messages = lint(
     `
       const URLUtils = require("dw/web/URLUtils")
@@ -22,7 +22,7 @@ test("global require used in only one function is allowed like the original rule
     "cartridges/app_sfra/cartridge/controllers/Home.js",
   )
 
-  expect(messages.some((m) => m.ruleId === "sitegenesis/no-global-require")).toBe(false)
+  expect(messages.some((m) => m.ruleId === "sitegenesis/no-global-require")).toBe(true)
 })
 
 test("global require used in every function is allowed", () => {
