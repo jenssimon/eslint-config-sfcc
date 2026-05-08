@@ -69,6 +69,25 @@ test("global require is not reported when no functions exist in scripts", () => 
   expect(messages.some((m) => m.ruleId === "sitegenesis/no-global-require")).toBe(false)
 })
 
+test("top-level helper functions using global requires do not crash with inline require calls in routes", () => {
+  // Regression test: v5.2.2 crashed with TypeError ("Cannot read properties of undefined
+  // (reading 'add')") when inline require() calls appeared inside route functions.
+  const messages = lint(
+    `
+      function start() {
+        var result = require('dw/system/System').getPreferences()
+        return result
+      }
+    `,
+    "cartridges/app_sfra/cartridge/controllers/MyController.js",
+  )
+
+  // Must not throw and must not report inline requires
+  expect(
+    messages.filter((m) => m.ruleId === "sitegenesis/no-global-require" && m.severity > 0),
+  ).toHaveLength(0)
+})
+
 test("global require is not reported when no functions exist in models", () => {
   const messages = lint(
     `const URLUtils = require("dw/web/URLUtils")`,
