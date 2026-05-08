@@ -17,6 +17,53 @@ function lint(
   return linter.verify(code, recommended, { filename })
 }
 
+test("var at script top-level that is never reassigned is reported", () => {
+  const messages = lint(`
+    'use strict';
+    var field = require('./formField');
+    var action = require('./formAction');
+  `) as Linter.LintMessage[]
+
+  expect(messages.filter((m) => m.ruleId === "sitegenesis/prefer-const")).toHaveLength(2)
+})
+
+test("var at script top-level that is reassigned is not reported", () => {
+  const messages = lint(`
+    'use strict';
+    var field = require('./formField');
+    field = null;
+  `) as Linter.LintMessage[]
+
+  expect(messages.some((m) => m.ruleId === "sitegenesis/prefer-const")).toBe(false)
+})
+
+test("fixes var to const at script top-level", () => {
+  const result = lint(
+    `
+      'use strict';
+      var field = require('./formField');
+    `,
+    undefined,
+    true,
+  ) as Linter.FixReport
+
+  expect(result.fixed).toBe(true)
+  expect(result.output).toContain("const field = require('./formField')")
+})
+
+test("var in nested block is reported", () => {
+  const messages = lint(`
+    function routeA() {
+      if (true) {
+        var x = 1;
+        return x;
+      }
+    }
+  `) as Linter.LintMessage[]
+
+  expect(messages.some((m) => m.ruleId === "sitegenesis/prefer-const")).toBe(true)
+})
+
 test("let at function top-level that is never reassigned is reported", () => {
   const messages = lint(`
     function routeA() {
