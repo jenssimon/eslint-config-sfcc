@@ -80,6 +80,19 @@ test("const at function top-level block is allowed", () => {
   expect(messages.some((m) => m.ruleId === "sitegenesis/rhino-const-compat")).toBe(false)
 })
 
+test("const in plain if block is allowed", () => {
+  const messages = lint(`
+    function routeA() {
+      if (true) {
+        const x = 1
+        return x
+      }
+    }
+  `) as Linter.LintMessage[]
+
+  expect(messages.some((m) => m.ruleId === "sitegenesis/rhino-const-compat")).toBe(false)
+})
+
 test("fixes const to let in for-of loop header", () => {
   const result = lint(
     `

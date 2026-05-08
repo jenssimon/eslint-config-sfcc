@@ -10,8 +10,7 @@ const rhinoConstCompat: Rule.RuleModule = {
   meta: {
     type: "problem",
     docs: {
-      description:
-        "Enforce let instead of const in block-scoped contexts that are unsafe in Rhino.",
+      description: "Enforce let instead of const in Rhino-unsafe loop-related scopes.",
       recommended: true,
     },
     fixable: "code",

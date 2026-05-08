@@ -61,12 +61,80 @@ export default defineConfig(sfcc.configs.recommended, {
 
 ### Rules
 
-| Rule                             | Description                                                                                                                                              | Default |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| `sitegenesis/no-global-require`  | Disallows top-level `require()` calls in controller files when not every route function uses them. Only applies to files under `cartridge/controllers/`. | `error` |
-| `sitegenesis/rhino-const-compat` | Enforces `let` instead of `const` in Rhino-critical block scopes (for example loop and nested block contexts) and supports auto-fix.                     | `error` |
+| Rule                               | Description                                                                                                                                              | Default |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `sitegenesis/no-global-require`    | Disallows top-level `require()` calls in controller files when not every route function uses them. Only applies to files under `cartridge/controllers/`. | `error` |
+| `sitegenesis/prefer-const`         | Requires `const` for `let` declarations that are never reassigned, excluding Rhino-sensitive nested/loop contexts.                                       | `error` |
+| `sitegenesis/rhino-const-compat`   | Enforces `let` instead of `const` in Rhino loop-critical contexts (loop headers and declarations inside loop bodies) and supports auto-fix.              | `error` |
+| `sitegenesis/rhino-const-conflict` | Detects same-name `const` declarations in nested blocks within the same function (Rhino treats them as function-scoped) and supports auto-fix to `let`.  | `error` |
 
-`sitegenesis/rhino-const-compat` is designed to coexist with `prefer-const`: keep `prefer-const` enabled if you want, then run ESLint with `--fix` so only Rhino-unsafe `const` declarations are converted back to `let`.
+### Rhino const strategy
+
+The recommended config intentionally combines three rules:
+
+1. `sitegenesis/prefer-const` to keep top-level function declarations idiomatic (`let` -> `const` when safe).
+2. `sitegenesis/rhino-const-compat` to force `let` in loop-related Rhino edge cases.
+3. `sitegenesis/rhino-const-conflict` to prevent sibling nested-block `const` name collisions in the same function.
+
+This avoids rule ping-pong during `--fix`: Rhino-unsafe `const` gets converted to `let`, while genuinely safe top-level function bindings still become `const`.
+
+Example:
+
+```js
+function route() {
+  let topLevel = 1 // prefer-const -> const
+
+  for (let i = 0; i < 3; i += 1) {
+    const loopValue = i * 2 // rhino-const-compat -> let
+    process(loopValue)
+  }
+
+  if (flagA) {
+    const temp = 1 // with another nested const temp below: rhino-const-conflict -> let
+    process(temp)
+  }
+  if (flagB) {
+    const temp = 2 // rhino-const-conflict -> let
+    process(temp)
+  }
+
+  return topLevel
+}
+```
+
+### Decision matrix: `const` vs `let`
+
+- Function top-level (`function route() { ... }`) and never reassigned: use `const` (`sitegenesis/prefer-const`)
+- Loop header (`for (const x of xs)`, `for (const k in obj)`, `for (const i = 0; ...)`): use `let` (`sitegenesis/rhino-const-compat`)
+- Declaration inside a loop body: use `let` (`sitegenesis/rhino-const-compat`)
+- Nested block with unique name in same function: `const` is allowed
+- Nested block with same `const` name reused in sibling/other nested blocks of same function: use `let` (`sitegenesis/rhino-const-conflict`)
+
+### Mini-FAQ
+
+Q: Is this safe?
+
+```js
+if (foo === "bar") {
+  const value = 1
+}
+```
+
+A: Yes. A single nested-block `const` with a unique name in that function is allowed.
+
+Q: What about this?
+
+```js
+if (foo === "bar") {
+  const test = 1
+}
+
+if (foo === "baz") {
+  const test = 2
+}
+```
+
+A: Not safe for Rhino. Both declarations are treated as function-scoped const bindings with the same name. `sitegenesis/rhino-const-conflict` reports this and auto-fixes to `let`.
 
 ---
 

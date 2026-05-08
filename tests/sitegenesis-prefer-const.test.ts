@@ -40,7 +40,20 @@ test("let that is reassigned is not reported", () => {
   expect(messages.some((m) => m.ruleId === "sitegenesis/prefer-const")).toBe(false)
 })
 
-test("let in nested block (Rhino-critical) is not reported", () => {
+test("let in nested block (Rhino-critical: loop) is not reported", () => {
+  const messages = lint(`
+    function routeA() {
+      for (let i = 0; i < 3; i += 1) {
+        let x = i * 2
+        return x
+      }
+    }
+  `) as Linter.LintMessage[]
+
+  expect(messages.some((m) => m.ruleId === "sitegenesis/prefer-const")).toBe(false)
+})
+
+test("let in plain if block (non-loop nested) is not reported by prefer-const", () => {
   const messages = lint(`
     function routeA() {
       if (true) {
@@ -83,13 +96,17 @@ test("fixes let to const at function top-level", () => {
 })
 
 test("no conflict: const in nested block gets fixed to let, not re-reported by prefer-const", () => {
-  // Start: const in critical scope → rhino-const-compat fires, fixes to let.
-  // After fix: let in critical scope → sitegenesis/prefer-const does NOT fire.
+  // Start: const in sibling blocks with same name → rhino-const-conflict fires, fixes to let.
+  // After fix: let in nested blocks → sitegenesis/prefer-const does NOT fire (nested blocks excluded).
   const result = lint(
     `
       function routeA() {
-        if (true) {
+        if (foo === "bar") {
           const x = 1
+          return x
+        }
+        if (foo === "baz") {
+          const x = 2
           return x
         }
       }

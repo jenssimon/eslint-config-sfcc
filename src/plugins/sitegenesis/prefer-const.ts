@@ -1,6 +1,6 @@
 import type { Rule, Scope } from "eslint"
 
-import { isRhinoCriticalScope } from "../_utils/rhino-scope.js"
+import { isInNestedBlock, isRhinoCriticalScope } from "../_utils/rhino-scope.js"
 
 function isNeverReassigned(variable: Scope.Variable): boolean {
   // A variable is "never reassigned" if all its write references are the
@@ -14,7 +14,7 @@ const preferConst: Rule.RuleModule = {
     docs: {
       description:
         "Require const for let declarations that are never reassigned, " +
-        "except in Rhino-critical block scopes where rhino-const-compat applies.",
+        "except in Rhino-sensitive nested and loop scopes.",
       recommended: true,
     },
     fixable: "code",
@@ -26,8 +26,9 @@ const preferConst: Rule.RuleModule = {
   create: (context) => ({
     "VariableDeclaration[kind='let']"(node: Rule.Node) {
       // In Rhino-critical scopes const is broken — don't suggest it here.
-      // rhino-const-compat already handles the reverse direction (const → let).
-      if (isRhinoCriticalScope(node)) {
+      // In any nested block, const might cause Rhino re-declaration conflicts.
+      // Also skip loop headers where rhino-const-compat already handles const→let.
+      if (isInNestedBlock(node) || isRhinoCriticalScope(node)) {
         return
       }
 
