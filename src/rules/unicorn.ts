@@ -3,7 +3,6 @@ import type { Linter } from "eslint"
 // Disable eslint-plugin-unicorn rules that suggest or require ES2015+ syntax
 // not supported on SFCC sandboxes (Rhino engine).
 const unicorn: Linter.RulesRecord = {
-  "unicorn/no-array-for-each": "off",
   "unicorn/no-array-sort": "off",
   "unicorn/no-for-loop": "off",
   "unicorn/no-useless-iterator-to-array": "off",
