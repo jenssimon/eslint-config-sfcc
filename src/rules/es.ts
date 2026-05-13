@@ -22,7 +22,6 @@ const es: Linter.RulesRecord = {
   "es/no-classes": "error",
   "es/no-computed-properties": "error",
   "es/no-default-parameters": "error",
-  "es/no-for-of-loops": "error",
   "es/no-generators": "error",
   "es/no-modules": "error",
   "es/no-new-target": "error",
