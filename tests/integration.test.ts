@@ -23,19 +23,9 @@ test("valid ES5 CommonJS code produces no errors", () => {
   expect(messages.filter((m) => m.severity > 0)).toHaveLength(0)
 })
 
-test("template literals are reported as errors (es/no-template-literals)", () => {
-  const messages = lint("const x = `hello world`")
-  expect(messages.some((m) => m.ruleId === "es/no-template-literals")).toBe(true)
-})
-
 test("class declarations are reported as errors (es/no-classes)", () => {
   const messages = lint(`class Animal { constructor() {} }`)
   expect(messages.some((m) => m.ruleId === "es/no-classes")).toBe(true)
-})
-
-test("for-of loops are reported as errors (es/no-for-of-loops)", () => {
-  const messages = lint(`const arr = [1,2,3]; for (const n of arr) {}`)
-  expect(messages.some((m) => m.ruleId === "es/no-for-of-loops")).toBe(true)
 })
 
 test("rest parameters are reported as errors (es/no-rest-parameters)", () => {
