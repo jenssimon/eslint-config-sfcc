@@ -36,7 +36,6 @@ const es: Linter.RulesRecord = {
   "es/no-rest-parameters": "error",
   "es/no-spread-elements": "error",
   "es/no-subclassing-builtins": "error",
-  "es/no-template-literals": "error",
 }
 
 export default es

@@ -12,7 +12,6 @@ const core: Linter.RulesRecord = {
   "prefer-object-spread": "off",
   "prefer-rest-params": "off",
   "prefer-spread": "off",
-  "prefer-template": "off",
   "preserve-caught-error": "off",
 }
 
