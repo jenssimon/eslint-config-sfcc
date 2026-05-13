@@ -18,6 +18,9 @@ const getRulesFromPresets = (presets: string[]): Linter.RulesRecord =>
 const es: Linter.RulesRecord = {
   ...getRulesFromPresets(esVersionPresets),
 
+  // features that are supported
+  "es/no-object-values": "off",
+
   // ES2015 features not supported on SFCC/Rhino — no preset available, listed explicitly:
   "es/no-classes": "error",
   "es/no-computed-properties": "error",
@@ -25,7 +28,6 @@ const es: Linter.RulesRecord = {
   "es/no-generators": "error",
   "es/no-modules": "error",
   "es/no-new-target": "error",
-  "es/no-object-values": "error",
   "es/no-promise": "error",
   "es/no-proxy": "error",
   "es/no-reflect": "error",
