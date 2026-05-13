@@ -25,6 +25,7 @@ const es: Linter.RulesRecord = {
   "es/no-generators": "error",
   "es/no-modules": "error",
   "es/no-new-target": "error",
+  "es/no-object-values": "error",
   "es/no-promise": "error",
   "es/no-proxy": "error",
   "es/no-reflect": "error",
