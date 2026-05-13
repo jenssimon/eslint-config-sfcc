@@ -20,6 +20,7 @@ const es: Linter.RulesRecord = {
 
   // features that are supported
   "es/no-object-values": "off",
+  "es/no-object-entries": "off",
   "es/no-for-of-loops": "off",
 
   // ES2015 features not supported on SFCC/Rhino — no preset available, listed explicitly:
