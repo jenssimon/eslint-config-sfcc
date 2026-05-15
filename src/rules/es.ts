@@ -27,6 +27,7 @@ const es: Linter.RulesRecord = {
   "es/no-classes": "error",
   "es/no-computed-properties": "error",
   "es/no-default-parameters": "error",
+  "es/no-dynamic-import": "error",
   "es/no-generators": "error",
   "es/no-modules": "error",
   "es/no-new-target": "error",
@@ -36,6 +37,7 @@ const es: Linter.RulesRecord = {
   "es/no-regexp-u-flag": "error",
   "es/no-regexp-y-flag": "error",
   "es/no-rest-parameters": "error",
+  "es/no-rest-spread-properties": "error",
   "es/no-spread-elements": "error",
   "es/no-subclassing-builtins": "error",
 }
