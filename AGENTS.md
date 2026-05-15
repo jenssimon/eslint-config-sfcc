@@ -86,3 +86,13 @@ For GitHub Actions, consider using [`voidzero-dev/setup-vp`](https://github.com/
 - [ ] Run `vp install` after pulling remote changes and before getting started.
 - [ ] Run `vp check` and `vp test` to validate changes.
 <!--VITE PLUS END-->
+
+## Repository-specific testing guidance
+
+When editing compatibility rules or integration tests, keep this structure:
+
+- In `tests/integration.test.ts`, keep allowed features before disallowed features.
+- Order tests by practical developer frequency (common usage first).
+- Keep ES5 baseline tests intentionally small (sentinel coverage only).
+- Keep folder path handling in a dedicated section.
+- If feature support changes, update `src/rules/es.ts` and `tests/integration.test.ts` in the same change.
