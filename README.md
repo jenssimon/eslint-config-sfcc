@@ -2,7 +2,23 @@
 
 Shareable ESLint flat config for Salesforce Commerce Cloud (SFCC) projects.
 
-This config focuses exclusively on **JavaScript compatibility** for the SFCC/Rhino engine. It detects the use of JavaScript features that are not supported on SFCC sandboxes — it does not enforce any code style or formatting rules. When used alongside a recommended config from [`eslint`](https://github.com/eslint/eslint), [`eslint-plugin-unicorn`](https://github.com/sindresorhus/eslint-plugin-unicorn), or [`eslint-plugin-sonarjs`](https://github.com/SonarSource/eslint-plugin-sonarjs), it disables rules that require ES2015+ features unsupported in the Rhino environment.
+## Key Features Checked (Allow/Block)
+
+**Allowed:**
+
+- ES5 syntax and common patterns that are guaranteed to work on SFCC/Rhino
+- Selected ES2015+ features that are proven to work on SFCC (e.g. `String.raw`, some Array methods)
+
+**Blocked:**
+
+- Modern language features not supported on SFCC/Rhino (e.g. optional chaining, nullish coalescing, async/await, object spread, many ES2015+ builtins)
+- Top-level `await`, dynamic `import()`, class fields, new builtins like `Map`, `Set`, `Promise`, `Symbol`, etc.
+- Features that would cause runtime or syntax errors on SFCC
+- Many ES2015+ Array/String/Object methods missing in Rhino
+- ECMAScript modules (`import`/`export`), as SFCC only supports CommonJS
+- Common pitfalls like duplicate `const` declarations in blocks (Rhino scoping)
+
+See the integration tests for concrete examples.
 
 ## Recommended Config
 

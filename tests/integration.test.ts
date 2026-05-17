@@ -168,23 +168,31 @@ describe("✅ SFCC Compatibility - Allowed ES2015+ Features", () => {
 describe("❌ SFCC Compatibility - Disallowed ES2015+ Features", () => {
   describe("❌ Frequently used modern syntax that breaks in SFCC", () => {
     test("❌ Optional Chaining", async () => {
-      const messages = await lint(`var x = obj?.foo`)
+      const messages = await lint(`
+      function getCustomerId(req) {
+        return req.currentCustomer?.profile?.customerNo
+      }
+      module.exports = getCustomerId
+    `)
       expect(hasErrors(messages)).toBe(true)
     })
 
     test("❌ Nullish Coalescing", async () => {
       const messages = await lint(`
-      var x = null ?? "default"
+      function resolveLocale(locale) {
+        return locale ?? "en_US"
+      }
+      module.exports = resolveLocale
     `)
       expect(hasErrors(messages)).toBe(true)
     })
 
     test("❌ Async Functions", async () => {
       const messages = await lint(`
-      async function load() {
-        return 1
+      async function loadAvailability(productID) {
+        return { id: productID, available: true }
       }
-      module.exports = load
+      module.exports = loadAvailability
     `)
       expect(hasErrors(messages)).toBe(true)
     })

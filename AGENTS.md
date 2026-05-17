@@ -96,3 +96,20 @@ When editing compatibility rules or integration tests, keep this structure:
 - Keep ES5 baseline tests intentionally small (sentinel coverage only).
 - Keep folder path handling in a dedicated section.
 - If feature support changes, update `src/rules/es.ts` and `tests/integration.test.ts` in the same change.
+
+## Repository-specific agent conventions
+
+When changing recommended suites or rules, follow these repository conventions:
+
+- TypeScript usage model:
+  - Treat this repository as JavaScript-first for SFCC runtime behavior.
+  - In examples and compatibility-focused tests, use `.js` code with JSDoc-style typing when types are needed.
+  - Do not introduce real `.ts` syntax in SFCC runtime examples.
+- typescript-eslint scope:
+  - Only keep tests for rules that are meaningful in the JS/JSDoc runtime model.
+  - Avoid tests that depend on full TypeScript-only semantics if they are not reliable in this environment.
+- Recommended suite composition:
+  - Recommended plugin suites (ESLint, Unicorn, typescript-eslint, SonarJS) should be validated against this package's exported recommended config, not plugin defaults alone.
+- SFCC runtime realism:
+  - Prefer SFCC patterns in snippets (e.g. `const Logger = require("dw/system/Logger")`, then `Logger.info(...)`).
+  - Avoid `console`-based examples for SFCC runtime snippets.
