@@ -190,15 +190,3 @@ vp test
 vp check
 vp pack
 ```
-
-## Integration test strategy (maintainer note)
-
-The integration suite in `tests/integration.test.ts` follows a strict order and scope so future changes stay readable and practical for SFCC teams:
-
-1. Allowed features come before disallowed features.
-2. Within sections, list common real-world use cases first.
-3. Keep ES5 baseline checks minimal (sentinel tests only), because the main goal is preventing unsupported modern syntax in Rhino.
-4. Keep folder-path behavior checks separate from feature compatibility checks.
-5. Prefer stable behavior-oriented test names and keep rule IDs in assertions, not in test titles.
-
-When adding or changing feature support, update both `src/rules/es.ts` and `tests/integration.test.ts` together.
