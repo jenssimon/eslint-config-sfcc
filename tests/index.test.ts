@@ -1,10 +1,11 @@
 import { expect, test } from "vite-plus/test"
 
-import sfcc, {
+import eslintConfigSfcc, {
   configs,
   createRecommendedConfig,
   plugins,
   recommended,
+  sfcc,
   sitegenesis,
 } from "../src/index.js"
 
@@ -14,11 +15,11 @@ test("exports a recommended flat config", () => {
 })
 
 test("exposes configs.recommended on default export", () => {
-  expect(sfcc.configs.recommended).toBe(recommended)
+  expect(eslintConfigSfcc.configs.recommended).toBe(recommended)
 })
 
 test("named configs export equals default configs", () => {
-  expect(configs).toBe(sfcc.configs)
+  expect(configs).toBe(eslintConfigSfcc.configs)
 })
 
 test("exports createRecommendedConfig helper", () => {
@@ -36,7 +37,12 @@ test("exports sitegenesis plugin", () => {
   expect(sitegenesis).toBe(plugins.sitegenesis)
 })
 
+test("exports sfcc plugin", () => {
+  expect(sfcc).toBe(plugins.sfcc)
+})
+
 test("exposes plugins on default export", () => {
-  expect(sfcc.plugins).toBe(plugins)
-  expect(sfcc.plugins.sitegenesis).toBe(sitegenesis)
+  expect(eslintConfigSfcc.plugins).toBe(plugins)
+  expect(eslintConfigSfcc.plugins.sfcc).toBe(sfcc)
+  expect(eslintConfigSfcc.plugins.sitegenesis).toBe(sitegenesis)
 })

@@ -57,60 +57,54 @@ export default defineConfig(
 
 ---
 
-## Built-in Plugin: `sitegenesis`
+## Built-in Plugins
 
-This package ships a built-in ESLint plugin with rules ported from [`eslint-plugin-sitegenesis`](https://www.npmjs.com/package/eslint-plugin-sitegenesis) and adapted for ESLint 9+. The plugin is automatically registered in the recommended config.
+This package ships two built-in ESLint plugins, both automatically registered in the recommended config:
 
-The plugin is also exported for direct use in custom configs:
+1. `sfcc` for general SFCC/Rhino compatibility rules
+2. `sitegenesis` for the SiteGenesis-specific controller rule ported from [`eslint-plugin-sitegenesis`](https://www.npmjs.com/package/eslint-plugin-sitegenesis)
 
-```js
-import { defineConfig } from "eslint/config"
-import sfcc, { sitegenesis } from "@jenssimon/eslint-config-sfcc"
+### `sitegenesis`
 
-export default defineConfig(sfcc.configs.recommended, {
-  plugins: { sitegenesis },
-  rules: {
-    "sitegenesis/no-global-require": "error",
-  },
-})
-```
+`sitegenesis` now only contains `sitegenesis/no-global-require`.
 
-### Rules
+That rule stays enabled in the recommended config by default, because it is still useful protection for repositories that contain SiteGenesis-style controller code. In non-SiteGenesis projects it is effectively dormant, because it only applies to files under `cartridge/controllers/`.
 
-| Rule                               | Description                                                                                                                                              | Default |
-| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| `sitegenesis/no-global-require`    | Disallows top-level `require()` calls in controller files when not every route function uses them. Only applies to files under `cartridge/controllers/`. | `error` |
-| `sitegenesis/prefer-const`         | Requires `const` for `let` declarations that are never reassigned, excluding Rhino-sensitive nested/loop contexts.                                       | `error` |
-| `sitegenesis/rhino-const-compat`   | Enforces `let` instead of `const` in Rhino loop-critical contexts (loop headers and declarations inside loop bodies) and supports auto-fix.              | `error` |
-| `sitegenesis/rhino-const-conflict` | Detects same-name `const` declarations in nested blocks within the same function (Rhino treats them as function-scoped) and supports auto-fix to `let`.  | `error` |
+| Rule                            | Description                                                                                                                                              | Default |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `sitegenesis/no-global-require` | Disallows top-level `require()` calls in controller files when not every route function uses them. Only applies to files under `cartridge/controllers/`. | `error` |
 
-### Rhino const strategy
+### `sfcc`
 
-The recommended config intentionally combines three rules:
+The new `sfcc` plugin contains the general Rhino/SFCC runtime rules:
 
-1. `sitegenesis/prefer-const` to keep top-level function declarations idiomatic (`let` -> `const` when safe).
-2. `sitegenesis/rhino-const-compat` to force `let` in loop-related Rhino edge cases.
-3. `sitegenesis/rhino-const-conflict` to prevent sibling nested-block `const` name collisions in the same function.
+| Rule                        | Description                                                                                                                                             | Default |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `sfcc/prefer-const`         | Requires `const` for `let` declarations that are never reassigned, excluding Rhino-sensitive nested/loop contexts.                                      | `error` |
+| `sfcc/rhino-const-compat`   | Enforces `let` instead of `const` in Rhino loop-critical contexts (loop headers and declarations inside loop bodies) and supports auto-fix.             | `error` |
+| `sfcc/rhino-const-conflict` | Detects same-name `const` declarations in nested blocks within the same function (Rhino treats them as function-scoped) and supports auto-fix to `let`. | `error` |
 
-This avoids rule ping-pong during `--fix`: Rhino-unsafe `const` gets converted to `let`, while genuinely safe top-level function bindings still become `const`.
+The recommended config intentionally combines these three `sfcc/*` rules so `--fix` does not bounce between conflicting suggestions: Rhino-unsafe `const` becomes `let`, while genuinely safe top-level function bindings still become `const`.
+
+### Rhino const strategy example
 
 Example:
 
 ```js
 function route() {
-  let topLevel = 1 // prefer-const -> const
+  let topLevel = 1 // sfcc/prefer-const -> const
 
   for (let i = 0; i < 3; i += 1) {
-    const loopValue = i * 2 // rhino-const-compat -> let
+    const loopValue = i * 2 // sfcc/rhino-const-compat -> let
     process(loopValue)
   }
 
   if (flagA) {
-    const temp = 1 // with another nested const temp below: rhino-const-conflict -> let
+    const temp = 1 // with another nested const temp below: sfcc/rhino-const-conflict -> let
     process(temp)
   }
   if (flagB) {
-    const temp = 2 // rhino-const-conflict -> let
+    const temp = 2 // sfcc/rhino-const-conflict -> let
     process(temp)
   }
 
@@ -118,13 +112,31 @@ function route() {
 }
 ```
 
+### Direct plugin usage
+
+```js
+import { defineConfig } from "eslint/config"
+import eslintConfigSfcc, { sfcc as sfccPlugin, sitegenesis } from "@jenssimon/eslint-config-sfcc"
+
+export default defineConfig(eslintConfigSfcc.configs.recommended, {
+  plugins: {
+    sfcc: sfccPlugin,
+    sitegenesis,
+  },
+  rules: {
+    "sfcc/prefer-const": "error",
+    "sitegenesis/no-global-require": "error",
+  },
+})
+```
+
 ### Decision matrix: `const` vs `let`
 
-- Function top-level (`function route() { ... }`) and never reassigned: use `const` (`sitegenesis/prefer-const`)
-- Loop header (`for (const x of xs)`, `for (const k in obj)`, `for (const i = 0; ...)`): use `let` (`sitegenesis/rhino-const-compat`)
-- Declaration inside a loop body: use `let` (`sitegenesis/rhino-const-compat`)
+- Function top-level (`function route() { ... }`) and never reassigned: use `const` (`sfcc/prefer-const`)
+- Loop header (`for (const x of xs)`, `for (const k in obj)`, `for (const i = 0; ...)`): use `let` (`sfcc/rhino-const-compat`)
+- Declaration inside a loop body: use `let` (`sfcc/rhino-const-compat`)
 - Nested block with unique name in same function: `const` is allowed
-- Nested block with same `const` name reused in sibling/other nested blocks of same function: use `let` (`sitegenesis/rhino-const-conflict`)
+- Nested block with same `const` name reused in sibling/other nested blocks of same function: use `let` (`sfcc/rhino-const-conflict`)
 
 ### Mini-FAQ
 
@@ -150,7 +162,7 @@ if (foo === "baz") {
 }
 ```
 
-A: Not safe for Rhino. Both declarations are treated as function-scoped const bindings with the same name. `sitegenesis/rhino-const-conflict` reports this and auto-fixes to `let`.
+A: Not safe for Rhino. Both declarations are treated as function-scoped const bindings with the same name. `sfcc/rhino-const-conflict` reports this and auto-fixes to `let`.
 
 ---
 
@@ -173,13 +185,13 @@ The previous version extended [`@jenssimon/eslint-config-base`](https://github.c
 The old `eslint-plugin-es5` has been replaced by [`eslint-plugin-es`](https://github.com/mysticatea/eslint-plugin-es). Rules have been mapped accordingly.
 
 **No more SiteGenesis / SFRA configs**
-The `sfra` and `sfra-storefront` configurations have been removed. These configurations were specific to SFRA and SiteGenesis and are not part of this general-purpose SFCC config. The external `eslint-plugin-sitegenesis` dependency is no longer used — the `sitegenesis/no-global-require` rule is now built into this package and enabled automatically.
+The `sfra` and `sfra-storefront` configurations have been removed. These configurations were specific to SFRA and SiteGenesis and are not part of this general-purpose SFCC config. The external `eslint-plugin-sitegenesis` dependency is no longer used — `sitegenesis/no-global-require` is now built in, and the Rhino-specific general rules live in the built-in `sfcc` plugin.
 
 ### Migration steps
 
 1. Replace `.eslintrc.*` with `eslint.config.js`
 2. Update the package name and import (see [Usage](#recommended-config) above)
-3. Remove [`@jenssimon/eslint-config-base`](https://github.com/jenssimon/eslint-config-base), [`eslint-plugin-es5`](https://github.com/nkt/eslint-plugin-es5), and [`eslint-plugin-sitegenesis`](https://www.npmjs.com/package/eslint-plugin-sitegenesis) from your dependencies — the `sitegenesis/no-global-require` rule is now built in
+3. Remove [`@jenssimon/eslint-config-base`](https://github.com/jenssimon/eslint-config-base), [`eslint-plugin-es5`](https://github.com/nkt/eslint-plugin-es5), and [`eslint-plugin-sitegenesis`](https://www.npmjs.com/package/eslint-plugin-sitegenesis) from your dependencies — `sitegenesis/no-global-require` is built in and the general Rhino rules are now `sfcc/*`
 4. Add any formatting rules you need directly to your own `eslint.config.js`
 
 ## Development

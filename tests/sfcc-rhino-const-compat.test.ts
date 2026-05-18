@@ -27,7 +27,7 @@ test("const in loop body is reported", () => {
     }
   `) as Linter.LintMessage[]
 
-  expect(messages.some((m) => m.ruleId === "sitegenesis/rhino-const-compat")).toBe(true)
+  expect(messages.some((m) => m.ruleId === "sfcc/rhino-const-compat")).toBe(true)
 })
 
 test("const in for-of loop header is reported", () => {
@@ -40,7 +40,7 @@ test("const in for-of loop header is reported", () => {
     }
   `) as Linter.LintMessage[]
 
-  expect(messages.some((m) => m.ruleId === "sitegenesis/rhino-const-compat")).toBe(true)
+  expect(messages.some((m) => m.ruleId === "sfcc/rhino-const-compat")).toBe(true)
 })
 
 test("const in for-in loop header is reported", () => {
@@ -53,7 +53,7 @@ test("const in for-in loop header is reported", () => {
     }
   `) as Linter.LintMessage[]
 
-  expect(messages.some((m) => m.ruleId === "sitegenesis/rhino-const-compat")).toBe(true)
+  expect(messages.some((m) => m.ruleId === "sfcc/rhino-const-compat")).toBe(true)
 })
 
 test("const in standard for-loop initializer is reported", () => {
@@ -66,7 +66,7 @@ test("const in standard for-loop initializer is reported", () => {
     }
   `) as Linter.LintMessage[]
 
-  expect(messages.some((m) => m.ruleId === "sitegenesis/rhino-const-compat")).toBe(true)
+  expect(messages.some((m) => m.ruleId === "sfcc/rhino-const-compat")).toBe(true)
 })
 
 test("const at function top-level block is allowed", () => {
@@ -77,7 +77,7 @@ test("const at function top-level block is allowed", () => {
     }
   `) as Linter.LintMessage[]
 
-  expect(messages.some((m) => m.ruleId === "sitegenesis/rhino-const-compat")).toBe(false)
+  expect(messages.some((m) => m.ruleId === "sfcc/rhino-const-compat")).toBe(false)
 })
 
 test("const in plain if block is allowed", () => {
@@ -90,7 +90,7 @@ test("const in plain if block is allowed", () => {
     }
   `) as Linter.LintMessage[]
 
-  expect(messages.some((m) => m.ruleId === "sitegenesis/rhino-const-compat")).toBe(false)
+  expect(messages.some((m) => m.ruleId === "sfcc/rhino-const-compat")).toBe(false)
 })
 
 test("fixes const to let in for-of loop header", () => {
@@ -129,9 +129,9 @@ test("fixes const to let in loop body", () => {
   expect(result.output.includes("let x = i * 2")).toBe(true)
 })
 
-test("sitegenesis/prefer-const does not fire in the same critical scopes", () => {
+test("sfcc/prefer-const does not fire in the same critical scopes", () => {
   // After rhino-const-compat fixes const→let in a critical scope, the resulting
-  // let must NOT be re-reported by sitegenesis/prefer-const.
+  // let must NOT be re-reported by sfcc/prefer-const.
   const linter = new Linter()
   const messages = linter.verify(
     `
@@ -146,6 +146,6 @@ test("sitegenesis/prefer-const does not fire in the same critical scopes", () =>
     { filename: "cartridges/app_sfra/cartridge/controllers/Home.js" },
   )
 
-  expect(messages.some((m) => m.ruleId === "sitegenesis/prefer-const")).toBe(false)
-  expect(messages.some((m) => m.ruleId === "sitegenesis/rhino-const-compat")).toBe(false)
+  expect(messages.some((m) => m.ruleId === "sfcc/prefer-const")).toBe(false)
+  expect(messages.some((m) => m.ruleId === "sfcc/rhino-const-compat")).toBe(false)
 })

@@ -5,6 +5,7 @@ import globals from "globals"
 import { expect, test, describe } from "vite-plus/test"
 
 import { createRecommendedConfig } from "../src/configs/recommended.js"
+import sfcc from "../src/plugins/sfcc/index.js"
 import sitegenesis from "../src/plugins/sitegenesis/index.js"
 import rules from "../src/rules/index.js"
 
@@ -30,6 +31,7 @@ async function lintModule(code: string): Promise<any[]> {
       },
       plugins: {
         es: fixupPluginRules(es as never),
+        sfcc,
         sitegenesis,
       },
       rules,

@@ -24,7 +24,7 @@ test("var at script top-level that is never reassigned is reported", () => {
     var action = require('./formAction');
   `) as Linter.LintMessage[]
 
-  expect(messages.filter((m) => m.ruleId === "sitegenesis/prefer-const")).toHaveLength(2)
+  expect(messages.filter((m) => m.ruleId === "sfcc/prefer-const")).toHaveLength(2)
 })
 
 test("var at script top-level that is reassigned is not reported", () => {
@@ -34,7 +34,7 @@ test("var at script top-level that is reassigned is not reported", () => {
     field = null;
   `) as Linter.LintMessage[]
 
-  expect(messages.some((m) => m.ruleId === "sitegenesis/prefer-const")).toBe(false)
+  expect(messages.some((m) => m.ruleId === "sfcc/prefer-const")).toBe(false)
 })
 
 test("fixes var to const at script top-level", () => {
@@ -61,7 +61,7 @@ test("var in nested block is reported", () => {
     }
   `) as Linter.LintMessage[]
 
-  expect(messages.some((m) => m.ruleId === "sitegenesis/prefer-const")).toBe(true)
+  expect(messages.some((m) => m.ruleId === "sfcc/prefer-const")).toBe(true)
 })
 
 test("let at function top-level that is never reassigned is reported", () => {
@@ -72,7 +72,7 @@ test("let at function top-level that is never reassigned is reported", () => {
     }
   `) as Linter.LintMessage[]
 
-  expect(messages.some((m) => m.ruleId === "sitegenesis/prefer-const")).toBe(true)
+  expect(messages.some((m) => m.ruleId === "sfcc/prefer-const")).toBe(true)
 })
 
 test("let that is reassigned is not reported", () => {
@@ -84,7 +84,7 @@ test("let that is reassigned is not reported", () => {
     }
   `) as Linter.LintMessage[]
 
-  expect(messages.some((m) => m.ruleId === "sitegenesis/prefer-const")).toBe(false)
+  expect(messages.some((m) => m.ruleId === "sfcc/prefer-const")).toBe(false)
 })
 
 test("let in nested block (Rhino-critical: loop) is not reported", () => {
@@ -97,7 +97,7 @@ test("let in nested block (Rhino-critical: loop) is not reported", () => {
     }
   `) as Linter.LintMessage[]
 
-  expect(messages.some((m) => m.ruleId === "sitegenesis/prefer-const")).toBe(false)
+  expect(messages.some((m) => m.ruleId === "sfcc/prefer-const")).toBe(false)
 })
 
 test("let in plain if block (non-loop nested) is not reported by prefer-const", () => {
@@ -110,7 +110,7 @@ test("let in plain if block (non-loop nested) is not reported by prefer-const", 
     }
   `) as Linter.LintMessage[]
 
-  expect(messages.some((m) => m.ruleId === "sitegenesis/prefer-const")).toBe(false)
+  expect(messages.some((m) => m.ruleId === "sfcc/prefer-const")).toBe(false)
 })
 
 test("let in for-of header (Rhino-critical) is not reported", () => {
@@ -123,7 +123,7 @@ test("let in for-of header (Rhino-critical) is not reported", () => {
     }
   `) as Linter.LintMessage[]
 
-  expect(messages.some((m) => m.ruleId === "sitegenesis/prefer-const")).toBe(false)
+  expect(messages.some((m) => m.ruleId === "sfcc/prefer-const")).toBe(false)
 })
 
 test("fixes let to const at function top-level", () => {
@@ -144,7 +144,7 @@ test("fixes let to const at function top-level", () => {
 
 test("no conflict: const in nested block gets fixed to let, not re-reported by prefer-const", () => {
   // Start: const in sibling blocks with same name → rhino-const-conflict fires, fixes to let.
-  // After fix: let in nested blocks → sitegenesis/prefer-const does NOT fire (nested blocks excluded).
+  // After fix: let in nested blocks → sfcc/prefer-const does NOT fire (nested blocks excluded).
   const result = lint(
     `
       function routeA() {

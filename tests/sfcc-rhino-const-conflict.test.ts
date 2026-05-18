@@ -31,7 +31,7 @@ test("same const name in two sibling if-blocks is reported", () => {
     }
   `) as Linter.LintMessage[]
 
-  const hits = messages.filter((m) => m.ruleId === "sitegenesis/rhino-const-conflict")
+  const hits = messages.filter((m) => m.ruleId === "sfcc/rhino-const-conflict")
   expect(hits.length).toBe(2)
 })
 
@@ -49,7 +49,7 @@ test("const with unique name in if-block is not reported", () => {
     }
   `) as Linter.LintMessage[]
 
-  expect(messages.some((m) => m.ruleId === "sitegenesis/rhino-const-conflict")).toBe(false)
+  expect(messages.some((m) => m.ruleId === "sfcc/rhino-const-conflict")).toBe(false)
 })
 
 test("const at function top-level + same name in nested block is reported (nested one)", () => {
@@ -64,7 +64,7 @@ test("const at function top-level + same name in nested block is reported (neste
     }
   `) as Linter.LintMessage[]
 
-  const hits = messages.filter((m) => m.ruleId === "sitegenesis/rhino-const-conflict")
+  const hits = messages.filter((m) => m.ruleId === "sfcc/rhino-const-conflict")
   // Only the nested one is reported (the function-level one is safe on its own)
   expect(hits.length).toBe(1)
 })
@@ -85,7 +85,7 @@ test("same name in nested function does not conflict with outer function", () =>
     }
   `) as Linter.LintMessage[]
 
-  expect(messages.some((m) => m.ruleId === "sitegenesis/rhino-const-conflict")).toBe(false)
+  expect(messages.some((m) => m.ruleId === "sfcc/rhino-const-conflict")).toBe(false)
 })
 
 test("same name in nested block of inner function does not conflict with outer block", () => {
@@ -104,7 +104,7 @@ test("same name in nested block of inner function does not conflict with outer b
     }
   `) as Linter.LintMessage[]
 
-  expect(messages.some((m) => m.ruleId === "sitegenesis/rhino-const-conflict")).toBe(false)
+  expect(messages.some((m) => m.ruleId === "sfcc/rhino-const-conflict")).toBe(false)
 })
 
 test("fixes conflicting const declarations to let", () => {
@@ -132,7 +132,7 @@ test("fixes conflicting const declarations to let", () => {
 
 test("prefer-const does not fire on let that replaced a conflicting const", () => {
   // After rhino-const-conflict fix: let test in both blocks.
-  // sitegenesis/prefer-const must NOT suggest changing them back to const
+  // sfcc/prefer-const must NOT suggest changing them back to const
   // because they are in Rhino-critical nested blocks.
   const linter = new Linter()
   const messages = linter.verify(
@@ -152,6 +152,6 @@ test("prefer-const does not fire on let that replaced a conflicting const", () =
     { filename: "cartridges/app_sfra/cartridge/controllers/Home.js" },
   )
 
-  expect(messages.some((m) => m.ruleId === "sitegenesis/prefer-const")).toBe(false)
-  expect(messages.some((m) => m.ruleId === "sitegenesis/rhino-const-conflict")).toBe(false)
+  expect(messages.some((m) => m.ruleId === "sfcc/prefer-const")).toBe(false)
+  expect(messages.some((m) => m.ruleId === "sfcc/rhino-const-conflict")).toBe(false)
 })
