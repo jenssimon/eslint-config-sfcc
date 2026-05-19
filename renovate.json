@@ -3,6 +3,7 @@
   "extends": ["config:recommended"],
   "semanticCommits": "enabled",
   "labels": ["dependencies"],
+  "minimumReleaseAge": "26 hours",
   "packageRules": [
     {
       "groupName": "non-breaking",
