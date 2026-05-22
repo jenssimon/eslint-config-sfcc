@@ -83,8 +83,34 @@ The new `sfcc` plugin contains the general Rhino/SFCC runtime rules:
 | `sfcc/prefer-const`         | Requires `const` for `let` declarations that are never reassigned, excluding Rhino-sensitive nested/loop contexts.                                      | `error` |
 | `sfcc/rhino-const-compat`   | Enforces `let` instead of `const` in Rhino loop-critical contexts (loop headers and declarations inside loop bodies) and supports auto-fix.             | `error` |
 | `sfcc/rhino-const-conflict` | Detects same-name `const` declarations in nested blocks within the same function (Rhino treats them as function-scoped) and supports auto-fix to `let`. | `error` |
+| `sfcc/valid-require-path`   | Validates SFCC-compatible `require()` paths (`dw/*`, `cartridgeName/*`, `./*`, `../*`, `*/*`, `~/*`) and supports optional cartridge-existence checks.  | `error` |
 
-The recommended config intentionally combines these three `sfcc/*` rules so `--fix` does not bounce between conflicting suggestions: Rhino-unsafe `const` becomes `let`, while genuinely safe top-level function bindings still become `const`.
+The recommended config intentionally combines these `sfcc/*` rules so `--fix` does not bounce between conflicting suggestions: Rhino-unsafe `const` becomes `let`, while genuinely safe top-level function bindings still become `const`.
+
+### `sfcc/valid-require-path` options
+
+By default, the rule validates path patterns only and allows bare `server` requires.
+
+```js
+import { defineConfig } from "eslint/config"
+import sfcc from "@jenssimon/eslint-config-sfcc"
+
+export default defineConfig(sfcc.configs.recommended, {
+  rules: {
+    "sfcc/valid-require-path": [
+      "error",
+      {
+        // Optional: allow additional bare module ids
+        allowBareModules: ["server", "proxyquire"],
+        // Optional: verify cartridgeName/* against filesystem
+        checkCartridgeExists: true,
+        // Optional: absolute or relative path to cartridges root
+        cartridgesDir: "cartridges",
+      },
+    ],
+  },
+})
+```
 
 ### Rhino const strategy example
 
