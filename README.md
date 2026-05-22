@@ -83,7 +83,7 @@ The new `sfcc` plugin contains the general Rhino/SFCC runtime rules:
 | `sfcc/prefer-const`         | Requires `const` for `let` declarations that are never reassigned, excluding Rhino-sensitive nested/loop contexts.                                      | `error` |
 | `sfcc/rhino-const-compat`   | Enforces `let` instead of `const` in Rhino loop-critical contexts (loop headers and declarations inside loop bodies) and supports auto-fix.             | `error` |
 | `sfcc/rhino-const-conflict` | Detects same-name `const` declarations in nested blocks within the same function (Rhino treats them as function-scoped) and supports auto-fix to `let`. | `error` |
-| `sfcc/valid-require-path`   | Validates SFCC-compatible `require()` paths (`dw/*`, `cartridgeName/*`, `./*`, `../*`, `*/*`, `~/*`) and supports optional cartridge-existence checks.  | `error` |
+| `sfcc/valid-require-path`   | Validates SFCC-compatible `require()` paths (`dw/*`, `cartridgeName/*`, `./*`, `../*`, `*/*`, `~/*`) and supports optional filesystem existence checks. | `error` |
 
 The recommended config intentionally combines these `sfcc/*` rules so `--fix` does not bounce between conflicting suggestions: Rhino-unsafe `const` becomes `let`, while genuinely safe top-level function bindings still become `const`.
 
@@ -102,10 +102,12 @@ export default defineConfig(sfcc.configs.recommended, {
       {
         // Optional: allow additional bare module ids
         allowBareModules: ["server", "proxyquire"],
-        // Optional: verify cartridgeName/* against filesystem
+        // Optional: verify cartridgeName/* plus */* and ~/* against filesystem
         checkCartridgeExists: true,
         // Optional: absolute or relative path to cartridges root
         cartridgesDir: "cartridges",
+        // Optional: explicit cartridge order for */* lookup (otherwise folders in cartridgesDir are used)
+        cartridgePath: ["app_storefront", "modules", "app_custom"],
       },
     ],
   },

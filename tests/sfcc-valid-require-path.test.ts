@@ -1,6 +1,5 @@
 import { Linter } from "eslint"
 import fs from "node:fs"
-import os from "node:os"
 import path from "node:path"
 import { expect, test } from "vite-plus/test"
 
@@ -78,11 +77,23 @@ test("ignores dynamic requires", () => {
 })
 
 test("supports checkCartridgeExists option", () => {
-  const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "eslint-config-sfcc-"))
-  const cartridgesDir = path.join(tempRoot, "cartridges")
-  const existingCartridge = path.join(cartridgesDir, "app_storefront")
+  const testSuffix = `${Date.now()}_${Math.floor(Math.random() * 1_000_000)}`
+  const existingCartridgeName = `app_storefront_${testSuffix}`
+  const ownCartridgeName = `app_sfra_${testSuffix}`
+  const cartridgesDir = path.join(process.cwd(), "cartridges")
+  const existingCartridge = path.join(cartridgesDir, existingCartridgeName)
+  const ownCartridge = path.join(cartridgesDir, ownCartridgeName)
 
-  fs.mkdirSync(existingCartridge, { recursive: true })
+  fs.mkdirSync(path.join(existingCartridge, "cartridge", "scripts"), { recursive: true })
+  fs.mkdirSync(path.join(ownCartridge, "cartridge", "scripts"), { recursive: true })
+  fs.writeFileSync(
+    path.join(existingCartridge, "cartridge", "scripts", "ok.js"),
+    "module.exports = true",
+  )
+  fs.writeFileSync(
+    path.join(ownCartridge, "cartridge", "scripts", "local.js"),
+    "module.exports = true",
+  )
 
   const linter = new Linter()
   const config: Linter.Config[] = [
@@ -94,7 +105,7 @@ test("supports checkCartridgeExists option", () => {
           "error",
           {
             checkCartridgeExists: true,
-            cartridgesDir,
+            cartridgesDir: "cartridges",
           },
         ],
       },
@@ -103,17 +114,24 @@ test("supports checkCartridgeExists option", () => {
 
   const messages = linter.verify(
     `
-      const ok = require("app_storefront/cartridge/scripts/ok")
+      const ok = require("${existingCartridgeName}/cartridge/scripts/ok")
+      const okStar = require("*/cartridge/scripts/ok")
+      const okTilde = require("~/cartridge/scripts/local")
       const bad = require("missing_cartridge/cartridge/scripts/bad")
-      module.exports = { ok, bad }
+      const badStar = require("*/cartridge/scripts/does-not-exist")
+      const badTilde = require("~/cartridge/scripts/does-not-exist")
+      module.exports = { ok, okStar, okTilde, bad, badStar, badTilde }
     `,
     config,
-    { filename: "cartridges/app_sfra/cartridge/controllers/Home.js" },
+    { filename: `cartridges/${ownCartridgeName}/cartridge/controllers/Home.js` },
   )
 
-  fs.rmSync(tempRoot, { recursive: true, force: true })
+  fs.rmSync(existingCartridge, { recursive: true, force: true })
+  fs.rmSync(ownCartridge, { recursive: true, force: true })
 
   const hits = messages.filter((m) => m.ruleId === "sfcc/valid-require-path")
-  expect(hits).toHaveLength(1)
+  expect(hits).toHaveLength(3)
   expect(hits[0]?.message.includes("missing_cartridge")).toBe(true)
+  expect(hits.some((m) => m.message.includes("*/cartridge/scripts/does-not-exist"))).toBe(true)
+  expect(hits.some((m) => m.message.includes("~/cartridge/scripts/does-not-exist"))).toBe(true)
 })
