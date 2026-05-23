@@ -49,7 +49,7 @@
     "@types/node": "^25.6.0",
     "@typescript-eslint/eslint-plugin": "^8.59.3",
     "@typescript-eslint/parser": "^8.59.3",
-    "@typescript/native-preview": "7.0.0-dev.20260521.1",
+    "@typescript/native-preview": "7.0.0-dev.20260522.1",
     "@vitest/coverage-v8": "^4.1.5",
     "bumpp": "^11.0.1",
     "eslint-plugin-sonarjs": "^4.0.3",
