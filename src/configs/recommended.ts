@@ -4,6 +4,8 @@ import { fixupPluginRules } from "@eslint/compat"
 import es from "eslint-plugin-es"
 import globals from "globals"
 
+import type { SfccSettings } from "../types/sfcc-settings.js"
+
 import sfcc from "../plugins/sfcc/index.js"
 import sitegenesis from "../plugins/sitegenesis/index.js"
 import rules from "../rules/index.js"
@@ -16,12 +18,29 @@ export interface RecommendedConfigOptions {
   files?: string[]
   /** Optional override for ignore globs. */
   ignores?: string[]
+  /** Optional shared options for sfcc rules. */
+  sfcc?: SfccSettings
 }
 
 /** Creates the recommended flat config for SFCC projects. */
 export function createRecommendedConfig(options: RecommendedConfigOptions = {}): Linter.Config[] {
-  const { cartridgesDir = "cartridges", files, ignores } = options
+  const { cartridgesDir = "cartridges", files, ignores, sfcc: sfccOptions } = options
   const normalizedCartridgesDir = cartridgesDir.replace(/\/+$/u, "") || "/"
+  const hasSfccOptions =
+    sfccOptions !== undefined &&
+    (sfccOptions.allowBareModules !== undefined ||
+      sfccOptions.checkCartridgeExists !== undefined ||
+      sfccOptions.cartridgePath !== undefined ||
+      sfccOptions.cartridgesDir !== undefined)
+
+  const sfccSettings: SfccSettings | undefined = hasSfccOptions
+    ? {
+        ...sfccOptions,
+        ...(sfccOptions?.cartridgesDir === undefined
+          ? { cartridgesDir: normalizedCartridgesDir }
+          : {}),
+      }
+    : undefined
 
   function withBaseDir(suffix: string): string {
     return normalizedCartridgesDir === "/" ? `/${suffix}` : `${normalizedCartridgesDir}/${suffix}`
@@ -46,6 +65,7 @@ export function createRecommendedConfig(options: RecommendedConfigOptions = {}):
         sfcc,
         sitegenesis,
       },
+      ...(sfccSettings === undefined ? {} : { settings: { sfcc: sfccSettings } }),
       rules,
     },
   ]

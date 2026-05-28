@@ -3,7 +3,7 @@ import fs from "node:fs"
 import path from "node:path"
 import { expect, test } from "vite-plus/test"
 
-import { recommended } from "../src/index.js"
+import { createRecommendedConfig, recommended } from "../src/index.js"
 
 function lint(code: string, filename = "cartridges/app_sfra/cartridge/controllers/Home.js") {
   const linter = new Linter()
@@ -96,21 +96,12 @@ test("supports checkCartridgeExists option", () => {
   )
 
   const linter = new Linter()
-  const config: Linter.Config[] = [
-    {
-      ...recommended[0],
-      rules: {
-        ...recommended[0]?.rules,
-        "sfcc/valid-require-path": [
-          "error",
-          {
-            checkCartridgeExists: true,
-            cartridgesDir: "cartridges",
-          },
-        ],
-      },
+  const config = createRecommendedConfig({
+    cartridgesDir: "cartridges",
+    sfcc: {
+      checkCartridgeExists: true,
     },
-  ]
+  })
 
   const messages = linter.verify(
     `
@@ -134,4 +125,24 @@ test("supports checkCartridgeExists option", () => {
   expect(hits[0]?.message.includes("missing_cartridge")).toBe(true)
   expect(hits.some((m) => m.message.includes("*/cartridge/scripts/does-not-exist"))).toBe(true)
   expect(hits.some((m) => m.message.includes("~/cartridge/scripts/does-not-exist"))).toBe(true)
+})
+
+test("rejects direct rule options and requires shared settings", () => {
+  const linter = new Linter()
+
+  const config: Linter.Config[] = [
+    {
+      ...recommended[0],
+      rules: {
+        ...recommended[0]?.rules,
+        "sfcc/valid-require-path": ["error", { checkCartridgeExists: true }],
+      },
+    },
+  ]
+
+  expect(() =>
+    linter.verify('const x = require("server"); module.exports = x', config, {
+      filename: "cartridges/app_sfra/cartridge/controllers/Home.js",
+    }),
+  ).toThrow()
 })

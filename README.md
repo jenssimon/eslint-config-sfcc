@@ -51,6 +51,11 @@ import { createRecommendedConfig } from "@jenssimon/eslint-config-sfcc"
 export default defineConfig(
   createRecommendedConfig({
     cartridgesDir: "cartridges/",
+    sfcc: {
+      checkCartridgeExists: true,
+      allowBareModules: ["server", "proxyquire"],
+      cartridgePath: ["app_storefront", "modules", "app_custom"],
+    },
   }),
 )
 ```
@@ -87,31 +92,29 @@ The new `sfcc` plugin contains the general Rhino/SFCC runtime rules:
 
 The recommended config intentionally combines these `sfcc/*` rules so `--fix` does not bounce between conflicting suggestions: Rhino-unsafe `const` becomes `let`, while genuinely safe top-level function bindings still become `const`.
 
-### `sfcc/valid-require-path` options
+### Shared `sfcc` options (including `sfcc/valid-require-path`)
 
-By default, the rule validates path patterns only and allows bare `server` requires.
+By default, `sfcc/valid-require-path` validates path patterns only and allows bare `server` requires.
+
+Use `createRecommendedConfig({ sfcc: ... })` to define shared SFCC plugin options centrally. These values are exposed through ESLint `settings.sfcc`, so future `sfcc/*` rules can reuse them without adding per-rule options.
 
 ```js
 import { defineConfig } from "eslint/config"
-import sfcc from "@jenssimon/eslint-config-sfcc"
+import { createRecommendedConfig } from "@jenssimon/eslint-config-sfcc"
 
-export default defineConfig(sfcc.configs.recommended, {
-  rules: {
-    "sfcc/valid-require-path": [
-      "error",
-      {
-        // Optional: allow additional bare module ids
-        allowBareModules: ["server", "proxyquire"],
-        // Optional: verify cartridgeName/* plus */* and ~/* against filesystem
-        checkCartridgeExists: true,
-        // Optional: absolute or relative path to cartridges root
-        cartridgesDir: "cartridges",
-        // Optional: explicit cartridge order for */* lookup (otherwise folders in cartridgesDir are used)
-        cartridgePath: ["app_storefront", "modules", "app_custom"],
-      },
-    ],
-  },
-})
+export default defineConfig(
+  createRecommendedConfig({
+    cartridgesDir: "cartridges",
+    sfcc: {
+      // Optional: allow additional bare module ids
+      allowBareModules: ["server", "proxyquire"],
+      // Optional: verify cartridgeName/* plus */* and ~/* against filesystem
+      checkCartridgeExists: true,
+      // Optional: explicit cartridge order for */* lookup (otherwise folders in cartridgesDir are used)
+      cartridgePath: ["app_storefront", "modules", "app_custom"],
+    },
+  }),
+)
 ```
 
 ### Rhino const strategy example

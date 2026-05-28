@@ -1,6 +1,7 @@
 import type { Rule, Scope } from "eslint"
 
 import { isInNestedBlock, isRhinoCriticalScope } from "../_utils/rhino-scope.js"
+import { withSfccSettings } from "../_utils/sfcc-settings.js"
 
 function isNeverReassigned(variable: Scope.Variable): boolean {
   // A variable is "never reassigned" if all its write references are the
@@ -23,7 +24,7 @@ const preferConst: Rule.RuleModule = {
       useConst: "Prefer const over {{kind}} when the variable is never reassigned.",
     },
   },
-  create: (context) => {
+  create: withSfccSettings((context) => {
     function checkDeclaration(node: Rule.Node) {
       // In Rhino-critical scopes const is broken — don't suggest it here.
       // In any nested block, const might cause Rhino re-declaration conflicts.
@@ -85,7 +86,7 @@ const preferConst: Rule.RuleModule = {
       "VariableDeclaration[kind='let']": checkDeclaration,
       "VariableDeclaration[kind='var']": checkVarDeclaration,
     }
-  },
+  }),
 }
 
 export default preferConst

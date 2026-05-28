@@ -1,6 +1,7 @@
 import type { Rule } from "eslint"
 
 import { isRhinoCriticalScope } from "../_utils/rhino-scope.js"
+import { withSfccSettings } from "../_utils/sfcc-settings.js"
 
 function isRhinoCriticalConstDeclaration(node: Rule.Node): boolean {
   return node.type === "VariableDeclaration" && node.kind === "const" && isRhinoCriticalScope(node)
@@ -19,7 +20,7 @@ const rhinoConstCompat: Rule.RuleModule = {
       useLet: "Use let instead of const in this block-scoped context for Rhino compatibility.",
     },
   },
-  create: (context) => ({
+  create: withSfccSettings((context) => ({
     VariableDeclaration(node) {
       if (!isRhinoCriticalConstDeclaration(node as Rule.Node)) {
         return
@@ -38,7 +39,7 @@ const rhinoConstCompat: Rule.RuleModule = {
         },
       })
     },
-  }),
+  })),
 }
 
 export default rhinoConstCompat

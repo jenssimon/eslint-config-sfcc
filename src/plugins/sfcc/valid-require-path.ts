@@ -3,12 +3,7 @@ import type { Rule } from "eslint"
 import fs from "node:fs"
 import path from "node:path"
 
-type RuleOptions = {
-  allowBareModules?: string[]
-  checkCartridgeExists?: boolean
-  cartridgesDir?: string
-  cartridgePath?: string[]
-}
+import { withSfccSettings } from "../_utils/sfcc-settings.js"
 
 const SUPPORTED_EXTENSIONS = ["js", "ds", "json"]
 
@@ -161,26 +156,8 @@ const validRequirePath: Rule.RuleModule = {
         "Enforce SFCC-compatible require paths (dw/, relative, cartridge-name/, */, ~/).",
       recommended: true,
     },
-    schema: [
-      {
-        type: "object",
-        properties: {
-          allowBareModules: {
-            type: "array",
-            items: { type: "string" },
-            uniqueItems: true,
-          },
-          checkCartridgeExists: { type: "boolean" },
-          cartridgesDir: { type: "string" },
-          cartridgePath: {
-            type: "array",
-            items: { type: "string" },
-            uniqueItems: true,
-          },
-        },
-        additionalProperties: false,
-      },
-    ],
+    // Shared sfcc configuration is provided via ESLint settings.sfcc.
+    schema: [],
     messages: {
       invalidPath:
         'Invalid require path "{{requirePath}}". Allowed: dw/*, cartridgeName/*, ./*, ../*, */*, ~/* or configured bare modules.',
@@ -192,8 +169,7 @@ const validRequirePath: Rule.RuleModule = {
         'Cannot resolve "{{requirePath}}" in current cartridge (checked in "{{cartridgesDir}}/").',
     },
   },
-  create: (context) => {
-    const options = (context.options[0] ?? {}) as RuleOptions
+  create: withSfccSettings((context, options) => {
     const allowBareModules = new Set(options.allowBareModules ?? ["server"])
     const checkCartridgeExists = options.checkCartridgeExists === true
     const cartridgesDir = options.cartridgesDir ?? "cartridges"
@@ -294,7 +270,7 @@ const validRequirePath: Rule.RuleModule = {
         }
       },
     }
-  },
+  }),
 }
 
 export default validRequirePath

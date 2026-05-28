@@ -33,6 +33,25 @@ test("accepts cartridgesDir with trailing slash", () => {
   expect(createdConfig).toEqual(recommended)
 })
 
+test("forwards shared sfcc options via settings", () => {
+  const createdConfig = createRecommendedConfig({
+    cartridgesDir: "custom-cartridges",
+    sfcc: {
+      checkCartridgeExists: true,
+      cartridgePath: ["app_storefront", "modules"],
+    },
+  })
+
+  expect(createdConfig[0]?.settings).toEqual({
+    sfcc: {
+      checkCartridgeExists: true,
+      cartridgePath: ["app_storefront", "modules"],
+      cartridgesDir: "custom-cartridges",
+    },
+  })
+  expect(createdConfig[0]?.rules?.["sfcc/valid-require-path"]).toBe("error")
+})
+
 test("exports sitegenesis plugin", () => {
   expect(sitegenesis).toBe(plugins.sitegenesis)
 })

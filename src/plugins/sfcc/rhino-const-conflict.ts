@@ -1,6 +1,7 @@
 import type { Rule } from "eslint"
 
 import { isInNestedBlock } from "../_utils/rhino-scope.js"
+import { withSfccSettings } from "../_utils/sfcc-settings.js"
 
 interface FuncScope {
   /** All const declarations per identifier name (function-level + nested). */
@@ -24,7 +25,7 @@ const rhinoConstConflict: Rule.RuleModule = {
         "'{{name}}' is declared as const in multiple block scopes of the same function. Use let to avoid a Rhino re-declaration error.",
     },
   },
-  create: (context) => {
+  create: withSfccSettings((context) => {
     const stack: FuncScope[] = []
 
     function enterFunction(): void {
@@ -82,7 +83,7 @@ const rhinoConstConflict: Rule.RuleModule = {
         }
       },
     }
-  },
+  }),
 }
 
 export default rhinoConstConflict
