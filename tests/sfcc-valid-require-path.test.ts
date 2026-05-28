@@ -127,6 +127,57 @@ test("supports checkCartridgeExists option", () => {
   expect(hits.some((m) => m.message.includes("~/cartridge/scripts/does-not-exist"))).toBe(true)
 })
 
+test("supports cartridge order from site template", () => {
+  const testSuffix = `${Date.now()}_${Math.floor(Math.random() * 1_000_000)}`
+  const cartridgeName = `app_storefront_${testSuffix}`
+  const ownCartridgeName = `app_sfra_${testSuffix}`
+  const cartridgesDir = path.join(process.cwd(), "cartridges")
+  const targetCartridge = path.join(cartridgesDir, cartridgeName)
+  const ownCartridge = path.join(cartridgesDir, ownCartridgeName)
+  const siteTemplatePath = path.join(process.cwd(), `site_template_${testSuffix}`)
+  const site = "example"
+  const siteTemplateXmlPath = path.join(siteTemplatePath, "sites", site, "site.xml")
+
+  fs.mkdirSync(path.join(targetCartridge, "cartridge", "scripts"), { recursive: true })
+  fs.mkdirSync(path.join(ownCartridge, "cartridge", "scripts"), { recursive: true })
+  fs.mkdirSync(path.dirname(siteTemplateXmlPath), { recursive: true })
+  fs.writeFileSync(
+    path.join(targetCartridge, "cartridge", "scripts", "ok.js"),
+    "module.exports = true",
+  )
+  try {
+    fs.writeFileSync(
+      siteTemplateXmlPath,
+      `<site><custom-cartridges>app_base:${cartridgeName}:int_payments</custom-cartridges></site>`,
+    )
+
+    const linter = new Linter()
+    const config = createRecommendedConfig({
+      cartridgesDir: "cartridges",
+      sfcc: {
+        checkCartridgeExists: true,
+        siteTemplatePath,
+        site,
+      },
+    })
+
+    const messages = linter.verify(
+      `
+        const okStar = require("*/cartridge/scripts/ok")
+        module.exports = { okStar }
+      `,
+      config,
+      { filename: `cartridges/${ownCartridgeName}/cartridge/controllers/Home.js` },
+    )
+
+    expect(messages.some((m) => m.ruleId === "sfcc/valid-require-path")).toBe(false)
+  } finally {
+    fs.rmSync(targetCartridge, { recursive: true, force: true })
+    fs.rmSync(ownCartridge, { recursive: true, force: true })
+    fs.rmSync(siteTemplatePath, { recursive: true, force: true })
+  }
+})
+
 test("rejects direct rule options and requires shared settings", () => {
   const linter = new Linter()
 

@@ -92,7 +92,7 @@ The new `sfcc` plugin contains the general Rhino/SFCC runtime rules:
 
 The recommended config intentionally combines these `sfcc/*` rules so `--fix` does not bounce between conflicting suggestions: Rhino-unsafe `const` becomes `let`, while genuinely safe top-level function bindings still become `const`.
 
-### Shared `sfcc` options (including `sfcc/valid-require-path`)
+### Shared `sfcc` options
 
 By default, `sfcc/valid-require-path` validates path patterns only and allows bare `server` requires.
 
@@ -112,6 +112,10 @@ export default defineConfig(
       checkCartridgeExists: true,
       // Optional: explicit cartridge order for */* lookup (otherwise folders in cartridgesDir are used)
       cartridgePath: ["app_storefront", "modules", "app_custom"],
+      // Optional: path to site template directory
+      siteTemplatePath: "sites/site_template",
+      // Optional: site id under <siteTemplatePath>/sites/<site>/site.xml
+      site: "example",
     },
   }),
 )

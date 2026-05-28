@@ -31,7 +31,9 @@ export function createRecommendedConfig(options: RecommendedConfigOptions = {}):
     (sfccOptions.allowBareModules !== undefined ||
       sfccOptions.checkCartridgeExists !== undefined ||
       sfccOptions.cartridgePath !== undefined ||
-      sfccOptions.cartridgesDir !== undefined)
+      sfccOptions.cartridgesDir !== undefined ||
+      sfccOptions.siteTemplatePath !== undefined ||
+      sfccOptions.site !== undefined)
 
   const sfccSettings: SfccSettings | undefined = hasSfccOptions
     ? {

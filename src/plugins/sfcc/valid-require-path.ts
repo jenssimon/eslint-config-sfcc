@@ -4,6 +4,7 @@ import fs from "node:fs"
 import path from "node:path"
 
 import { withSfccSettings } from "../_utils/sfcc-settings.js"
+import { getSiteTemplateCartridgePath } from "../_utils/site-template-cartridge-path.js"
 
 const SUPPORTED_EXTENSIONS = ["js", "ds", "json"]
 
@@ -101,7 +102,7 @@ function starReferenceExists(
   requirePath: string,
   cartridgesDir: string,
   cwd: string,
-  configuredCartridgePath: string[],
+  cartridgePath: string[],
 ): boolean {
   const moduleTarget = requirePath.slice(2)
   if (!moduleTarget) {
@@ -109,9 +110,7 @@ function starReferenceExists(
   }
 
   const cartridgeNames =
-    configuredCartridgePath.length > 0
-      ? configuredCartridgePath
-      : getFilesystemCartridges(cartridgesDir, cwd)
+    cartridgePath.length > 0 ? cartridgePath : getFilesystemCartridges(cartridgesDir, cwd)
 
   return cartridgeNames.some((name) =>
     moduleExistsInCartridge(name, moduleTarget, cartridgesDir, cwd),
@@ -173,11 +172,18 @@ const validRequirePath: Rule.RuleModule = {
     const allowBareModules = new Set(options.allowBareModules ?? ["server"])
     const checkCartridgeExists = options.checkCartridgeExists === true
     const cartridgesDir = options.cartridgesDir ?? "cartridges"
-    const configuredCartridgePath = getConfiguredCartridgePath(options.cartridgePath)
     const cwd =
       (context as Rule.RuleContext & { cwd?: string }).cwd ??
       (context as Rule.RuleContext & { getCwd?: () => string }).getCwd?.() ??
       process.cwd()
+    const configuredCartridgePath = getConfiguredCartridgePath(options.cartridgePath)
+    const templateCartridgePath = getSiteTemplateCartridgePath(
+      options.siteTemplatePath,
+      options.site,
+      cwd,
+    )
+    const cartridgePath =
+      configuredCartridgePath.length > 0 ? configuredCartridgePath : templateCartridgePath
     const filename =
       (context as Rule.RuleContext & { filename?: string }).filename ??
       (context as Rule.RuleContext & { getFilename?: () => string }).getFilename?.() ??
@@ -207,7 +213,7 @@ const validRequirePath: Rule.RuleModule = {
         if (requirePath.startsWith("*/")) {
           if (
             checkCartridgeExists &&
-            !starReferenceExists(requirePath, cartridgesDir, cwd, configuredCartridgePath)
+            !starReferenceExists(requirePath, cartridgesDir, cwd, cartridgePath)
           ) {
             context.report({
               node: firstArgument,

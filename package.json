@@ -41,7 +41,8 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "eslint-plugin-es": "^4.1.0"
+    "eslint-plugin-es": "^4.1.0",
+    "fast-xml-parser": "^5.8.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

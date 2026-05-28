@@ -3,4 +3,6 @@ export interface SfccSettings {
   checkCartridgeExists?: boolean
   cartridgesDir?: string
   cartridgePath?: string[]
+  siteTemplatePath?: string
+  site?: string
 }
