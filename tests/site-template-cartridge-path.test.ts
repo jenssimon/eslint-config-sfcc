@@ -1,8 +1,13 @@
 import fs from "node:fs"
+import os from "node:os"
 import path from "node:path"
 import { expect, test } from "vite-plus/test"
 
 import { getSiteTemplateCartridgePath } from "../src/plugins/_utils/site-template-cartridge-path.js"
+
+function createTempTemplatePath(): string {
+  return fs.mkdtempSync(path.join(os.tmpdir(), "sfcc-site-template-"))
+}
 
 test("returns empty when siteTemplatePath is missing", () => {
   const result = getSiteTemplateCartridgePath(undefined, "example", process.cwd())
@@ -15,8 +20,7 @@ test("returns empty when site is missing", () => {
 })
 
 test("reads custom-cartridges from conventional site template path", () => {
-  const testSuffix = `${Date.now()}_${Math.floor(Math.random() * 1_000_000)}`
-  const templatePath = path.join(process.cwd(), `site_template_${testSuffix}`)
+  const templatePath = createTempTemplatePath()
   const site = "example"
   const siteXmlPath = path.join(templatePath, "sites", site, "site.xml")
 
@@ -36,8 +40,7 @@ test("reads custom-cartridges from conventional site template path", () => {
 })
 
 test("returns empty when site.xml has no custom-cartridges", () => {
-  const testSuffix = `${Date.now()}_${Math.floor(Math.random() * 1_000_000)}`
-  const templatePath = path.join(process.cwd(), `site_template_${testSuffix}`)
+  const templatePath = createTempTemplatePath()
   const site = "example"
   const siteXmlPath = path.join(templatePath, "sites", site, "site.xml")
 
