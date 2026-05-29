@@ -205,6 +205,10 @@ Q: Are `XML` and `XMLList` identifiers allowed?
 
 A: Yes. Constructor-style usage such as `const xmlCtor = XML` and `const xmlListCtor = XMLList` is allowed. `sfcc/no-e4x-syntax` only targets JSX/E4X-like tag syntax (for example `<a/>`).
 
+Q: What suggestion is shown for multiline static markup?
+
+A: For static multiline JSX/E4X-like markup, `sfcc/no-e4x-syntax` suggests converting to `XML(\`...\`)`. For dynamic markup (for example with `{value}`), no conversion suggestion is offered.
+
 Q: Does `sfcc/no-e4x-syntax` report `default xml namespace = "..."`?
 
 A: No. That construct fails during parsing before rules run, so ESLint reports a fatal parsing error first. The rule cannot execute on code that does not parse.

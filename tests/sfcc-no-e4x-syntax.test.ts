@@ -33,6 +33,40 @@ describe("sfcc/no-e4x-syntax", () => {
     expect(messages.some((m) => m.ruleId === "sfcc/no-e4x-syntax")).toBe(true)
   })
 
+  test("offers conversion suggestion for static JSX markup", async () => {
+    const messages = await lint("const xml = <foo><bar/></foo>; module.exports = xml")
+    const hit = messages.find((m) => m.ruleId === "sfcc/no-e4x-syntax")
+
+    expect(hit).toBeDefined()
+    expect((hit?.suggestions?.length ?? 0) > 0).toBe(true)
+    expect(hit?.suggestions?.[0]?.desc.includes("XML")).toBe(true)
+  })
+
+  test("does not offer conversion suggestion for dynamic JSX markup", async () => {
+    const messages = await lint("const xml = <foo>{value}</foo>; module.exports = xml")
+    const hit = messages.find((m) => m.ruleId === "sfcc/no-e4x-syntax")
+
+    expect(hit).toBeDefined()
+    expect(hit?.suggestions ?? []).toHaveLength(0)
+  })
+
+  test("uses template-literal suggestion for multiline static markup", async () => {
+    const messages = await lint(`
+      const xml = (
+        <foo>
+          <bar/>
+        </foo>
+      )
+      module.exports = xml
+    `)
+    const hit = messages.find((m) => m.ruleId === "sfcc/no-e4x-syntax")
+    const replacement = hit?.suggestions?.[0]?.fix?.text ?? ""
+
+    expect(hit).toBeDefined()
+    expect((hit?.suggestions?.length ?? 0) > 0).toBe(true)
+    expect(replacement.includes("XML(`")).toBe(true)
+  })
+
   test("allows XML and XMLList constructor-style usage", async () => {
     const messages = await lint(`
       const xmlCtor = XML
