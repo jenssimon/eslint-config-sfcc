@@ -13,6 +13,7 @@ Shareable ESLint flat config for Salesforce Commerce Cloud (SFCC) projects.
 
 - Modern language features not supported on SFCC/Rhino (e.g. optional chaining, nullish coalescing, async/await, object spread, many ES2015+ builtins)
 - Top-level `await`, dynamic `import()`, class fields, new builtins like `Map`, `Set`, `Promise`, `Symbol`, etc.
+- JSX/E4X-like tag syntax (e.g. `<a/>`) that may be misparsed in JavaScript linting workflows
 - Features that would cause runtime or syntax errors on SFCC
 - Many ES2015+ Array/String/Object methods missing in Rhino
 - ECMAScript modules (`import`/`export`), as SFCC only supports CommonJS
@@ -85,6 +86,7 @@ The new `sfcc` plugin contains the general Rhino/SFCC runtime rules:
 
 | Rule                        | Description                                                                                                                                             | Default |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `sfcc/no-e4x-syntax`        | Disallows JSX/E4X-like tag syntax (e.g. `<a/>`) in SFCC JavaScript to avoid parser ambiguity and unsupported runtime patterns.                          | `error` |
 | `sfcc/prefer-const`         | Requires `const` for `let` declarations that are never reassigned, excluding Rhino-sensitive nested/loop contexts.                                      | `error` |
 | `sfcc/rhino-const-compat`   | Enforces `let` instead of `const` in Rhino loop-critical contexts (loop headers and declarations inside loop bodies) and supports auto-fix.             | `error` |
 | `sfcc/rhino-const-conflict` | Detects same-name `const` declarations in nested blocks within the same function (Rhino treats them as function-scoped) and supports auto-fix to `let`. | `error` |
@@ -198,6 +200,14 @@ if (foo === "baz") {
 ```
 
 A: Not safe for Rhino. Both declarations are treated as function-scoped const bindings with the same name. `sfcc/rhino-const-conflict` reports this and auto-fixes to `let`.
+
+Q: Are `XML` and `XMLList` identifiers allowed?
+
+A: Yes. Constructor-style usage such as `const xmlCtor = XML` and `const xmlListCtor = XMLList` is allowed. `sfcc/no-e4x-syntax` only targets JSX/E4X-like tag syntax (for example `<a/>`).
+
+Q: Does `sfcc/no-e4x-syntax` report `default xml namespace = "..."`?
+
+A: No. That construct fails during parsing before rules run, so ESLint reports a fatal parsing error first. The rule cannot execute on code that does not parse.
 
 ---
 
