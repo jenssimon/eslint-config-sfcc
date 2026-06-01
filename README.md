@@ -213,6 +213,75 @@ Q: Does `sfcc/no-e4x-syntax` report `default xml namespace = "..."`?
 
 A: No. That construct fails during parsing before rules run, so ESLint reports a fatal parsing error first. The rule cannot execute on code that does not parse.
 
+Q: Is `for each (x in y)` allowed?
+
+A: No. `for each` is Rhino/E4X-era syntax and not valid modern JavaScript, so ESLint fails with a parsing error before rules run. Treat it as unsupported project syntax and migrate to standard constructs such as `for (x of y)`.
+
+### Migration recipes (Rhino/E4X -> modern JS)
+
+Use these patterns when modernizing legacy SFCC code.
+
+1. Iterate values (`for each` -> `for...of`)
+
+Before:
+
+```js
+for each (item in items) {
+  process(item)
+}
+```
+
+After:
+
+```js
+for (const item of items) {
+  process(item)
+}
+```
+
+2. Iterate object keys and values (legacy `for each` on objects -> explicit key/value handling)
+
+Before:
+
+```js
+for each (value in obj) {
+  process(value)
+}
+```
+
+After:
+
+```js
+for (const key in obj) {
+  if (Object.prototype.hasOwnProperty.call(obj, key)) {
+    const value = obj[key]
+    process(value)
+  }
+}
+```
+
+3. Replace E4X literal markup with explicit XML construction
+
+Before:
+
+```js
+const payload = (
+  <request>
+    <id>{id}</id>
+  </request>
+)
+```
+
+After:
+
+```js
+const payload = XML(`<request><id>${id}</id></request>`)
+```
+
+Notes:
+
+- `default xml namespace = "..."` is also parser-incompatible in modern JS/ESLint and must be refactored manually.
+
 ---
 
 ## Migrating from v4
