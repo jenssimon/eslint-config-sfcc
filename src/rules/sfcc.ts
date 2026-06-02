@@ -2,6 +2,7 @@ import type { Linter } from "eslint"
 
 const sfcc: Linter.RulesRecord = {
   "sfcc/no-e4x-syntax": "error",
+  "sfcc/no-type-annotations": "error",
   "sfcc/prefer-const": "error",
   "sfcc/rhino-const-compat": "error",
   "sfcc/rhino-const-conflict": "error",

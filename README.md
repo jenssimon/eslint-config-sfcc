@@ -84,13 +84,14 @@ That rule stays enabled in the recommended config by default, because it is stil
 
 The new `sfcc` plugin contains the general Rhino/SFCC runtime rules:
 
-| Rule                        | Description                                                                                                                                             | Default |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| `sfcc/no-e4x-syntax`        | Disallows JSX/E4X-like tag syntax (e.g. `<a/>`) in SFCC JavaScript to avoid parser ambiguity and unsupported runtime patterns.                          | `error` |
-| `sfcc/prefer-const`         | Requires `const` for `let` declarations that are never reassigned, excluding Rhino-sensitive nested/loop contexts.                                      | `error` |
-| `sfcc/rhino-const-compat`   | Enforces `let` instead of `const` in Rhino loop-critical contexts (loop headers and declarations inside loop bodies) and supports auto-fix.             | `error` |
-| `sfcc/rhino-const-conflict` | Detects same-name `const` declarations in nested blocks within the same function (Rhino treats them as function-scoped) and supports auto-fix to `let`. | `error` |
-| `sfcc/valid-require-path`   | Validates SFCC-compatible `require()` paths (`dw/*`, `cartridgeName/*`, `./*`, `../*`, `*/*`, `~/*`) and supports optional filesystem existence checks. | `error` |
+| Rule                        | Description                                                                                                                                                                                                  | Default |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
+| `sfcc/no-e4x-syntax`        | Disallows JSX/E4X-like tag syntax (e.g. `<a/>`) in SFCC JavaScript to avoid parser ambiguity and unsupported runtime patterns.                                                                               | `error` |
+| `sfcc/no-type-annotations`  | Disallows type annotation syntax in JavaScript files (e.g. `const x: string = ...`, `function y(): number {}`). Rhino/E4X may accept it, but it is invalid in standard JavaScript; use JSDoc typing instead. | `error` |
+| `sfcc/prefer-const`         | Requires `const` for `let` declarations that are never reassigned, excluding Rhino-sensitive nested/loop contexts.                                                                                           | `error` |
+| `sfcc/rhino-const-compat`   | Enforces `let` instead of `const` in Rhino loop-critical contexts (loop headers and declarations inside loop bodies) and supports auto-fix.                                                                  | `error` |
+| `sfcc/rhino-const-conflict` | Detects same-name `const` declarations in nested blocks within the same function (Rhino treats them as function-scoped) and supports auto-fix to `let`.                                                      | `error` |
+| `sfcc/valid-require-path`   | Validates SFCC-compatible `require()` paths (`dw/*`, `cartridgeName/*`, `./*`, `../*`, `*/*`, `~/*`) and supports optional filesystem existence checks.                                                      | `error` |
 
 The recommended config intentionally combines these `sfcc/*` rules so `--fix` does not bounce between conflicting suggestions: Rhino-unsafe `const` becomes `let`, while genuinely safe top-level function bindings still become `const`.
 
@@ -204,6 +205,10 @@ A: Not safe for Rhino. Both declarations are treated as function-scoped const bi
 Q: Are `XML` and `XMLList` identifiers allowed?
 
 A: Yes. Constructor-style usage such as `const xmlCtor = XML` and `const xmlListCtor = XMLList` is allowed. `sfcc/no-e4x-syntax` only targets JSX/E4X-like tag syntax (for example `<a/>`).
+
+Q: Are type annotations allowed in `.js` files?
+
+A: No. `sfcc/no-type-annotations` reports annotation syntax in JavaScript files (for example `const x: string = "foo"` or `function y(): number {}`). Rhino/E4X may accept this syntax, but `.js` here follows standard JavaScript where it is invalid. Use JSDoc types instead.
 
 Q: What suggestion is shown for multiline static markup?
 
