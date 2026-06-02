@@ -86,6 +86,7 @@ The new `sfcc` plugin contains the general Rhino/SFCC runtime rules:
 
 | Rule                           | Description                                                                                                                                                                                                  | Default |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
+| `sfcc/no-ds-files`             | Disallows legacy `.ds` files in SFCC projects. Use `.js` files instead.                                                                                                                                      | `error` |
 | `sfcc/no-e4x-syntax`           | Disallows JSX/E4X-like tag syntax (e.g. `<a/>`) in SFCC JavaScript to avoid parser ambiguity and unsupported runtime patterns.                                                                               | `error` |
 | `sfcc/no-type-annotations`     | Disallows type annotation syntax in JavaScript files (e.g. `const x: string = ...`, `function y(): number {}`). Rhino/E4X may accept it, but it is invalid in standard JavaScript; use JSDoc typing instead. | `error` |
 | `sfcc/no-rhino-import-globals` | Disallows legacy Rhino globals `importScript(...)`, `importPackage(...)`, and `importClass(...)`. Use CommonJS `require()` instead.                                                                          | `error` |
@@ -214,6 +215,10 @@ A: No. `sfcc/no-type-annotations` reports annotation syntax in JavaScript files 
 Q: Are legacy Rhino import globals allowed?
 
 A: No. `sfcc/no-rhino-import-globals` reports `importScript(...)`, `importPackage(...)`, and `importClass(...)` and points you to CommonJS `require()` instead.
+
+Q: Are `.ds` files still allowed?
+
+A: No. `sfcc/no-ds-files` reports `.ds` files and enforces `.js` files instead.
 
 Q: What suggestion is shown for multiline static markup?
 

@@ -1,3 +1,4 @@
+import noDsFiles from "./no-ds-files.js"
 import noE4xSyntax from "./no-e4x-syntax.js"
 import noRhinoImportGlobals from "./no-rhino-import-globals.js"
 import noTypeAnnotations from "./no-type-annotations.js"
@@ -8,6 +9,7 @@ import validRequirePath from "./valid-require-path.js"
 
 const sfcc = {
   rules: {
+    "no-ds-files": noDsFiles,
     "no-e4x-syntax": noE4xSyntax,
     "no-type-annotations": noTypeAnnotations,
     "no-rhino-import-globals": noRhinoImportGlobals,
