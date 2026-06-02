@@ -26,6 +26,10 @@ const sfccGlobals: Record<string, boolean> = {
   XML: true,
   XMLList: true,
   XMLStreamError: true,
+
+  importScript: true,
+  importPackage: true,
+  importClass: true,
 }
 
 export default sfccGlobals
