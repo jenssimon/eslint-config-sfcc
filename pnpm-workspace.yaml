@@ -4,7 +4,7 @@ catalog:
   vite-plus: latest
 overrides:
   vite: "catalog:"
-  vitest: "catalog:"
+  vitest: ^4.1.9
 peerDependencyRules:
   allowAny:
     - vite
