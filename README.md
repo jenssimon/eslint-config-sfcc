@@ -1,5 +1,11 @@
 # @jenssimon/eslint-config-sfcc
 
+> [!WARNING]
+> This package is deprecated and no longer maintained.
+> It is continued as `@commerce-klaus/eslint-config-sfcc` in the Commerce Klaus monorepo:
+> [https://github.com/commerce-klaus/commerce-klaus/tree/main/packages/eslint-config-sfcc](https://github.com/commerce-klaus/commerce-klaus/tree/main/packages/eslint-config-sfcc)
+> Please migrate to the new package.
+
 Shareable ESLint flat config for Salesforce Commerce Cloud (SFCC) projects.
 
 ## Key Features Checked (Allow/Block)
